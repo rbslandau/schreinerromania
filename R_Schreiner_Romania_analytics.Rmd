@@ -1,0 +1,1516 @@
+---
+editor_options:
+  chunk_output_type: console
+output:
+  html_document:
+    fig_caption: yes
+    figure_caption: yes
+    highlight: tango
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+  pdf_document:
+    toc: yes
+    toc_depth: '4'
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Paradise lost? Pesticide pollution in a European region with considerable amount of traditional agriculture {-}
+
+Verena C. Schreiner, Moritz Link, Stefan Kunz, Eduard Szöcs, Andreas Scharmüller, Bernadette Vogler, Birgit Beck, Karina P. Battes, Mirela Cimpean, Heinz P. Singer, Juliane Hollender and Ralf B. Schäfer 
+
+R script written by Verena C. Schreiner 
+checked by Moritz Link and Ralf B. Schäfer  
+
+University of Koblenz-Landau  
+Fortstrasse 7  
+76829 Landau  
+GERMANY  
+Corresponding author mail adress: schreiner-verena'@'uni-landau.de
+
+## project path
+project path, change to the path you saved the rawfiles
+```{r}
+prj <- getwd()
+```
+
+# PART 1: calculate water concentrations from SDB disks
+## Tools / Packages
+```{r, message=FALSE}
+require(data.table)
+library(reshape)
+```
+
+## Load & Clean Data
+
+### read data
+```{r}
+# results SDB disks
+Results_SDB = read.table(file.path(prj,"Results_SDB.csv"), 
+                            header=TRUE, sep = ";")
+
+# codes SDB disks
+Code_SDB = read.table(file.path(prj, "Code_SDB.csv"), header=TRUE, sep = ";", 
+                      dec=".", na.string=c("NR", "NA", ""), check.names=FALSE)
+Code_SDB = as.data.table(Code_SDB)
+
+# sampling rates
+Rs_known = read.table(file.path(prj,"Rs_known.csv"), 
+                            header=TRUE, sep = ";", dec=".", na.string=c("NR", "NA"), check.names=FALSE)
+```
+
+### clean results SDB
+```{r}
+names(Results_SDB) <- gsub("X", "CH", names(Results_SDB))
+Results_SDB <- Results_SDB[,-3]
+# remove duplicated compounds
+Results_SDB <- Results_SDB[-c(60,259), ]
+
+# remove compounds, where standards or enrichment was not detectable
+Not_worked = read.table(file.path(prj,"Not_worked.csv"), 
+                         header=TRUE, sep = ";")
+Results_SDB <- Results_SDB[!Results_SDB$Compound %in% Not_worked$Compound, ]
+
+# remove codes from compound names
+out <- strsplit(as.character(Results_SDB$Compound),'_') 
+
+Results_SDB <- data.frame(do.call(rbind, out), Results_SDB[,-1])
+Results_SDB <- Results_SDB[,-c(2:4)]
+names(Results_SDB)[1] <- c("Compound")
+```
+
+### remove compounds that were not detected
+```{r}
+Results_SDB$detected <- ifelse(rowSums(Results_SDB[,c(3:94)], na.rm = TRUE) > 0, paste("yes"), paste("no"))
+
+# only use those further that were detected
+Results_SDB_det <- Results_SDB[Results_SDB$detected == "yes", ] 
+Results_SDB_det <- Results_SDB_det[,-96]
+
+# as data table + melt dataframe
+Results_SDB_det = as.data.table(Results_SDB_det)
+Results_SDB_det = melt(Results_SDB_det, id.vars = c("Compound", "LOQ_L_rund", "LOQ_lower_round_E"), value.name = "Concentration", variable.name = "Code")
+```
+
+### deal with compounds that lacked calibration data
+remove Carbendazim + Simazin-2-hydroxy
+```{r}
+Results_SDB_det_rem <- Results_SDB_det[! which(grepl( "^CH",Results_SDB_det$Code) &  Results_SDB_det$Compound == "Carbendazim"),] 
+                            
+Results_SDB_det_rem <- Results_SDB_det_rem[! which(grepl( "^CH",Results_SDB_det_rem$Code) &  Results_SDB_det_rem$Compound == "Simazin-2-hydroxy"),] 
+```
+
+adding extrapolated data using external calibration data
+```{r}
+Cal_ext = read.table(file.path(prj,"Comp_Cal_ext.csv"), 
+                         header=TRUE, sep = ";")
+names(Cal_ext) <- gsub("X", "CH", names(Cal_ext))
+
+
+Cal_ext <- Cal_ext[,-c(2:4)]
+names(Cal_ext)[2] <- c("LOQ_lower_round_E")
+Cal_ext$LOQ_L_rund <- c(0.2, NA)
+
+out <- strsplit(as.character(Cal_ext$Wirkstoff),'_') 
+
+Cal_ext <- data.frame(do.call(rbind, out), Cal_ext[,-1])
+Cal_ext <- Cal_ext[,-c(2:3)]
+names(Cal_ext)[1] <- c("Compound")
+
+Cal_ext = as.data.table(Cal_ext)
+Cal_ext = melt(Cal_ext, id.vars = c("Compound", "LOQ_L_rund", "LOQ_lower_round_E"), value.name = "Concentration", variable.name = "Code")
+
+```
+
+combine data again
+```{r}
+Results_SDB_det2 <- rbind(Results_SDB_det_rem, Cal_ext)
+nrow(Results_SDB_det2) == nrow(Results_SDB_det) # TRUE = no information lost
+```
+
+### combine stereoisomers
+merge results of 2,4-D and Dicamba, since we were not able to seperate them reliably (stereoisomeres)
+```{r}
+Stereo <- c("2-4-D", "Dicamba")
+
+Results_SDB_det2_Dic <- Results_SDB_det2[Results_SDB_det2$Compound %in% Stereo,]
+Results_SDB_det2_wo_Dic <- Results_SDB_det2[!Results_SDB_det2$Compound %in% Stereo,]
+
+nrow(Results_SDB_det2) == nrow(Results_SDB_det2_wo_Dic) + nrow(Results_SDB_det2_Dic)
+
+# summing up values
+# remove Dicamba of those samples with ID RO
+Results_SDB_det2_Dic <- as.data.frame(Results_SDB_det2_Dic)
+Results_SDB_det2_Dic <- Results_SDB_det2_Dic[- which(grepl( "^RO", Results_SDB_det2_Dic$Code) &  Results_SDB_det2_Dic$Compound == "Dicamba"),]
+Results_SDB_det2_Dic_cast <- data.frame(cast(Results_SDB_det2_Dic, Compound ~ Code, value = "Concentration",  mean))
+Results_SDB_det2_Dic_cast2 <- colSums(Results_SDB_det2_Dic_cast[,2:ncol(Results_SDB_det2_Dic_cast)], na.rm = TRUE)
+Results_SDB_det2_Dic_cast2 <- as.data.frame(Results_SDB_det2_Dic_cast2)
+Results_SDB_det2_Dic_cast2$Code <- rownames(Results_SDB_det2_Dic_cast2)
+Results_SDB_det2_Dic_cast2$Compound <- c("2-4-D")
+names(Results_SDB_det2_Dic_cast2)[1] <- c("Concentration")
+# change 0 in NA
+Results_SDB_det2_Dic_cast2$Concentration[Results_SDB_det2_Dic_cast2$Concentration == 0] <- NA
+Results_SDB_det2_Dic_cast2$LOQ_L_rund <- unique(Results_SDB_det2_Dic[Results_SDB_det2_Dic$Compound == "2-4-D",]$LOQ_L_rund)
+Results_SDB_det2_Dic_cast2$LOQ_lower_round_E <- unique(Results_SDB_det2_Dic[Results_SDB_det2_Dic$Compound == "2-4-D",]$LOQ_lower_round_E)
+Results_SDB_det2_Dic_cast2 <- Results_SDB_det2_Dic_cast2[,c(3,4,5,2,1)]
+
+Results_SDB_det2 <- rbind(Results_SDB_det2_wo_Dic, Results_SDB_det2_Dic_cast2)
+```
+
+remove dataframes that are not necessary anymore
+```{r}
+rm(Cal_ext, Not_worked, Results_SDB_det, Results_SDB_det_rem, Stereo, Results_SDB_det2_Dic, 
+   Results_SDB_det2_wo_Dic, Results_SDB_det2_Dic_cast, Results_SDB_det2_Dic_cast2 )
+gc()
+```
+
+### add codes to samples
+
+```{r}
+# merge masses + codes 
+Results_SDB2 = merge(Results_SDB_det2, Code_SDB, by = "Code")
+
+# only use entries where compounds were not deteced
+Results_SDB2 <- Results_SDB2[!is.na(Results_SDB2$Concentration),]
+```
+
+## calculate masses from concentration
+concentration [ug/L] in sample multiplied with injection Volume: 100 uL (0.0001 L) (gain ug)
+this is multiplied with factor for injection:
+total volume of evaporated sample (Vol_evap) [uL] / volume injected (100 uL)
+this multiplied with factor of part used from sample
+volume total sample (Vol_total) / volume used sample part (Vol_used)
+divided by number of disks, since replicates at one site were sometimes merged
+
+```{r}
+Results_SDB2 = Results_SDB2[, list(Compound, Mass_ug = 
+                                     ((Concentration*  0.0001 * (Vol_evap)/100 * (Vol_total/
+                                       Vol_used))/No_disks), 
+                                       site, Rainfallevent, duration, 
+                                   LOQ_L = ((LOQ_L_rund *0.0001 * 500/100)) , 
+                                   LOQ_E = ((LOQ_lower_round_E*0.0001 * 500/100)),
+                                   not_using, comment),
+                                by = Code]
+Results_SDB2 <- as.data.frame(Results_SDB2)
+```
+
+exclude those that were measured, but which had issues (e.g. burried, flow too low)
+```{r}
+Results_SDB2 <- Results_SDB2[is.na(Results_SDB2$not_using), ]
+```
+
+add information on compound type
+```{r}
+Comp_type = read.table(file.path(prj,"Comp_type.csv"), 
+                            header=TRUE, sep = ";")
+
+Results_SDB2 <- merge(Results_SDB2, Comp_type, by=c("Compound"), all.x=TRUE)
+```
+
+## calculate water concentrations
+
+now only proceed with non-metabolites
+```{r}
+Results_SDB2_pest <- Results_SDB2[!Results_SDB2$type == "Metabolite",]
+```
+
+add sampling rates
+```{r}
+Results_Rs <- merge(Results_SDB2_pest, Rs_known, by="Compound", all.x=TRUE)
+```
+
+remove detected but not agricultural compounds/ pesticide
+```{r}
+Non_agri <- c("5-Chloro-2-methyl-4-isothiazolin-3-on-(CMI)", "Triclosan", "Piperonyl-butoxide", "Trinexapac-ethyl",
+              "N-N-diethyl-3-methylbenzamid-(DEET)", "2-n-Octyl-4-isothiazolin-3-on-(OIT)")
+Results_Rs <- Results_Rs[!Results_Rs$Compound %in% Non_agri, ]
+```
+
+calculate water concentrations of detected compounds
+
+use a timeframe of 2 for the rainfall event samples and the actual exposure time (6 days) for the samples withour rainfall event
+```{r}
+Results_Rs_conc_C <- Results_Rs[!is.na(Results_Rs$Rs),]
+length(unique(Results_Rs_conc_C$Compound)) 
+Results_Rs_conc <- Results_Rs_conc_C[,c(1,2,4,5)]
+Results_Rs_conc$conc_water <- ifelse(Results_Rs_conc_C$Rainfallevent == "1", 
+                                     Results_Rs_conc_C$Mass_ug/(Results_Rs_conc_C$Rs * 6), 
+                                     Results_Rs_conc_C$Mass_ug/(Results_Rs_conc_C$Rs * 2))
+```
+
+calculate LOQs in stream water (based on LOQ in the lab and the sampling rates)
+```{r}
+
+Results_Rs_conc$LOQ_L <-  Results_Rs_conc_C$LOQ_L/(Results_Rs_conc_C$Rs * 2)
+Results_Rs_conc$LOQ_E <- Results_Rs_conc_C$LOQ_E/(Results_Rs_conc_C$Rs * 2)
+
+```
+
+
+write table
+```{r}
+write.table(Results_Rs_conc[,-c(6,7)], file = "Concentrations_SDB.csv", sep = ";")
+```
+
+
+
+## create a table with all detected compounds (also without sampling rate)
+```{r}
+All_det_SDB <- Results_SDB2_pest
+All_det_SDB <- All_det_SDB[All_det_SDB$Mass_ug > "0",]
+write.csv(All_det_SDB, "All_det_SDB.csv")
+```
+
+
+## incoorporating compounds where we lacked an experimental sampling rates 
+
+```{r}
+Results_Rs_conc_miss_Rs <- Results_Rs[is.na(Results_Rs$Rs),]
+# add a sampling rate from the lower range, to obtain high TWA concentrations
+Results_Rs_conc_miss_Rs$Rs <- c(0.2)
+Results_wo_Rs_conc <- Results_Rs_conc_miss_Rs[,c(1,2,4,5)]
+Results_wo_Rs_conc$conc_water <- Results_Rs_conc_miss_Rs$Mass_ug/(Results_Rs_conc_miss_Rs$Rs * 2)
+```
+
+
+# PART 2: create pesticide gradient
+## Tools / Packages
+
+```{r, message=FALSE}
+library(plyr)
+```
+
+## Load & Clean Data
+```{r}
+SDB <- read.table(file.path(prj, "Concentrations_SDB.csv"),
+                      header = TRUE,
+                      sep = ";",
+                      na.strings = c("NR", "NA"))
+
+
+SR <- read.table(file.path(prj, "Concentrations_PDMS.csv"),
+                      header = TRUE,
+                      sep = ";",
+                      na.strings = c("NR", "NA"))
+
+all_comp_SDB <- read.table(file.path(prj, "All_det_SDB.csv"),
+                      header = TRUE,
+                      sep = ",",
+                      na.strings = c("NR", "NA"))
+
+CAS_t_n <- read.table(file.path(prj, "CAS_type_name.csv"), 
+                      header = TRUE, 
+                      sep = ";", 
+                      na.strings = c("NR", "NA")) 
+
+EC50 <- read.table(file.path(prj, "EC50.csv"), 
+                      header = TRUE, 
+                      sep = ";", 
+                      na.strings = c("NR", "NA")) 
+
+names(EC50)[2] <- c("Compound")
+CAS <- unique(EC50[, c(1,2)])
+```
+
+
+### Adjusting PDMS
+getting the LOQ of the compounds measured via PDMS
+values currently are in pg/L
+```{r}
+SR_LOQ <- SR[1,]
+SR_LOQ <- as.data.frame(t(SR_LOQ))
+SR_LOQ$Compound <- rownames(SR_LOQ)
+SR_LOQ <- SR_LOQ[-c(1:3),]
+names(SR_LOQ)[1] <- c("LOQ")
+attr(SR_LOQ$LOQ, "ATT") <- NULL
+SR_LOQ <- droplevels(SR_LOQ)
+SR_LOQ$LOQ <- as.integer(SR_LOQ$LOQ)
+SR_LOQ$LOQ <- (SR_LOQ$LOQ)/1E6
+```
+
+now adjust the SR dataframe to the SDB one
+```{r}
+SR <- SR[-1,]
+
+# save data.table and long format
+SR = as.data.table(SR)
+SR = melt(SR, id.vars = c("Code", "site", "Rainfallevent"), value.name = "conc_water", variable.name = "Compound")
+```
+
+changing unit of concentration
+```{r}
+SR$conc_water <- (SR$conc_water)/1E6
+```
+
+remove non-detects + samples where no corresponding SDB disk is available
+```{r}
+SR <- SR[!is.na(SR$conc_water),]
+SR <- SR[!is.na(SR$Code),]
+```
+
+
+counting how often the metabolite (Chlorpyrifos.methyl) was detected
+```{r}
+SR_met <- SR[SR$Compound == "Chlorpyrifos.methyl",]
+
+count_SR_met <- data.frame(cast(SR_met, site ~ Rainfallevent, value = "conc_water",  length))
+# replace 0 with NA 
+count_SR_met[, 2:5][count_SR_met[, 2:5] == 0] <- NA 
+# was detected nearly everywhere
+```
+
+remove metabolite
+```{r}
+SR <- SR[!SR$Compound == "Chlorpyrifos.methyl",]
+```
+
+### merge both data frames
+merge dataframes based on the concentrations that were detected
+```{r}
+SR <- SR[,c("Compound", "Code", "site", "Rainfallevent", "conc_water") ]
+SR <- as.data.frame(SR)
+SR$method <- c("PDSM")
+SDB$method <- c("SDB")
+conc <- rbind(SDB, SR)
+
+conc$Compound <- gsub("lambda.Cyhalothrin", "Cyhalothrin", conc$Compound)
+conc$Compound <- gsub("Cypermethrin.alpha", "alpha-Cypermethrin", conc$Compound)
+conc$Compound <- gsub("2-4-D", "2,4-D", conc$Compound)
+conc$Compound <- gsub("Terbutylazin", "Terbuthylazin", conc$Compound)
+conc$Compound <- gsub("Fenamidone", "Fenamidon", conc$Compound)
+```
+
+merge dataframes based on the compounds that were detected
+```{r}
+SR2 <- SR[,c("Compound", "Code", "site", "Rainfallevent") ]
+all_comp_SDB <- all_comp_SDB[,c("Compound", "Code", "site", "Rainfallevent") ]
+comp_all <- rbind(all_comp_SDB, SR2)
+
+# add information abot CAS and type
+comp_all2 <- comp_all
+comp_all2$Compound <- gsub("lambda.Cyhalothrin", "lambda-Cyhalothrin", comp_all2$Compound)
+comp_all2$Compound <- gsub("Cypermethrin.alpha", "Cypermethrin-alpha", comp_all2$Compound)
+
+comp_all_CAS <- merge(comp_all2, CAS_t_n, by = "Compound", all.x = TRUE)
+# write.csv(comp_all_CAS, "comp_all_CAS.csv", row.names = FALSE)
+```
+
+add CAS number
+```{r}
+conc <- merge(conc, CAS, by = "Compound", all.x = TRUE)
+```
+
+
+Rename rainfall events
+```{r}
+conc$Rainfallevent <- gsub("1", "Sampling_1", conc$Rainfallevent)
+conc$Rainfallevent <- gsub("2", "Sampling_2", conc$Rainfallevent)
+conc$Rainfallevent <- gsub("3", "Sampling_3", conc$Rainfallevent)
+conc$Rainfallevent <- gsub("B", "Sampling_4", conc$Rainfallevent)
+
+
+comp_all$Rainfallevent <- gsub("1", "Sampling_1", comp_all$Rainfallevent)
+comp_all$Rainfallevent <- gsub("2", "Sampling_2", comp_all$Rainfallevent)
+comp_all$Rainfallevent <- gsub("3", "Sampling_3", comp_all$Rainfallevent)
+comp_all$Rainfallevent <- gsub("B", "Sampling_4", comp_all$Rainfallevent)
+```
+
+
+## number of detected compounds per sample (all without metabolites)
+based on all detected compounds
+```{r}
+comp_all$Value <- c("1")
+count_all2 <- data.frame(cast(comp_all, site ~ Rainfallevent, value = "Value",  length))
+# replace 0 with NA
+count_all2[, 2:5][count_all2[, 2:5] == 0] <- NA 
+names(count_all2)[2] <- c("N_det_Sampling_1")
+names(count_all2)[3] <- c("N_det_Sampling_2")
+names(count_all2)[4] <- c("N_det_Sampling_3")
+names(count_all2)[5] <- c("N_det_Sampling_4")
+```
+
+calculate mean and median
+```{r}
+count_all2$mean_N_det <- rowMeans(count_all2[,2:5], na.rm = TRUE)
+count_all2$median_N_det <- apply(count_all2[,2:5], 1, median, na.rm = TRUE) 
+```
+
+overall detected compound (not regarding rainfall event)
+```{r}
+count_all_Nall2 <- data.frame(cast(count(comp_all, c("site", "Compound")), site ~ ., value = "Compound",  length))
+names(count_all_Nall2)[2] <- c("N_det_all")
+
+count_all2 <- merge(count_all2, count_all_Nall2, by = c("site"))
+```
+
+
+## number of compounds considered for sum concentration per sample
+based on compounds used to calculate concentrations (with sampling rates)
+```{r}
+count_all <- data.frame(cast(conc, site ~ Rainfallevent, value = "conc_water",  length))
+# replace 0 with NA
+count_all[, 2:5][count_all[, 2:5] == 0] <- NA 
+names(count_all)[2] <- c("N_conc_Sampling_1")
+names(count_all)[3] <- c("N_conc_Sampling_2")
+names(count_all)[4] <- c("N_conc_Sampling_3")
+names(count_all)[5] <- c("N_conc_Sampling_4")
+```
+
+calculate mean and median
+```{r}
+count_all$mean_N_conc <- rowMeans(count_all[,2:5], na.rm = TRUE)
+count_all$median_N_conc <- apply(count_all[,2:5], 1, median, na.rm = TRUE) 
+```
+
+
+## concentrations
+
+### sum concentration per sample
+```{r}
+sum_conc_all <- data.frame(cast(conc, site ~ Rainfallevent, value = "conc_water",  sum))
+# replace 0 with NA
+sum_conc_all[, 2:5][sum_conc_all[, 2:5] == 0] <- NA 
+
+names(sum_conc_all)[2] <- c("sum_conc_Sampling_1")
+names(sum_conc_all)[3] <- c("sum_conc_Sampling_2")
+names(sum_conc_all)[4] <- c("sum_conc_Sampling_3")
+names(sum_conc_all)[5] <- c("sum_conc_Sampling_4")
+```
+
+calculate mean and median
+```{r}
+sum_conc_all$mean_sum_conc <- rowMeans(sum_conc_all[,2:5], na.rm = TRUE)
+sum_conc_all$median_sum_conc <- apply(sum_conc_all[,2:5], 1, median, na.rm = TRUE) 
+sum_conc_all$max_sum_conc <- apply(sum_conc_all[,2:5], 1, max, na.rm = TRUE) 
+```
+
+### maximum concentrations 
+#### per site and rainfall event
+```{r}
+conc2 <- as.data.table(conc)
+max_sample <- conc2[conc2[ , .I[conc_water == max(conc_water)], by = c("site","Rainfallevent")]$V1]
+
+# transpose
+max_sample <- dcast(max_sample, site  ~ Rainfallevent, value.var=c("conc_water", "Compound"))
+
+names(max_sample)[2] <- c("max_conc_Sampling_1")
+names(max_sample)[3] <- c("max_conc_Sampling_2")
+names(max_sample)[4] <- c("max_conc_Sampling_3")
+names(max_sample)[5] <- c("max_conc_Sampling_4")
+names(max_sample)[6] <- c("which_max_conc_Sampling_1")
+names(max_sample)[7] <- c("which_max_conc_Sampling_2")
+names(max_sample)[8] <- c("which_max_conc_Sampling_3")
+names(max_sample)[9] <- c("which_max_conc_Sampling_4")
+```
+
+
+#### per site over all samplings
+```{r}
+max_site <- conc2[conc2[ , .I[conc_water == max(conc_water)], by = c("site")]$V1]
+
+max_site <- dcast(max_site, site  ~ ., value.var=c("conc_water", "Compound"))
+
+names(max_site)[2] <- c("max_conc_all")
+names(max_site)[3] <- c("which_max_conc_all")
+```
+
+
+## Toxicity to invertebrate
+filter for most sensitive freshwater invertebrates
+```{r}
+EC50_iv <- EC50[,c("casnr", "Compound","ec50f_ma4896_fin", "ec50f_ma4896_tax", "ec50f_ma4896_tax",
+                   "ec50f_ma4896_src")]
+names(EC50_iv)[3] <- c("EC50_iv")
+```
+
+### Calculate Toxicity
+Merge EC_50 information to conc 
+```{r}
+tox_iv <- merge(conc, EC50_iv[,c(1,3)], by="casnr", all.x=TRUE)
+
+check_iv <- tox_iv[is.na(tox_iv$EC50_iv),] # two compounds, no EC50 Values available
+
+tox_iv <- tox_iv[!is.na(tox_iv$EC50_iv),]
+```
+
+calculating the factor of toxicity
+```{r}
+tox_iv$tox_iv_fac <- tox_iv$conc_water / tox_iv$EC50_iv
+```
+
+
+### identifying most toxic compound
+#### per site and rainfall event
+```{r}
+tox_iv <- as.data.table(tox_iv)
+
+max_tox_sample_iv <- tox_iv[tox_iv[ , .I[tox_iv_fac == max(tox_iv_fac)], 
+                                   by = c("site","Rainfallevent")]$V1]
+
+# TU information for each compound!
+# numeric value has to be log-transformed to calculate TU 
+tox_iv_log <- tox_iv
+tox_iv_log$tox_iv_fac <- log10(tox_iv_log$tox_iv_fac)
+
+names(tox_iv_log)[9] <- c("TU_iv")
+
+# transpose
+max_tox_sample_iv <- dcast(max_tox_sample_iv, site  ~ Rainfallevent, 
+                          value.var=c("tox_iv_fac", "Compound"))
+```
+
+all numeric columns have to be log-transformed to calculate TU 
+```{r}
+max_tox_sample_iv[,c(2:5)] <- log10(max_tox_sample_iv[,c(2:5)])
+
+names(max_tox_sample_iv)[2] <- c("max_TU_iv_Sampling_1")
+names(max_tox_sample_iv)[3] <- c("max_TU_iv_Sampling_2")
+names(max_tox_sample_iv)[4] <- c("max_TU_iv_Sampling_3")
+names(max_tox_sample_iv)[5] <- c("max_TU_iv_Sampling_4")
+names(max_tox_sample_iv)[6] <- c("whichmax_TU_iv_Sampling_1")
+names(max_tox_sample_iv)[7] <- c("whichmax_TU_iv_Sampling_2")
+names(max_tox_sample_iv)[8] <- c("whichmax_TU_iv_Sampling_3")
+names(max_tox_sample_iv)[9] <- c("whichmax_TU_iv_Sampling_4")
+```
+
+#### per site
+```{r}
+max_tox_site_iv <- tox_iv[tox_iv[ , .I[tox_iv_fac == max(tox_iv_fac)], by = c("site")]$V1]
+
+max_tox_site_iv <- dcast(max_tox_site_iv, site  ~ ., value.var=c("tox_iv_fac", "Compound"))
+
+
+names(max_tox_site_iv)[2] <- c("max_TU_iv_all")
+names(max_tox_site_iv)[3] <- c("whichmax_TU_iv_all")
+```
+
+numeric column has to be log-transformed to calculate TU 
+```{r}
+max_tox_site_iv[,c(2)] <- log10(max_tox_site_iv[,c(2)])
+```
+
+
+####  list of most toxic compounds
+```{r}
+max_tox_all_iv <- tox_iv[order(-tox_iv$tox_iv_fac), ]
+
+max_tox_all_iv_test <- as.data.frame(max_tox_all_iv$Compound)
+max_tox_all_iv_test2 <- unique(max_tox_all_iv_test)
+
+Top_10_iv <- as.data.frame(max_tox_all_iv_test2[c(1:10),])
+names(Top_10_iv)[1] <- c("Compound")
+```
+
+
+### calculating sumTU per sample
+```{r}
+sumTU_iv <- data.frame(cast(tox_iv, site ~ Rainfallevent, value = "tox_iv_fac",  sum))
+# replace 0 with NA
+sumTU_iv[, 2:5][sumTU_iv[, 2:5] == 0] <- NA 
+
+# remame the columns
+names(sumTU_iv)[2] <- c("sumTU_iv_Sampling_1")
+names(sumTU_iv)[3] <- c("sumTU_iv_Sampling_2")
+names(sumTU_iv)[4] <- c("sumTU_iv_Sampling_3")
+names(sumTU_iv)[5] <- c("sumTU_iv_Sampling_4")
+```
+
+numeric columns have to be log-transformed to calculate sumTU 
+```{r}
+sumTU_iv[,c(2:5)] <- log10(sumTU_iv[,c(2:5)])
+```
+
+calculate mean + median
+```{r}
+sumTU_iv$mean_sumTU_iv <- rowMeans(sumTU_iv[,2:5], na.rm = TRUE)
+sumTU_iv$median_sumTU_iv <- apply(sumTU_iv[,2:5], 1, median, na.rm = TRUE) 
+sumTU_iv$max_sumTU_iv <- apply(sumTU_iv[,2:5], 1, max, na.rm = TRUE) 
+```
+
+### number of compounds contributing to 75 % of the toxicity
+```{r}
+tox_iv_count <- as.data.frame(tox_iv)
+tox_iv_count <- dcast(tox_iv_count, Compound ~ Code, value.var=c("tox_iv_fac"))
+names_tox_iv_count <- tox_iv_count[,1]
+tox_iv_count <- tox_iv_count[,2:75]
+tox_iv_count <- as.data.frame(t(t(tox_iv_count) / colSums(tox_iv_count, na.rm = TRUE)))
+colSums(tox_iv_count, na.rm = TRUE)
+# Now the values are in percent or rather a factor of 1
+count_75 <- NULL
+for(i in 1:ncol(tox_iv_count)) {
+  Test <- as.data.table(tox_iv_count[,i])
+  Test <- Test[order(-Test[,1]),]
+  Test <- cumsum(Test)
+  count_75[i] <- min(which(Test[,1] >= 0.75))
+}
+
+count_75 <- as.data.frame(t(as.data.frame.list((count_75))))
+count_75 <- droplevels(count_75)
+codes_samples <- unique(conc[,3:4])
+N_75_iv <- cbind(codes_samples, count_75)
+names(N_75_iv)[3] <- c("N_75_iv")
+
+N_75_iv <- dcast(N_75_iv, site  ~ Rainfallevent, 
+                          value.var=c("N_75_iv"))
+names(N_75_iv)[2] <- c("N_75_iv_Sampling_1")
+names(N_75_iv)[3] <- c("N_75_iv_Sampling_2")
+names(N_75_iv)[4] <- c("N_75_iv_Sampling_3")
+names(N_75_iv)[5] <- c("N_75_iv_Sampling_4")
+
+contribution_iv <- cbind(names_tox_iv_count, tox_iv_count)
+```
+
+## Toxicity based on algae
+now filter only to the EC50 values of algae
+```{r}
+EC50_al <- EC50[,c("casnr", "Compound", "ec50f_al4896_fin", "ec50f_al4896_tax", "ec50f_al4896_src")]
+names(EC50_al)[3] <- c("EC50_al")
+```
+
+
+### calculate toxicity 
+Merge missing EC_50 information to conc
+```{r}
+tox_al <- merge(conc, EC50_al[,c(2,3)], by="Compound", all.x=TRUE)
+check <- tox_al[is.na(tox_al$EC50_al),] # these compounds have EC50 values that were higher than the tested range
+tox_al <- tox_al[!is.na(tox_al$EC50_al),]
+```
+
+calculating the factor of toxicity
+```{r}
+tox_al$tox_al_fac <- tox_al$conc_water / tox_al$EC50_al
+```
+
+### identifying most toxic compound
+#### per site and rainfall event
+```{r}
+tox_al <- as.data.table(tox_al)
+
+max_tox_sample_al <- tox_al[tox_al[ , .I[tox_al_fac == max(tox_al_fac)], 
+                                   by = c("site","Rainfallevent")]$V1]
+
+# TU information for each compound
+# numeric value has to be log-transformed to calculate TU 
+tox_al_log <- tox_al
+tox_al_log$tox_al_fac <- log10(tox_al_log$tox_al_fac)
+names(tox_al_log)[9] <- c("TU_al")
+
+# now transpose the table
+max_tox_sample_al <- dcast(max_tox_sample_al, site  ~ Rainfallevent, 
+                          value.var=c("tox_al_fac", "Compound"))
+```
+
+all numeric columns have to be log-transformed to calculate TU 
+```{r}
+max_tox_sample_al[,c(2:5)] <- log10(max_tox_sample_al[,c(2:5)])
+
+names(max_tox_sample_al)[2] <- c("max_TU_al_Sampling_1")
+names(max_tox_sample_al)[3] <- c("max_TU_al_Sampling_2")
+names(max_tox_sample_al)[4] <- c("max_TU_al_Sampling_3")
+names(max_tox_sample_al)[5] <- c("max_TU_al_Sampling_4")
+names(max_tox_sample_al)[6] <- c("whichmax_TU_al_Sampling_1")
+names(max_tox_sample_al)[7] <- c("whichmax_TU_al_Sampling_2")
+names(max_tox_sample_al)[8] <- c("whichmax_TU_al_Sampling_3")
+names(max_tox_sample_al)[9] <- c("whichmax_TU_al_Sampling_4")
+```
+
+#### per site
+```{r}
+max_tox_site_al <- tox_al[tox_al[ , .I[tox_al_fac == max(tox_al_fac)], by = c("site")]$V1]
+
+max_tox_site_al <- dcast(max_tox_site_al, site  ~ ., value.var=c("tox_al_fac", "Compound"))
+
+
+names(max_tox_site_al)[2] <- c("max_TU_al_all")
+names(max_tox_site_al)[3] <- c("whichmax_TU_al_all")
+```
+
+numeric columns have to be log-transformed to calculate TU 
+```{r}
+max_tox_site_al[,c(2)] <- log10(max_tox_site_al[,c(2)])
+```
+
+
+####  list of most toxic compounds
+```{r}
+max_tox_all_al <- tox_al[order(-tox_al$tox_al_fac), ]
+
+max_tox_all_al_test <- as.data.frame(max_tox_all_al$Compound)
+max_tox_all_al_test2 <- unique(max_tox_all_al_test)
+
+Top_10_al <- as.data.frame(max_tox_all_al_test2[c(1:10),])
+names(Top_10_al)[1] <- c("Compound")
+# write.csv(Top_10_al, "Top_10_al.csv", row.names = FALSE)
+```
+
+
+### calculating sumTU per sample
+```{r}
+sumTU_al <- data.frame(cast(tox_al, site ~ Rainfallevent, value = "tox_al_fac",  sum))
+# both 0 values were substituted with NA
+sumTU_al[, 2:5][sumTU_al[, 2:5] == 0] <- NA 
+
+# rename the columns
+names(sumTU_al)[2] <- c("sumTU_al_Sampling_1")
+names(sumTU_al)[3] <- c("sumTU_al_Sampling_2")
+names(sumTU_al)[4] <- c("sumTU_al_Sampling_3")
+names(sumTU_al)[5] <- c("sumTU_al_Sampling_4")
+```
+
+numeric columns have to be log-transformed to calculate TU 
+```{r}
+sumTU_al[,c(2:5)] <- log10(sumTU_al[,c(2:5)])
+```
+
+calculate mean + median
+```{r}
+sumTU_al$mean_sumTU_al <- rowMeans(sumTU_al[,2:5], na.rm = TRUE)
+sumTU_al$median_sumTU_al <- apply(sumTU_al[,2:5], 1, median, na.rm = TRUE) 
+sumTU_al$max_sumTU_al <- apply(sumTU_al[,2:5], 1, max, na.rm = TRUE) 
+```
+
+### number of compounds contributing to 75% of the toxicity
+```{r}
+tox_al_count <- as.data.frame(tox_al)
+tox_al_count <- dcast(tox_al_count, Compound ~ Code, value.var=c("tox_al_fac"))
+tox_al_count <- tox_al_count[,2:75]
+tox_al_count <- as.data.frame(t(t(tox_al_count) / colSums(tox_al_count, na.rm = TRUE)))
+colSums(tox_al_count, na.rm = TRUE)
+# Now the values are in percent or rather a factor of 1
+count_75 <- NULL
+for(i in 1:ncol(tox_al_count)) {
+  Test <- as.data.table(tox_al_count[,i])
+  Test <- Test[order(-Test[,1]),]
+  Test <- cumsum(Test)
+  count_75[i] <- min(which(Test[,1] >= 0.75))
+}
+
+count_75 <- as.data.frame(t(as.data.frame.list((count_75))))
+count_75 <- droplevels(count_75)
+codes_samples <- unique(conc[,3:4])
+N_75_al <- cbind(codes_samples, count_75)
+names(N_75_al)[3] <- c("N_75_al")
+
+N_75_al <- dcast(N_75_al, site  ~ Rainfallevent, 
+                          value.var=c("N_75_al"))
+names(N_75_al)[2] <- c("N_75_al_Sampling_1")
+names(N_75_al)[3] <- c("N_75_al_Sampling_2")
+names(N_75_al)[4] <- c("N_75_al_Sampling_3")
+names(N_75_al)[5] <- c("N_75_al_Sampling_4")
+```
+
+
+#### combine all dataframes
+```{r}
+Gradient <- cbind(count_all2, count_all[-1], sum_conc_all[-1] , max_sample[,-1], max_site[,-1],
+                  max_tox_sample_iv[,-1], max_tox_site_iv[,-1], sumTU_iv[,-1], N_75_iv[,-1], 
+                  max_tox_sample_al[,-1], max_tox_site_al[,-1], sumTU_al[,-1], N_75_al[,-1])
+
+write.csv(Gradient, file = "Pesticide_gradient.csv", row.names = FALSE)
+```
+
+
+# PART 3: statistics presented in the manuscript
+## Tools / Packages
+
+```{r, message=FALSE}
+library(dplyr)
+library(ggplot2)
+library(cowplot)
+library(glmnet)
+library(foreach)
+library(doParallel) # parallel backend for doParallel
+library(plotmo) # for plot
+library(tidyr)
+library(scales)
+library(matrixStats) # calculate standards deviation
+library(effects) # calculate predictor effects (Figure S2)
+```
+
+## Load & Clean Data
+
+### read in data with explanatory variables and toxicity (created earlier)
+```{r}
+flow_raw = read.table(file.path(prj, "flow_raw.csv"), 
+                      header = TRUE, 
+                      sep = ",", 
+                      na.strings = c("NR", "NA")) 
+
+
+catchment <- read.table(file.path(prj, "catchment.csv"), 
+                      header = TRUE, 
+                      sep = ";", 
+                      na.strings = c("NR", "NA")) 
+
+steam_substrate <- read.table(file.path(prj, "steam_substrate.csv"), 
+                      header = TRUE, 
+                      sep = ",", 
+                      na.strings = c("NR", "NA")) 
+
+field_size <- read.table(file.path(prj, "Fields_mean_median_geom_mean.csv"), 
+                      header = TRUE, 
+                      sep = ";", 
+                      na.strings = c("NR", "NA")) 
+
+habitat <- read.table(file.path(prj, "habitat.csv"), 
+                      header = TRUE, 
+                      sep = ",", 
+                      na.strings = c("NR", "NA")) 
+
+TU <-  read.table(file.path(prj, "Pesticide_gradient.csv"),
+                  header=TRUE, sep=",", dec=".", 
+                  na.string=c("NR", "NA"), check.names=TRUE)
+
+agri_buffer = read.table(file.path(prj, "Rip_buffer.csv"), 
+                      header = TRUE, 
+                      sep = ",", 
+                      na.strings = c("NR", "NA")) 
+names(agri_buffer)[19] <- c("agri_buffer") 
+agri_buffer$agri_buffer <- agri_buffer$agri_buffer *100
+
+buffer_width <- read.table(file.path(prj, "Buffer_width_June.csv"), 
+                      header = TRUE, 
+                      sep = ";", 
+                      na.strings = c("NR", "NA"))
+# calculate minimum per site
+buffer_width_min <- ddply(buffer_width, c("site"),summarise, min_buff = min(value))
+
+conc_comp <- read.table(file.path(prj, "conc.csv"), # single concentrations
+                      header = TRUE, 
+                      sep = ";", 
+                      na.strings = c("NR", "NA"))
+```
+
+
+### Merge the dataframes
+```{r}
+var_table <- merge(habitat, steam_substrate[-2], by = "site")
+var_table <- merge(var_table, catchment, by = "site")
+var_table <- merge(var_table, agri_buffer[,c(1,19)], by = "site")
+var_table <- merge(var_table, field_size[,c(1,4)], by = "site")
+var_table <- merge(var_table, buffer_width_min, by = "site")
+```
+
+
+## calculate more necessary parameters
+calculate width of shore (from height and distance to landscape level)
+```{r}
+var_table <- as.data.table(var_table)
+var_table[, `:=`(shore = sqrt((dist_landscape_lev)^2 + (height_landscape_lev)^2))]
+```
+
+calculate ratio of fine material (smaller than 2 mm) as proxy for erosion
+summing up psammal and argyllal
+```{r}
+var_table$fine_sub <- var_table$Psammal + var_table$Argyllal
+```
+
+calculate plant height of shore (average of the different vegetation types)
+weighted to the appearance of the respective type of shore vegetation
+```{r}
+var_table$veg_height <- (var_table$bank_cover_forest* var_table$bank_height_forest +
+                             var_table$bank_cover_reed* var_table$bank_height_reed + 
+                             var_table$bank_cover_shrubs* var_table$bank_height_shrubs + 
+                             var_table$bank_cover_forbs* var_table$bank_height_forbs + 
+                             var_table$bank_cover_meadow* var_table$bank_height_meadow + 
+                             var_table$bank_cover_agri* var_table$bank_height_agri + 
+                             var_table$bank_w.o_veg * 0 )/ (var_table$bank_cover_forest+
+                             var_table$bank_cover_reed + var_table$bank_cover_shrubs + 
+                             var_table$bank_cover_forbs + var_table$bank_cover_meadow + 
+                             var_table$bank_cover_agri + var_table$bank_w.o_veg)
+```
+
+
+add toxicity data to table
+```{r}
+data_all <- merge(var_table, TU[,c("site", "max_sumTU_iv", "max_sumTU_al", "max_sum_conc", "sumTU_iv_Sampling_1", "sumTU_al_Sampling_1")], by="site")
+```
+
+
+## Identify drivers for toxicity
+1. response variables:   
+* sum concentration  
+* sumTU invertebrates  
+* sumTU algae  
+
+2. explanatory variables:    
+* catchment size (catch_area)  
+* % agriculture in catchment (ratio_agri_catch)  
+* % agriculture in 200 m buffer (ratio_agri_buffer)  
+* size fields (field.size.geom.mean)
+* distance between stream and field - buffer width (dist_field)
+* height plants in buffer (veg_height)
+* direct distance between stream and landscape level (shore)
+* benthic substrate smaller than 2 mm (fine_sub)
+
+
+### check relationships between response variables
+
+```{r}
+hist(data_all$max_sum_conc)
+```
+
+The response variable sum_conc needs to be log-transformed because of strong deviation from normal distribution and wide range
+
+log-transformation
+```{r}
+data_all$max_sum_conc_log <- log10(data_all$max_sum_conc)
+hist(data_all$max_sum_conc_log)
+```
+
+
+## correlation between sumTU_iv vs. sum concentration
+```{r}
+plot(data_all$max_sum_conc_log, data_all$max_sumTU_iv)
+abline(lm(data_all$max_sumTU_iv ~ data_all$max_sum_conc_log))
+cor.test(data_all$max_sum_conc_log, data_all$max_sumTU_iv)
+```
+both should be considered in model, cor = 0.476
+
+## correlation between sumTU_al and sumTU_ms
+```{r}
+plot(data_all$max_sumTU_iv, data_all$max_sumTU_al)
+abline(lm(data_all$max_sumTU_al ~ data_all$max_sumTU_iv))
+cor.test(data_all$max_sumTU_iv, data_all$max_sumTU_al)
+```
+both should be considered in model, cor = 0.491
+
+## correlation between sumTU_al and sumconc
+```{r}
+plot(data_all$max_sum_conc_log, data_all$max_sumTU_al)
+abline(lm(data_all$max_sumTU_al ~ data_all$max_sum_conc_log))
+cor.test(data_all$max_sum_conc_log, data_all$max_sumTU_al)
+```
+strong correlation, one variable sufficient; cor = 0.958
+max_sumTU_al selected because it reflects toxicity
+
+
+
+## building initial model
+
+### exploration of explanatory variables
+```{r}
+hist(data_all$field.size.geom.mean)
+# not normally distributed
+data_all$field.size.geom.mean.log <- log10(data_all$field.size.geom.mean)
+hist(data_all$field.size.geom.mean.log)
+
+hist(data_all$dist_field)
+data_all$dist_field_log <- log10(data_all$dist_field)
+hist(data_all$dist_field_log)
+
+hist(data_all$min_buff)
+data_all$min_buff_log <- log10(data_all$min_buff)
+hist(data_all$min_buff_log)
+
+data_en2 <- select(data_all, veg_height, catch_area, ratio_agri_catch,
+                       field.size.geom.mean.log, shore, fine_sub, agri_buffer, min_buff_log)
+summary(data_en2) # min, max, median,
+# calculate standards deviation
+colSds(as.matrix(data_en2))
+```
+
+check for intercorrelation
+```{r}
+# Customize lower panel
+panel.cor <- function(x, y){
+    usr <- par("usr"); on.exit(par(usr))
+    par(usr = c(0, 1, 0, 1))
+    r <- round(cor(x, y), digits=2)
+    p <- round(cor.test(x, y)$p.value, digits = 3)
+    txt <- paste0("R = ", r, "\n", "p = ", p)
+    cex.cor <- 0.8/strwidth(txt)
+    text(0.5, 0.5, txt)
+}
+
+
+reg <- function(x, y, col) abline(lm(y~x), col=col) 
+
+panel.lm =  function (x, y, col = par("col"), bg = NA, pch = par("pch"), 
+    cex = 1, col.smooth = "red", span = 2/3, iter = 3, ...)  {
+    points(x, y, pch = pch, col = col, bg = bg, cex = cex)
+    ok <- is.finite(x) & is.finite(y)
+    if (any(ok)) reg(x[ok], y[ok], col.smooth)
+}
+
+
+pairs(data_en2, 
+      lower.panel = panel.lm,
+      upper.panel = panel.cor,
+      labels = c("plant_height", "catch_size", "%_agri_catch", "field_size", "slope", "fine_sub", "%_agri_buffer", "min_buff"))
+
+# no intercorrelation available
+```
+
+
+### max sumTU invertebrates
+
+```{r}
+set.seed(678)
+
+# standardise exp. variables
+data_en_st2 <- scale(data_en2)
+
+mt_ex2 <- as.matrix(data_en_st2) # --> X
+res_iv <- as.matrix(select(data_all,max_sumTU_iv)) # --> Y
+
+# prepare plot for alpha = 1
+#fit a GLM with elasticnet regularization
+enet_0_iv_1 <- glmnet(mt_ex2, res_iv, alpha=1)
+plot_glmnet(enet_0_iv_1, main = "max sumTU invertebrates") 
+# alpha= 0
+enet_0_iv_0 <- glmnet(mt_ex2, res_iv, alpha=0)
+plot_glmnet(enet_0_iv_0, main = "max sumTU invertebrates") 
+
+
+enet_0_iv.cv <- cv.glmnet(mt_ex2, res_iv, alpha=1, nfolds = 5)
+plot(enet_0_iv.cv)
+
+
+# ELASTIC NET WITH 0 < ALPHA < 1
+a <- seq(0.1, 0.9, 0.05)
+
+registerDoParallel()
+search_iv2 <- foreach(i = a, .combine = rbind) %do% {
+  cv <- cv.glmnet(mt_ex2, res_iv, family = "gaussian", nfold = 4, type.measure = "deviance", parallel = TRUE, 
+                  alpha = i)
+  data.frame(cvm = cv$cvm[cv$lambda == cv$lambda.1se], lambda.1se = cv$lambda.1se, alpha = i)
+}
+
+cv_out_iv2 <- search_iv2[search_iv2$cvm == min(search_iv2$cvm), ]
+
+md_iv2 <- glmnet(mt_ex2, res_iv, family = "gaussian", lambda = cv_out_iv2$lambda.1se, alpha = cv_out_iv2$alpha)
+
+
+coef(md_iv2)
+
+
+# for alpha = cv_out_iv$alpha
+enet_1_iv2 <- glmnet(mt_ex2, res_iv, alpha=cv_out_iv2$alpha)
+# png(filename="elastic_net_iv_20191115.png", width=14, height=10, pointsize=12, units = "cm", res = 800)
+plot_glmnet(enet_1_iv2, main = "max sumTU invertebrates") # coefs labled
+# dev.off()
+enet_1_iv.cv2 <- cv.glmnet(mt_ex2, res_iv, alpha=cv_out_iv2$alpha, nfolds = 4)
+plot(enet_1_iv.cv2)
+
+```
+
+##### check importance of single variables
+```{r}
+data_iv_all <- select(data_all, dist_field_log, veg_height, catch_area, ratio_agri_catch,
+                       field.size.geom.mean.log, agri_buffer, max_sumTU_iv, shore, fine_sub, min_buff_log)
+sumTU_iv_all <- lm(max_sumTU_iv ~ dist_field_log + veg_height + catch_area + ratio_agri_catch +
+                     field.size.geom.mean.log + agri_buffer + shore + fine_sub + min_buff_log, data_iv_all)
+
+```
+
+
+#### create Figure S2
+```{r}
+## Figure S2 a catchment size
+# png(filename="plot_predeff_catch_size.png", width=15, height=15, pointsize=12, units = "cm", res = 1000)
+plot(predictorEffects(sumTU_iv_all, "catch_area"), lines = list(col = {"black"}), main = paste(""), id = TRUE,
+    axes = list(y = list(lim = (c(-1.5, 0.25)), ticks = list(at = c(-1.5, -1.25, -1,-0.75, -0.5, -0.25, 0, 0.25)), 
+                         lab = {"sumTU invertebrates"}, cex = 1.2), 
+                x = list(catch_area = list(lim = (c(8,180)), ticks = list(at = c(25, 50, 75, 100, 125, 150, 175)),
+                                           lab = {"catchment size [km?]"}), rug = TRUE, cex = 1.2)))
+
+# dev.off()
+
+## Figure S2 b agriculture within catchment
+# png(filename="plot_predeff_catch_agri.png", width=15, height=15, pointsize=12, units = "cm", res = 1000)
+
+plot(predictorEffects(sumTU_iv_all, "ratio_agri_catch"), lines = list(col = {"black"}), main = paste(""), 
+     id = TRUE, axes = list(y = list(lim = (c(-1.5, 0.25)), ticks = list(at = c(-1.5, -1.25, -1,-0.75, -0.5, -0.25, 0, 0.25)), 
+                                     lab = {"sumTU invertebrates"}, cex = 1.2), 
+                            x = list(ratio_agri_catch = list(lim = (c(7, 60)), 
+                                                                 ticks = list(at = c(10, 20, 30, 40, 50, 60)), 
+                                                                 lab = {"agricultural land use catchment [%]"}), 
+                                     rug = TRUE, cex = 1.2)))
+# dev.off()
+
+## Figure S5 c riparian plant height
+# png(filename="plot_predeff_plant.png", width=15, height=15, pointsize=12, units = "cm", res = 1000)
+plot(predictorEffects(sumTU_iv_all, "veg_height"), lines = list(col = {"black"}), main = paste(""), 
+     id = TRUE, axes = list(y = list(lim = (c(-1.5, 0.25)), ticks = list(at = c(-1.5, -1.25, -1,-0.75, -0.5, -0.25, 0, 0.25)), 
+                                     lab = {"sumTU invertebrates"}, cex = 1.2), 
+                            x = list(veg_height = list(lim = (c(1, 7.5)), 
+                                                                 ticks = list(at = c(1, 2, 3, 4, 5, 6, 7)), 
+                                                                 lab = {"riparian plant height [m]"}), 
+                                     rug = TRUE, cex = 1.2)))
+# dev.off()
+
+
+## Figure S5 d agricultural land use buffer
+# png(filename="plot_predeff_buff_agri.png", width=15, height=15, pointsize=12, units = "cm", res = 1000)
+plot(predictorEffects(sumTU_iv_all, "agri_buffer"), lines = list(col = {"black"}), main = paste(""), 
+     id = TRUE, axes = list(y = list(lim = (c(-1.5, 0.25)), ticks = list(at = c(-1.5, -1.25, -1,-0.75, -0.5, -0.25, 0, 0.25)), 
+                                     lab = {"sumTU invertebrates"}, cex = 1.2), 
+                            x = list(agri_buffer = list(lim = (c(0,100)), 
+                                                                 ticks = list(at = c(0, 20, 40, 60, 80, 100)), 
+                                                                 lab = {"agricultural land use buffer [%]"}), 
+                                     rug = TRUE, cex = 1.2)))
+# dev.off()
+
+
+
+## Figure S5 e buffer width
+# svg(filename="plot_predeff_buff_width_neu.svg", width=6, height=6, pointsize=12) 
+plot(predictorEffects(sumTU_iv_all, "min_buff_log"), lines = list(col = {"black"}), main = paste(""), 
+     id = TRUE, axes = list(y = list(lim = (c(-1.5, 0.25)), ticks = list(at = c(-1.5, -1.25, -1,-0.75, -0.5, -0.25, 0, 0.25)), 
+                                     lab = {"sumTU invertebrates"}, cex = 1.2), 
+                            x = list(min_buff_log = list(lim = (c(0,1.7)), 
+                                                                 ticks = list(at = c(0, 0.69, 1, 1.18, 1.3, 1.48, 1.7), labels = c("1", "5", "10", "15", "20", "30", "50")), 
+                                                                 lab = {"buffer width [m]"}), 
+                                     rug = TRUE, cex = 1.2)))
+# Ticks have to be changed in the vector graph
+# dev.off()
+```
+
+
+
+### max sumTU algae
+```{r}
+res_al <- as.matrix(select(data_all, max_sumTU_al)) # --> Y
+
+# prepare plot for alpha = 1
+#fit a GLM with elasticnet regularization
+enet_0_al_1 <- glmnet(mt_ex2, res_al, alpha=1)
+plot_glmnet(enet_0_al_1, main = "max sumTU algae") # coefs labled
+# alpha = 0
+enet_0_al_0 <- glmnet(mt_ex2, res_al, alpha=0)
+plot_glmnet(enet_0_al_0, main = "max sumTU algae") # coefs labled
+enet_0_al.cv <- cv.glmnet(mt_ex2, res_al, alpha=1, nfolds = 6)
+plot(enet_0_al.cv)
+
+
+
+# ELASTIC NET WITH 0 < ALPHA < 1
+set.seed(743) 
+search_al <- foreach(i = a, .combine = rbind) %do% {
+  cv <- cv.glmnet(mt_ex2, res_al, family = "gaussian", nfold = 5, type.measure = "deviance", parallel = TRUE, 
+                  alpha = i)
+  data.frame(cvm = cv$cvm[cv$lambda == cv$lambda.1se], lambda.1se = cv$lambda.1se, alpha = i)
+}
+
+cv_out_al <- search_al[search_al$cvm == min(search_al$cvm), ]
+
+md_al <- glmnet(mt_ex2, res_al, family = "gaussian", lambda = cv_out_al$lambda.1se, alpha = cv_out_al$alpha)
+
+
+coef(md_al)
+```
+
+-> no variable selected
+
+## Relationship of flow velocity and concentrations of most important compounds
+
+```{r}
+flow_raw$date <- as.Date(flow_raw$date)
+# we have now eight values per site, two per Sampling event
+flow_raw$sampling <- ifelse(flow_raw$date <= "2016-05-18", paste("Sampling_1"),
+                     ifelse(flow_raw$date <= "2016-05-28", paste("Sampling_2"),
+                     ifelse(flow_raw$date <= "2016-06-09", paste("Sampling_3"),
+                     ifelse(flow_raw$date <= "2016-06-22", paste("Sampling_4"), NA))))
+
+
+flow_raw <- as.data.table(flow_raw)
+flow = flow_raw[, lapply(.SD, mean, na.rm = TRUE), by = c("site", "sampling"), .SDcols = c("flow1_sdb", "flow2_sdb")]
+
+flow[, `:=`(flow = mean( as.numeric(.SD), na.rm = TRUE)),  by = 1:nrow(flow), .SDcols = c("flow1_sdb", "flow2_sdb")]
+
+names(flow)[2] <- c("Rainfallevent")
+```
+
+transfer conc_comp in data table
+```{r}
+conc_comp <- as.data.table(conc_comp)
+```
+
+now filter for the relevant pesticides (which account for most toxicity/ sum concentration)
+```{r}
+tox_pest <- c("Diazinon", "Imidacloprid", "Thiacloprid", "2-4-D", "Terbuthylazin", "Metribuzin")
+conc_comp_pest <- conc_comp[Compound %in% tox_pest, ]
+```
+
+from long to wide format
+```{r}
+conc_comp_pest_w <- dcast(conc_comp_pest, site + Rainfallevent ~ Compound, value.var="conc_water")
+```
+
+
+add the mean flow velocity close to the samplers (also from those samplers that were discarded)
+```{r}
+conc_comp_pest_w <- merge(conc_comp_pest_w, flow[,c(1,2,5)], by = c("Rainfallevent", "site"), all.x=TRUE)
+```
+
+log-transform concentrations
+```{r}
+conc_comp_pest_w$"log_2-4-D" <- log10(conc_comp_pest_w$`2-4-D`)
+conc_comp_pest_w$log_Diazinon <- log10(conc_comp_pest_w$Diazinon)
+conc_comp_pest_w$log_Imidacloprid <- log10(conc_comp_pest_w$Imidacloprid)
+conc_comp_pest_w$log_Metribuzin <- log10(conc_comp_pest_w$Metribuzin)
+conc_comp_pest_w$log_Terbuthylazin <- log10(conc_comp_pest_w$Terbuthylazin)
+conc_comp_pest_w$log_Thiacloprid <- log10(conc_comp_pest_w$Thiacloprid)
+```
+
+
+now check for correlations between the different compounds and the respective flow velocity
+
+* 2-4-D
+conc
+```{r}
+plot(conc_comp_pest_w$flow, conc_comp_pest_w$`2-4-D`)
+abline(lm(conc_comp_pest_w$`2-4-D` ~ conc_comp_pest_w$flow))
+cor.test(conc_comp_pest_w$flow, conc_comp_pest_w$`2-4-D`)
+```
+weak relationship: p-value = 0.3273, cor = -0.1215086
+
+log conc
+```{r}
+plot(conc_comp_pest_w$flow, conc_comp_pest_w$'log_2-4-D')
+abline(lm(conc_comp_pest_w$'log_2-4-D' ~ conc_comp_pest_w$flow))
+cor.test(conc_comp_pest_w$flow, conc_comp_pest_w$'log_2-4-D')
+```
+weak relationship: p-value = 0.06741, cor = -0.2248045
+
+
+* Diazinon
+conc
+```{r}
+plot(conc_comp_pest_w$flow, conc_comp_pest_w$Diazinon)
+abline(lm(conc_comp_pest_w$Diazinon ~ conc_comp_pest_w$flow))
+cor.test(conc_comp_pest_w$flow, conc_comp_pest_w$Diazinon)
+```
+weak relationship: p-value = 0.509, cor = 0.08617702
+
+log conc
+```{r}
+plot(conc_comp_pest_w$flow, conc_comp_pest_w$log_Diazinon)
+abline(lm(conc_comp_pest_w$log_Diazinon ~ conc_comp_pest_w$flow))
+cor.test(conc_comp_pest_w$flow, conc_comp_pest_w$log_Diazinon)
+```
+weak relationship: p-value = 0.1594, cor = 0.1824106
+
+* Imidacloprid
+conc
+```{r}
+plot(conc_comp_pest_w$flow, conc_comp_pest_w$Imidacloprid)
+abline(lm(conc_comp_pest_w$Imidacloprid ~ conc_comp_pest_w$flow))
+cor.test(conc_comp_pest_w$flow, conc_comp_pest_w$Imidacloprid)
+```
+weak relationship: p-value = 0.1019, cor = -0.2150327
+
+log conc
+```{r}
+plot(conc_comp_pest_w$flow, conc_comp_pest_w$log_Imidacloprid)
+abline(lm(conc_comp_pest_w$log_Imidacloprid ~ conc_comp_pest_w$flow))
+cor.test(conc_comp_pest_w$flow, conc_comp_pest_w$log_Imidacloprid)
+```
+weak relationship: p-value = 0.1348, cor = -0.1970149
+
+* Metribuzin
+conc
+```{r}
+plot(conc_comp_pest_w$flow, conc_comp_pest_w$Metribuzin)
+abline(lm(conc_comp_pest_w$Metribuzin ~ conc_comp_pest_w$flow))
+cor.test(conc_comp_pest_w$flow, conc_comp_pest_w$Metribuzin)
+```
+weak relationship: p-value = 0.09914, cor = -0.2063359
+
+log conc
+```{r}
+plot(conc_comp_pest_w$flow, conc_comp_pest_w$log_Metribuzin)
+abline(lm(conc_comp_pest_w$log_Metribuzin ~ conc_comp_pest_w$flow))
+cor.test(conc_comp_pest_w$flow, conc_comp_pest_w$log_Metribuzin)
+```
+weak relationship: p-value = 0.3156, cor = -0.1264183
+
+* Terbuthylazin
+conc
+```{r}
+plot(conc_comp_pest_w$flow, conc_comp_pest_w$Terbuthylazin)
+abline(lm(conc_comp_pest_w$Terbuthylazin ~ conc_comp_pest_w$flow))
+cor.test(conc_comp_pest_w$flow, conc_comp_pest_w$Terbuthylazin)
+```
+weak relationship: p-value = 0.05359, cor = -0.2268664
+
+log conc
+```{r}
+plot(conc_comp_pest_w$flow, conc_comp_pest_w$log_Terbuthylazin)
+abline(lm(conc_comp_pest_w$log_Terbuthylazin ~ conc_comp_pest_w$flow))
+cor.test(conc_comp_pest_w$flow, conc_comp_pest_w$log_Terbuthylazin)
+```
+weak relationship: p-value = 0.07527, cor = -0.2094945
+
+* Thiacloprid
+conc
+```{r}
+plot(conc_comp_pest_w$flow, conc_comp_pest_w$Thiacloprid)
+abline(lm(conc_comp_pest_w$Thiacloprid ~ conc_comp_pest_w$flow))
+cor.test(conc_comp_pest_w$flow, conc_comp_pest_w$Thiacloprid)
+```
+weak relationship: p-value = 0.9072, cor = 0.0162446
+
+log conc
+```{r}
+plot(conc_comp_pest_w$flow, conc_comp_pest_w$log_Thiacloprid)
+abline(lm(conc_comp_pest_w$log_Thiacloprid ~ conc_comp_pest_w$flow))
+cor.test(conc_comp_pest_w$flow, conc_comp_pest_w$log_Thiacloprid)
+```
+weak relationship: p-value = 0.6673, cor = 0.05985284
+
+
+
+## create Figure 2: Violin plots
+
+transpose data to long version
+remove all columns with compound names (they are not numerical) 
+```{r}
+TU_comp <- TU[,!grepl("^which", names(TU))]
+```
+
+```{r}
+TU_long <- melt(TU_comp, id.vars = c("site"), value.name = "value", variable.name = "variable")
+
+# only if sampling is in the name -> remove mean, max, etc.
+TU_long3 <- dplyr::filter(TU_long, grepl("Sampling", variable))
+
+# Seperate Sampling + variable
+TU_long2 <- separate(TU_long3, variable, into = c("variable2", "sampling"), sep = ".*(Sampling)", remove=FALSE)#
+
+TU_long2$sampling <- gsub(".*(_Sampling)", "Sampling", TU_long2$variable)
+
+TU_long2$variable <- as.character(TU_long2$variable)
+TU_long2$variable2 <- substr(TU_long2$variable, 1, nchar(TU_long2$variable) -11)
+
+```
+
+### detected pesticides (all pesticides, not only those used to calculate sum concentration)
+```{r}
+Vio_det_comp <- TU_long2[TU_long2$variable2 == "N_det", ]
+Vio_det_comp <- Vio_det_comp[!is.na(Vio_det_comp$value),]
+Vio_det_comp$colorname <- c(rep("grey75", 18), rep("black", 56))
+
+Vio_det_comp2 <- Vio_det_comp
+Vio_det_comp2 <- Vio_det_comp2[order(-Vio_det_comp2$value),]
+Vio_det_comp2$max <- !duplicated(Vio_det_comp2$site)
+Vio_det_comp2$colorname <- ifelse(Vio_det_comp2$max == TRUE, "red", Vio_det_comp2$colorname )
+Vio_det_comp3 <- Vio_det_comp2[order(Vio_det_comp2$value),]
+
+
+Vio_det_comp_fig <- ggplot(Vio_det_comp, aes(x = variable2, y = value)) + 
+    geom_violin(trim=FALSE) +
+  ylab("N")+
+  xlab("") +
+  ggtitle("detected pesticides")+
+  scale_y_continuous(breaks = c(0, 10 ,20, 30, 40, 50, 60), limits = c(-10, 65))+
+  geom_dotplot(binaxis='y', stackdir='center', dotsize=1, fill=Vio_det_comp3$colorname,  color = NA)+ 
+   theme_classic()+
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), 
+        axis.text.y = element_text(colour="black", size = 12), 
+        legend.position="none", strip.text.x = element_text(face = "bold"), 
+        text = element_text(size=14), plot.title = element_text(hjust = 0.5))
+
+```
+
+### sum concentration
+```{r}
+Vio_conc <- TU_long2[TU_long2$variable2 == "sum_conc", ]
+Vio_conc <- Vio_conc[!is.na(Vio_conc$value),]
+Vio_conc$colorname <- c(rep("grey75", 18), rep("black", 56))
+
+Vio_conc2 <- Vio_conc
+Vio_conc2 <- Vio_conc2[order(-Vio_conc2$value),]
+Vio_conc2$max <- !duplicated(Vio_conc2$site)
+Vio_conc2$colorname <- ifelse(Vio_conc2$max == TRUE, "red", Vio_conc2$colorname )
+Vio_conc3 <- Vio_conc2[order(Vio_conc2$value),]
+
+
+
+Vio_conc_fig <- ggplot(Vio_conc, aes(x = variable2, y = value)) + 
+    geom_violin(trim=FALSE) +
+  ylab("ug/L")+
+  xlab("") +
+  ggtitle("sum concentration")+
+   scale_y_continuous(trans=log10_trans(), breaks = c(0.001, 0.01, 0.1, 1, 10, 100), limits = c(0.001, 130), labels=function(n){format(n, scientific = FALSE)}) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize=1, fill=Vio_conc3$colorname,  color = NA)+
+   theme_classic()+
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), 
+        axis.text.y = element_text(colour="black", size = 12), 
+        legend.position="none", strip.text.x = element_text(face = "bold"), 
+        text = element_text(size=14), plot.title = element_text(hjust = 0.5))
+```
+
+
+### sumTU invertebrates
+```{r}
+Vio_TU_iv <- TU_long2[TU_long2$variable2 == "sumTU_iv", ]
+Vio_TU_iv <- Vio_TU_iv[!is.na(Vio_TU_iv$value),]
+Vio_TU_iv$colorname <- c(rep("grey75", 18), rep("black", 56))
+
+Vio_TU_iv2 <- Vio_TU_iv
+Vio_TU_iv2 <- Vio_TU_iv2[order(-Vio_TU_iv2$value),]
+Vio_TU_iv2$max <- !duplicated(Vio_TU_iv2$site)
+Vio_TU_iv2$colorname <- ifelse(Vio_TU_iv2$max == TRUE, "red", Vio_TU_iv2$colorname )
+Vio_TU_iv3 <- Vio_TU_iv2[order(Vio_TU_iv2$value),]
+
+
+Vio_TU_iv_fig <- ggplot(Vio_TU_iv, aes(x = variable2, y = value)) + 
+    geom_violin(trim=FALSE) +
+  ylab("sumTU")+
+  xlab("") +
+  ggtitle("sumTU invertebrates") +
+  scale_y_continuous(breaks = c(-5, -4, -3, -2, -1, 0, 1), limits = c(-5.5, 1)) +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize=1, fill=Vio_TU_iv3$colorname,  color = NA)+ 
+   theme_classic()+
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), 
+        axis.text.y = element_text(colour="black", size = 12), 
+        legend.position="none", strip.text.x = element_text(face = "bold"), 
+        text = element_text(size=14), plot.title = element_text(hjust = 0.5))
+
+
+```
+
+### sumTU algae
+```{r}
+Vio_TU_al <- TU_long2[TU_long2$variable2 == "sumTU_al", ]
+Vio_TU_al <- Vio_TU_al[!is.na(Vio_TU_al$value),]
+Vio_TU_al$colorname <- c(rep("grey75", 18), rep("black", 56))
+
+Vio_TU_al2 <- Vio_TU_al
+Vio_TU_al2 <- Vio_TU_al2[order(-Vio_TU_al2$value),]
+Vio_TU_al2$max <- !duplicated(Vio_TU_al2$site)
+Vio_TU_al2$colorname <- ifelse(Vio_TU_al2$max == TRUE, "red", Vio_TU_al2$colorname )
+Vio_TU_al3 <- Vio_TU_al2[order(Vio_TU_al2$value),]
+
+Vio_TU_al_fig <- ggplot(Vio_TU_al, aes(x = variable2, y = value)) + 
+    geom_violin(trim=FALSE) +
+  ylab("sumTU")+
+  xlab("") +
+  ggtitle("sumTU algae")+
+  scale_y_continuous(breaks = c(-5, -4, -3, -2, -1, 0, 1), limits = c(-5.5, 1))+
+  geom_dotplot(binaxis='y', stackdir='center', dotsize=1, fill=Vio_TU_al3$colorname,  color = NA)+ 
+   theme_classic()+
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), 
+        axis.text.y = element_text(colour="black", size = 12), 
+        legend.position="none", strip.text.x = element_text(face = "bold"), 
+        text = element_text(size=14), plot.title = element_text(hjust = 0.5))
+```
+
+
+### combine all plots
+```{r}
+# png(filename="Figure2_Violin_plots.png", width=15, height=15, pointsize=12, units = "cm", res = 800)
+ggdraw() +
+  draw_plot(Vio_det_comp_fig, x = 0, y = 0.5, width = 0.5, height = 0.5) +
+  draw_plot(Vio_conc_fig, x = 0.5, y = 0.5, width = 0.5, height = 0.5) +
+  draw_plot(Vio_TU_iv_fig, x = 0, y = 0, width = 0.5, height = 0.5) + 
+  draw_plot(Vio_TU_al_fig, x = 0.5, y = 0, width = 0.5, height = 0.5)
+# dev.off()
+```

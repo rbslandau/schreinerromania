@@ -1,0 +1,574 @@
+casnr;subst_name;variable_id;cas;ec50f_al4896_fin;ec50f_al4896_tax;ec50f_al4896_n;ec50f_al4896_src;ec50f_da48_fin;ec50f_da48_tax;ec50f_da48_n;ec50f_da48_src;ec50f_fi96_fin;ec50f_fi96_tax;ec50f_fi96_n;ec50f_fi96_src;ec50f_ma4896_fin;ec50f_ma4896_tax;ec50f_ma4896_n;ec50f_ma4896_src
+100027;4-nitrophenol;NA;NA;4540;Pseudokirchneriella subcapitata;1;malaj;15200;Daphnia magna;1;malaj;45633;Pimephales promelas;1;malaj;15200;Daphnia magna;1;malaj
+10004441;Hymexazol;907;NA;220;Scenedesmus subspicatus;1;epa;28000;Daphnia magna;1;ppdb;1.00E+05;Lepomis macrochirus;2;epa;28000;Daphnia magna;1;ppdb
+1002535;Dibutyltin;NA;NA;6544;Pseudokirchneriella subcapitata;1;malaj;900;Daphnia magna;1;malaj;NA;NA;NA;NA;900;Daphnia magna;1;malaj
+100414;Ethylbenzene;NA;NA;5300;Pseudokirchneriella subcapitata;1;malaj;18870;Daphnia magna;1;malaj;12100;Pimephales promelas;1;malaj;18870;Daphnia magna;1;malaj
+100425;Styrene;NA;NA;1218;Pseudokirchneriella subcapitata;1;malaj;4721;Daphnia magna;1;malaj;15928;Pimephales promelas;1;malaj;4721;Daphnia magna;1;malaj
+100728845;imazamethabenz;NA;100728-84-5;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+1007289;Desisopropylatrazin;249;NA;2;Pseudokirchneriella subcapitata;2;epa;132340;Daphnia magna;1;malaj;NA;NA;NA;NA;3000;Diporeia sp.;2;epa
+101007061;acrinathrin;NA;NA;3.5;Pseudokirchneriella subcapitata;1;ppdb;0.022;Daphnia magna;1;ppdb;6.1;Oncorhynchus mykiss;1;ppdb;0.022;Daphnia magna;1;ppdb
+101200480;Tribenuron-methyl;830;NA;110;Pseudokirchneriella subcapitata;1;ppdb;894000;Daphnia magna;1;ppdb;132000;Cyprinodon variegatus;7;epa;139000;Americamysis bahia;2;epa
+101213;Chlorpropham;883;NA;430;Pseudokirchneriella subcapitata;5;epa;2600;Daphnia magna;1;ppdb;3020;Oncorhynchus mykiss;4;epa;2600;Daphnia magna;1;ppdb
+101428;fenuron;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;204000;Oncorhynchus mykiss;2;epa;NA;NA;NA;NA
+101463698;flufenoxuron;NA;NA;5110;Pseudokirchneriella subcapitata;1;ppdb;0.043;Daphnia magna;1;ppdb;NA;NA;NA;NA;0.043;Daphnia magna;1;ppdb
+1014693;Desmetryn;252;NA;25;Pseudokirchneriella subcapitata;1;malaj;26000;Daphnia magna;1;malaj;11500;Rasbora heteromorpha;1;epa;26000;Daphnia magna;1;malaj
+101553;4-bromophenyl phenyl ether;NA;NA;NA;NA;NA;NA;360;Daphnia magna;1;malaj;575;Pimephales promelas;1;malaj;360;Daphnia magna;1;malaj
+1024573;Heptachlorepoxid;357;NA;40;Pseudokirchneriella subcapitata;1;malaj;240;Daphnia magna;1;malaj;5.3;Lepomis macrochirus;2;epa;240;Daphnia magna;1;malaj
+10265926;Methamidophos;413;NA;300;Nitzschia sp.;4;epa;270;Daphnia magna;1;malaj;5630;Cyprinodon variegatus;16;epa;0.00219;Macrobrachium rosenbergii;16;epa
+102851069;tau-Fluvalinat;638;NA;NA;NA;NA;NA;8.9;Daphnia magna;1;ppdb;0.794;Oncorhynchus mykiss;1;ppdb;0.0061;Americamysis bahia;10;epa
+103055078;lufenuron;NA;103055-07-8;NA;NA;NA;NA;NA;NA;NA;NA;73100;Oncorhynchus mykiss;1;epa;1847;Aedes aegypti;2;epa
+1031078;Endosulfansulfat;785;NA;NA;NA;NA;NA;760;Daphnia magna;1;ppdb;1.4;Oncorhynchus mykiss;1;epa;1.2;Jappa kutera;6;epa
+103361097;Flumioxazin;901;NA;0.852;Pseudokirchneriella subcapitata;1;ppdb;5900;Daphnia magna;1;ppdb;2300;Oncorhynchus mykiss;1;ppdb;230;Americamysis bahia;2;epa
+104040780;Flazasulfuron;734;NA;1.29;Pseudokirchneriella subcapitata;5;epa;106000;Daphnia magna;1;epa;98000;Lepomis macrochirus;3;epa;106000;Daphnia magna;2;epa
+104098488;Imazapic;854;NA;NA;NA;NA;NA;NA;NA;NA;NA;98700;Cyprinodon variegatus;1;epa;97700;Americamysis bahia;1;epa
+104206828;Mesotrion;641;NA;6786;Pseudokirchneriella subcapitata;2;epa;840000;Daphnia magna;1;epa;114000;Oncorhynchus mykiss;4;epa;3300;Americamysis bahia;2;epa
+104405;4-nonylphenol;NA;NA;515;Pseudokirchneriella subcapitata;1;malaj;135;Daphnia magna;1;malaj;140;Pimephales promelas;1;malaj;135;Daphnia magna;1;malaj
+104653341;difethialone;NA;104653-34-1;NA;NA;NA;NA;4.4;Daphnia magna;1;epa;51;Oncorhynchus mykiss;2;epa;4.4;Daphnia magna;1;epa
+105512069;Clodinafop-propargyl;704;NA;3000;Navicula pelliculosa;3;epa;2000;Daphnia magna;2;epa;240;Lepomis macrochirus;4;epa;2000;Daphnia magna;2;epa
+106040486;Tribenuron;602;NA;10000;Scenedesmus quadricauda;5;epa;894000;Daphnia magna;1;ppdb;560000;Oncorhynchus mykiss;1;ppdb;894000;Daphnia magna;1;ppdb
+10605217;Carbendazim;191;NA;340;Chlorella pyrenoidosa;4;epa;150;Daphnia magna;1;ppdb;19;Ictalurus punctatus;34;epa;98;Americamysis bahia;14;epa
+106423;P-xylene;NA;NA;3752;Pseudokirchneriella subcapitata;1;malaj;32400;Daphnia magna;1;malaj;8400;Pimephales promelas;1;malaj;32400;Daphnia magna;1;malaj
+106434;4-chlorotoluene;NA;NA;7243;Pseudokirchneriella subcapitata;1;malaj;3570;Daphnia magna;1;malaj;NA;NA;NA;NA;3570;Daphnia magna;1;malaj
+106444;p-cresol;NA;NA;10148;Pseudokirchneriella subcapitata;1;malaj;4550;Daphnia magna;1;malaj;16500;Pimephales promelas;1;malaj;4550;Daphnia magna;1;malaj
+1066519;aminomethylphosphonic acid;NA;NA;2.00E+05;Pseudokirchneriella subcapitata;1;ppdb;690000;Daphnia magna;1;ppdb;520000;Oncorhynchus mykiss;1;ppdb;690000;Daphnia magna;1;ppdb
+106700292;pethoxamid;NA;NA;NA;NA;NA;NA;23000;Daphnia magna;1;ppdb;2200;Oncorhynchus mykiss;1;ppdb;23000;Daphnia magna;1;ppdb
+106898;1-CHLORO-2,3-EPOXYPROPANE;NA;106-89-8;NA;NA;NA;NA;23250;Daphnia magna;4;epa;12700;Pimephales promelas;9;epa;23250;Daphnia magna;4;epa
+106934;1,2-dibromoethane;NA;NA;NA;NA;NA;NA;119000;Daphnia magna;1;malaj;NA;NA;NA;NA;119000;Daphnia magna;1;malaj
+107062;1,2-Dichloroethane;NA;NA;NA;NA;NA;NA;507000;Daphnia magna;1;malaj;136000;Pimephales promelas;1;malaj;507000;Daphnia magna;1;malaj
+1070786;1,1,1,3-tetrachloropropane;NA;NA;NA;NA;NA;NA;11184;Daphnia magna;1;malaj;NA;NA;NA;NA;11184;Daphnia magna;1;malaj
+107131;Acrylonitrile;NA;NA;NA;NA;NA;NA;8800;Daphnia magna;1;malaj;16980;Pimephales promelas;1;malaj;8800;Daphnia magna;1;malaj
+1071836;Glyphosate;349;NA;5.3;Gomphonema sp.;28;epa;40000;Daphnia magna;1;malaj;530;Clarias gariepinus;91;epa;7000;Orconectes nais;24;epa
+107534963;Tebuconazol;578;NA;1450;Scenedesmus subspicatus;1;epa;2790;Daphnia magna;1;ppdb;2370;Cyprinus carpio;7;epa;460;Americamysis bahia;2;ppdb
+108383;M-xylene;NA;NA;4368;Pseudokirchneriella subcapitata;1;malaj;17584;Daphnia magna;1;malaj;16000;Pimephales promelas;1;malaj;17584;Daphnia magna;1;malaj
+1085989;Dichlofluanid;672;NA;130;Pseudokirchneriella subcapitata;3;epa;420;Daphnia magna;1;ppdb;10;Oncorhynchus mykiss;1;ppdb;420;Daphnia magna;1;ppdb
+108883;Toluene;NA;NA;10950;Pseudokirchneriella subcapitata;1;malaj;6000;Daphnia magna;1;malaj;36200;Pimephales promelas;1;malaj;6000;Daphnia magna;1;malaj
+108907;Chlorobenzene;NA;NA;12500;Pseudokirchneriella subcapitata;1;malaj;19241;Daphnia magna;1;malaj;25185;Pimephales promelas;1;malaj;19241;Daphnia magna;1;malaj
+110235477;mepanipyrim;NA;NA;230;Pseudokirchneriella subcapitata;1;ppdb;630;Daphnia magna;1;ppdb;NA;NA;NA;NA;630;Daphnia magna;1;ppdb
+110488705;Dimethomorph;NA;NA;23800;Scenedesmus subspicatus;3;epa;10600;Daphnia magna;1;epa;6200;Oncorhynchus mykiss;4;epa;10600;Daphnia magna;2;epa
+1113026;omethoate;NA;NA;167500;Scenedesmus subspicatus;1;ppdb;21;Daphnia magna;1;malaj;1510;Aphanius fasciatus;6;epa;21;Daphnia magna;1;malaj
+11141176;Azadirachtin (Neem);875;NA;NA;NA;NA;NA;370;Daphnia pulex;31;epa;4000;Oncorhynchus mykiss;7;epa;14;Procambarus clarkii;52;epa
+111988499;Thiacloprid;588;NA;45000;Scenedesmus subspicatus;1;epa;85100;Daphnia magna;1;ppdb;19700;Cyprinodon variegatus;6;epa;4.6;Baetis rhodani;22;epa
+111991094;Nicosulfuron;457;NA;1000;Pseudokirchneriella subcapitata;7;epa;90000;Daphnia magna;1;ppdb;65700;Oncorhynchus mykiss;1;ppdb;90000;Daphnia magna;1;ppdb
+112050;Pelargonsäure;921;NA;NA;NA;NA;NA;96000;Daphnia magna;1;epa;91000;Oncorhynchus mykiss;3;epa;96000;Daphnia magna;1;epa
+112143825;triazamate;NA;112143-82-5;NA;NA;NA;NA;14;Daphnia magna;2;epa;530;Oncorhynchus mykiss;4;epa;14;Daphnia magna;3;epa
+112281773;Tetraconazol;720;NA;2400;Ankistodesmus bibaiamus;1;ppdb;3000;Daphnia magna;1;ppdb;3000;Lepomis macrochirus;5;epa;420;Americamysis bahia;2;ppdb
+112410238;Tebufenozid;742;NA;120;Scenedesmus acutus;5;epa;3800;Daphnia magna;1;malaj;720;Cyprinodon variegatus;3;epa;150;Aedes taeniorhynchus;14;epa
+113158400;Fenoxaprop-p;1120;NA;0.67;Pseudokirchneriella subcapitata;4;epa;126000;Daphnia magna;1;ppdb;275;Lepomis macrochirus;2;epa;14600;Daphnia magna;3;epa
+1134232;Cycloat;705;NA;NA;NA;NA;NA;24000;Daphnia magna;1;ppdb;4600;Lepomis macrochirus;7;epa;2600;Gammarus fasciatus;4;epa
+113614087;beflubutamid;NA;NA;69200;Pseudokirchneriella subcapitata;1;ppdb;1640;Daphnia magna;1;ppdb;1860;Oncorhynchus mykiss;1;ppdb;1640;Daphnia magna;1;ppdb
+114261;Propoxur;529;NA;1924.4;Scenedesmus quadricauda;9;epa;37;Daphnia pulex;7;epa;69.85;Aphanius fasciatus;41;epa;1;Daphnia pulex;36;epa
+114311329;Imazamox;853;NA;NA;NA;NA;NA;122000;Daphnia magna;1;epa;94200;Cyprinodon variegatus;4;epa;94300;Americamysis bahia;3;epa
+114369436;fenbuconazole;NA;NA;330;Pseudokirchneriella subcapitata;1;ppdb;2300;Daphnia magna;1;ppdb;680;Lepomis macrochirus;3;epa;633;Americamysis bahia;2;epa
+115297;Endosulfan;NA;NA;427.8;Pseudokirchneriella subcapitata;1;malaj;440;Daphnia magna;1;malaj;1;Pimephales promelas;1;malaj;440;Daphnia magna;1;malaj
+115322;Dicofol;266;NA;NA;NA;NA;NA;200;Daphnia magna;1;epa;53;Oncorhynchus clarkii;20;epa;60;Americamysis bahia;8;epa
+116063;Aldicarb;122;NA;50000;Skeletonema costatum;1;epa;420;Daphnia magna;1;ppdb;41;Cyprinodon variegatus;25;epa;13;Americamysis bahia;32;epa
+116255482;Bromuconazol;702;NA;NA;NA;NA;NA;85;Daphnia magna;2;epa;1700;Oncorhynchus mykiss;5;epa;85;Daphnia magna;3;epa
+117428225;Picoxystrobin;518;NA;56;Pseudokirchneriella subcapitata;1;ppdb;24;Daphnia magna;1;ppdb;75;Oncorhynchus mykiss;1;ppdb;24;Daphnia magna;1;ppdb
+118134308;Spiroxamin;565;NA;1.18;Skeletonema costatum;5;epa;6100;Daphnia magna;1;ppdb;7130;Lepomis macrochirus;1;ppdb;2550;Daphnia magna;2;epa
+118741;Hexachlorbenzen;359;NA;2;Cyclotella meneghiniana;8;epa;5.7;Daphnia magna;1;malaj;13;Cyprinodon variegatus;18;epa;5.7;Daphnia magna;1;malaj
+118967;2,4,6-trinitrotoluene;NA;NA;729;Pseudokirchneriella subcapitata;1;malaj;9250;Daphnia magna;1;malaj;2190;Pimephales promelas;1;malaj;9250;Daphnia magna;1;malaj
+119168773;tebufenpyrad;NA;NA;52;Pseudokirchneriella subcapitata;1;ppdb;46;Daphnia magna;1;ppdb;17.8;Oncorhynchus mykiss;2;epa;2.69;Baetis rhodani;3;epa
+119446683;Difenoconazol;688;NA;1.338;Scenedesmus acutus;4;epa;770;Daphnia magna;1;ppdb;810;Oncorhynchus mykiss;10;epa;0.298;Daphnia magna;3;epa
+1194656;Dichlobenil;783;NA;2700;Scenedesmus abundans;2;epa;6200;Daphnia magna;1;malaj;4200;Rasbora heteromorpha;23;epa;270;Nitocra spinipes;49;epa
+12002481;Trichlorobenzene;NA;NA;1685;Pseudokirchneriella subcapitata;1;malaj;7295;Daphnia magna;1;malaj;2987.1;Pimephales promelas;1;malaj;7295;Daphnia magna;1;malaj
+27304138;oxi-Chlordan;1142;NA;NA;NA;NA;NA;1300;Daphnia magna;1;ppdb;3.47;Pimephales promelas;4;epa;1300;Daphnia magna;1;ppdb
+120068373;Fipronil;865;NA;68;Scenedesmus subspicatus;1;ppdb;190;Daphnia magna;1;ppdb;83;Lepomis macrochirus;10;epa;0.0519;Baetis tricaudatus;94;epa
+120116883;Cyazofamid;234;NA;25;Pseudokirchneriella subcapitata;1;ppdb;190;Daphnia magna;1;ppdb;140;Lepomis macrochirus;7;epa;89;Americamysis bahia;6;epa
+120127;Anthracene;NA;NA;225;Pseudokirchneriella subcapitata;1;malaj;428;Daphnia magna;1;malaj;1015;Pimephales promelas;1;malaj;428;Daphnia magna;1;malaj
+120365;Dichlorprop;263;NA;192000;Pseudokirchneriella subcapitata;5;epa;5400;Daphnia magna;2;epa;2400;Lepomis macrochirus;9;epa;5400;Daphnia magna;2;epa
+120375146;NA;NA;120375-14-6;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+120821;1,2,4-trichlorobenzene;NA;NA;16867;Pseudokirchneriella subcapitata;1;malaj;1700;Daphnia magna;1;malaj;2990;Pimephales promelas;1;malaj;1700;Daphnia magna;1;malaj
+120832;2,4-Dichlorphenol;66;NA;3440;Pseudokirchneriella subcapitata;1;ppdb;2600;Daphnia magna;1;malaj;1240;Carassius auratus;15;epa;1861;Gammarus pulex;8;epa
+120868668;NA;NA;120868-66-8;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+120923377;amidosulfuron;NA;NA;47000;Scenedesmus subspicatus;1;ppdb;36000;Daphnia magna;1;ppdb;NA;NA;NA;NA;36000;Daphnia magna;1;ppdb
+120928098;Fenazaquin;819;NA;45.4;Navicula pelliculosa;4;epa;4.1;Daphnia magna;1;malaj;3.8;Oncorhynchus mykiss;1;ppdb;4.1;Daphnia magna;1;malaj
+121142;2,4-dinitrotoluene;NA;NA;807;Pseudokirchneriella subcapitata;1;malaj;35000;Daphnia magna;1;malaj;24300;Pimephales promelas;1;malaj;35000;Daphnia magna;1;malaj
+121211;pyrethrin I;NA;121-21-1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+121552612;Cyprodinil;238;NA;2600;Pseudokirchneriella subcapitata;1;ppdb;220;Daphnia magna;1;ppdb;1250;Cyprinodon variegatus;4;epa;32;Daphnia magna;3;epa
+121755;Malathion;397;NA;2040;Pseudokirchneriella subcapitata;2;epa;0.7;Daphnia magna;1;malaj;0.19;Menidia beryllina;257;epa;0.08;Hyalella sp.;315;epa
+122145;Fenitrothion;309;NA;495;Pseudokirchneriella subcapitata;19;epa;8.6;Daphnia magna;1;malaj;2.55;Gambusia affinis;223;epa;1.00E-04;Moina sp.;153;epa
+122349;Simazin;558;NA;34;Gomphonema sp.;26;epa;94000;Daphnia magna;1;malaj;90;Perca sp.;51;epa;1000;Chironomus tentans;45;epa
+122429;Propham;784;NA;NA;NA;NA;NA;9050;Daphnia pulex;3;epa;29000;Lepomis macrochirus;3;epa;8100;Daphnia pulex;7;epa
+122548338;Imazosulfuron;823;NA;206;Pseudokirchneriella subcapitata;5;epa;32000;Daphnia magna;1;epa;69000;Oncorhynchus mykiss;5;epa;32000;Daphnia magna;2;epa
+122931480;Rimsulfuron;693;NA;NA;NA;NA;NA;360000;Daphnia magna;2;epa;110000;Cyprinodon variegatus;4;epa;110000;Americamysis bahia;3;epa
+123312890;Pymetrozin;930;NA;21600;Pseudokirchneriella subcapitata;1;ppdb;87000;Daphnia magna;1;ppdb;117000;Cyprinodon variegatus;3;epa;61700;Americamysis bahia;2;ppdb
+123331;Maleic-hydrazide;NA;NA;NA;NA;NA;NA;107700;Daphnia magna;1;ppdb;10000;Lepomis macrochirus;5;epa;107500;Daphnia magna;1;epa
+123732854;NA;NA;123732-85-4;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+12427382;Maneb;911;NA;7;Pseudokirchneriella subcapitata;1;ppdb;2.1;Daphnia magna;1;ppdb;200;Oncorhynchus mykiss;1;ppdb;2.1;Daphnia magna;1;ppdb
+124495187;Quinoxyfen;540;NA;27;Pseudokirchneriella subcapitata;1;ppdb;80;Daphnia magna;1;ppdb;168;Cyprinodon variegatus;4;epa;74.3;Americamysis bahia;2;epa
+125116236;metconazole;NA;NA;1700;Pseudokirchneriella subcapitata;1;ppdb;4200;Daphnia magna;1;ppdb;2100;Oncorhynchus mykiss;1;ppdb;4200;Daphnia magna;1;ppdb
+126535157;Triflusulfuron-methyl;1240;NA;NA;NA;NA;NA;NA;NA;NA;NA;640000;Oncorhynchus mykiss;2;epa;NA;NA;NA;NA
+126833178;Fenhexamid;308;NA;531.12;Scenedesmus acutus;3;epa;61900;Daphnia magna;4;epa;1320;Oncorhynchus mykiss;6;epa;4600;Americamysis bahia;5;epa
+127184;1,1,2,2-tetrachloroethene;NA;NA;NA;NA;NA;NA;14000;Daphnia magna;1;malaj;13400;Pimephales promelas;1;malaj;14000;Daphnia magna;1;malaj
+128639021;Carfentrazone-ethyl;703;NA;12.7;Pseudokirchneriella subcapitata;1;epa;9800;Daphnia magna;1;epa;1140;Menidia peninsulae;5;epa;1160;Americamysis bahia;2;epa
+129000;Pyrene;NA;NA;NA;NA;NA;NA;195;Daphnia magna;1;malaj;200;Pimephales promelas;1;malaj;195;Daphnia magna;1;malaj
+129630199;Pyraflufen-ethyl;826;NA;1.5;Navicula pelliculosa;4;epa;760;Daphnia magna;1;epa;56;Cyprinodon variegatus;8;epa;60;Americamysis bahia;2;epa
+13071799;Terbufos;NA;NA;NA;NA;NA;NA;0.31;Daphnia magna;1;malaj;142;Pimephales promelas;1;malaj;0.31;Daphnia magna;1;malaj
+131113;Dimethyl phthalate;NA;NA;70367;Pseudokirchneriella subcapitata;1;malaj;33000;Daphnia magna;1;malaj;121000;Pimephales promelas;1;malaj;33000;Daphnia magna;1;malaj
+131168;Dipropyl phthalate;NA;NA;15200;Pseudokirchneriella subcapitata;1;malaj;9274;Daphnia magna;1;malaj;5522.6;Pimephales promelas;1;malaj;9274;Daphnia magna;1;malaj
+131180;Dipentyl phthalate;NA;NA;5872;Pseudokirchneriella subcapitata;1;malaj;391;Daphnia magna;1;malaj;152.7;Pimephales promelas;1;malaj;391;Daphnia magna;1;malaj
+13121705;cyhexatin;NA;13121-70-5;0.00065;Platymonas sp.;2;epa;0.17;Daphnia magna;2;epa;1.29;Oncorhynchus mykiss;16;epa;0.17;Daphnia magna;4;epa
+131341861;Fludioxonil;681;NA;24;Scenedesmus subspicatus;1;ppdb;400;Daphnia magna;1;ppdb;230;Oncorhynchus mykiss;1;ppdb;270;Americamysis bahia;2;ppdb
+131726;dinocap;NA;NA;NA;NA;NA;NA;4.2;Daphnia magna;1;ppdb;5.3;Lepomis macrochirus;1;ppdb;4.2;Daphnia magna;1;ppdb
+131807573;Famoxadone;794;NA;3.08;Pseudokirchneriella subcapitata;1;ppdb;33;Daphnia magna;1;ppdb;11;Oncorhynchus mykiss;1;ppdb;3.9;Americamysis bahia;2;epa
+131860338;Azoxystrobin;147;NA;360;Pseudokirchneriella subcapitata;1;ppdb;230;Daphnia magna;1;ppdb;470;Oncorhynchus mykiss;1;ppdb;55;Americamysis bahia;2;ppdb
+13194484;ethoprophos;NA;13194-48-4;8400;Skeletonema costatum;4;epa;93;Daphnia magna;3;epa;6.3;Lagodon rhomboides;19;epa;7.63;Daphnia ambigua;8;epa
+131983727;Triticonazol;746;NA;NA;NA;NA;NA;9000;Daphnia magna;1;ppdb;2300;Oncorhynchus mykiss;3;epa;1600;Americamysis bahia;2;epa
+1330207;Xylene;NA;NA;NA;NA;NA;NA;17500;Daphnia magna;1;malaj;27710;Pimephales promelas;1;malaj;17500;Daphnia magna;1;malaj
+133062;Captan;882;NA;160;Skeletonema costatum;9;epa;7100;Daphnia magna;1;malaj;26.2;Salmo trutta;30;epa;1000;Physella acuta;13;epa
+133073;Folpet;795;NA;57;Navicula pelliculosa;5;epa;680;Daphnia magna;1;ppdb;24;Salvelinus namaycush;22;epa;160;Americamysis bahia;13;epa
+13360457;Chlorbromuron;1119;NA;NA;NA;NA;NA;NA;NA;NA;NA;4000;Leuciscus idus;14;epa;NA;NA;NA;NA
+133904;Chloramben;1228;NA;NA;NA;NA;NA;NA;NA;NA;NA;10000;Lepomis macrochirus;2;epa;NA;NA;NA;NA
+134098616;Fenpyroximat;733;NA;0.66;Scenedesmus subspicatus;6;epa;22;Daphnia magna;1;ppdb;0.59;Oncorhynchus mykiss;6;epa;3.6;Daphnia magna;3;epa
+13457186;Pyrazophos;1001;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;350;Sigara substriata;6;epa
+134623;diethyltoluamide;NA;134-62-3;NA;NA;NA;NA;75000;Daphnia magna;1;epa;71250;Oncorhynchus mykiss;3;epa;75000;Daphnia magna;6;epa
+135158542;acibenzolar-S-methyl;NA;NA;500;Scenedesmus subspicatus;1;ppdb;2400;Daphnia magna;1;ppdb;400;Oncorhynchus mykiss;1;ppdb;880;Americamysis bahia;2;ppdb
+135193;2-naphthol;NA;NA;18800;Pseudokirchneriella subcapitata;1;malaj;3540;Daphnia magna;1;malaj;3500;Pimephales promelas;1;malaj;3540;Daphnia magna;1;malaj
+135319732;Epoxiconazol;NA;NA;1190;Pseudokirchneriella subcapitata;1;ppdb;8690;Daphnia magna;1;ppdb;3140;Oncorhynchus mykiss;1;ppdb;62.5;Chironomus riparius;2;ppdb
+135410207;Acetamiprid;728;NA;NA;NA;NA;NA;49800;Daphnia magna;1;ppdb;1.00E+05;Cyprinodon variegatus;3;epa;3.35;Cheumatopsyche brevilineata;23;epa
+13593038;Quinalphos;1002;NA;NA;NA;NA;NA;0.21;Daphnia magna;1;epa;70;Nuria danrica;8;epa;0.21;Daphnia magna;5;epa
+136426545;Fluquinconazole;NA;NA;46;Pseudokirchneriella subcapitata;1;malaj;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+13684565;Desmedipham;891;NA;10;Pseudokirchneriella subcapitata;1;malaj;450;Daphnia magna;1;malaj;250;Lepomis macrochirus;1;ppdb;450;Daphnia magna;1;malaj
+13684634;Phenmedipham;510;NA;86;Pseudokirchneriella subcapitata;1;ppdb;2030;Daphnia magna;1;ppdb;26.16;Aphanius fasciatus;6;epa;2030;Daphnia magna;1;ppdb
+137268;Thiram;941;NA;65;Pseudokirchneriella subcapitata;1;malaj;11;Daphnia magna;1;malaj;7;Rasbora heteromorpha;9;epa;3.36;Americamysis bahia;30;epa
+137304;Ziram;NA;NA;66;Pseudokirchneriella subcapitata;1;malaj;48;Daphnia magna;1;malaj;8;Pimephales promelas;1;malaj;48;Daphnia magna;1;malaj
+138261413;Imidacloprid;365;NA;NA;NA;NA;NA;85000;Daphnia magna;1;ppdb;1000;Pimephales promelas;9;epa;0.65;Epeorus longimanus;152;epa
+139402;Propazin;527;NA;29;Pseudokirchneriella subcapitata;1;malaj;11000;Daphnia magna;1;malaj;4500;Lepomis macrochirus;1;epa;5320;Daphnia magna;2;epa
+139968493;Metaflumizone;915;NA;NA;NA;NA;NA;331;Daphnia magna;2;epa;257;Cyprinodon variegatus;2;epa;289;Americamysis bahia;3;epa
+140669;Para-tert-octylphenol;NA;NA;1900;Pseudokirchneriella subcapitata;1;malaj;90;Daphnia magna;1;malaj;48;Pimephales promelas;1;malaj;90;Daphnia magna;1;malaj
+141112290;Isoxaflutole;909;NA;NA;NA;NA;NA;1500;Daphnia magna;1;epa;1700;Oncorhynchus mykiss;4;epa;17.8;Americamysis bahia;2;epa
+141517217;Trifloxystrobin;613;NA;5.3;Scenedesmus subspicatus;1;ppdb;11;Daphnia magna;1;ppdb;14;Oncorhynchus mykiss;4;epa;8.62;Americamysis bahia;5;epa
+141776321;Sulfosulfuron;828;NA;NA;NA;NA;NA;96000;Daphnia magna;1;epa;95000;Oncorhynchus mykiss;2;epa;96000;Daphnia magna;2;epa
+142459583;Flufenacet;317;NA;2.04;Pseudokirchneriella subcapitata;1;ppdb;30900;Daphnia magna;1;ppdb;2130;Lepomis macrochirus;1;ppdb;2720;Americamysis bahia;2;epa
+142891201;cinidon-ethyl;NA;NA;21;Pseudokirchneriella subcapitata;1;ppdb;59200;Daphnia magna;1;ppdb;2.00E+05;Oncorhynchus mykiss;1;ppdb;59200;Daphnia magna;1;ppdb
+143390890;Kresoxim-methyl;384;NA;55.1;Pseudokirchneriella subcapitata;2;epa;186;Daphnia magna;1;ppdb;190;Oncorhynchus mykiss;1;ppdb;59;Americamysis bahia;2;epa
+143500;Chlordecone;NA;NA;NA;NA;NA;NA;531;Daphnia magna;1;malaj;380;Pimephales promelas;1;malaj;531;Daphnia magna;1;malaj
+144550367;Iodosulfuron-methyl-sodium;1223;NA;41;Pseudokirchneriella subcapitata;4;epa;86900;Daphnia magna;1;epa;88100;Oncorhynchus mykiss;3;epa;86900;Daphnia magna;2;epa
+144740534;Flupyrsulfuron-methyl;902;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+145701231;florasulam;NA;NA;21570;Pseudokirchneriella subcapitata;1;epa;5500;Daphnia magna;2;epa;5720;Oncorhynchus mykiss;4;epa;5500;Daphnia magna;3;epa
+14816183;Phoxim;515;NA;232.9;Microcystis flosaquae;7;epa;NA;NA;NA;NA;165;Esox lucius;47;epa;6.6;Procambarus sp.;1;epa
+148477718;Spirodiclofen;740;NA;NA;NA;NA;NA;NA;NA;NA;NA;35.1;Oncorhynchus mykiss;5;epa;32;Chironomus riparius;1;ppdb
+148798;thiabendazole;NA;NA;9000;Pseudokirchneriella subcapitata;1;ppdb;810;Daphnia magna;1;ppdb;550;Oncorhynchus mykiss;1;ppdb;340;Americamysis bahia;6;epa
+149877418;Bifenazate;879;NA;300;Skeletonema costatum;1;ppdb;500;Daphnia magna;1;ppdb;416;Cyprinodon variegatus;3;epa;58;Americamysis bahia;2;ppdb
+149961524;dimoxystrobin;NA;NA;17;Pseudokirchneriella subcapitata;1;ppdb;39.4;Daphnia magna;1;ppdb;39;Cyprinus carpio;1;epa;39.4;Daphnia magna;1;ppdb
+149979419;Tepraloxydim;940;NA;NA;NA;NA;NA;7400;Daphnia magna;1;epa;4450;Oncorhynchus mykiss;5;epa;1140;Americamysis bahia;3;epa
+150114719;aminopyralid;NA;NA;30000;Pseudokirchneriella subcapitata;1;ppdb;98600;Daphnia magna;1;epa;1.00E+05;Lepomis macrochirus;3;epa;98600;Daphnia magna;2;epa
+150685;Monuron;766;NA;NA;NA;NA;NA;NA;NA;NA;NA;3300;Lepomis gibbosus;7;epa;NA;NA;NA;NA
+15165670;Dichlorprop-P;NA;NA;194000;Pseudokirchneriella subcapitata;1;malaj;1.00E+05;Daphnia magna;1;malaj;71895;Pimephales promelas;1;malaj;1.00E+05;Daphnia magna;1;malaj
+15299997;Napropamid;452;NA;3400;Pseudokirchneriella subcapitata;1;ppdb;14300;Daphnia magna;1;ppdb;6600;Oncorhynchus mykiss;1;ppdb;4200;Americamysis bahia;4;epa
+15302917;mepiquat;NA;15302-91-7;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+153719234;Thiamethoxam;589;NA;97000;Pseudokirchneriella subcapitata;1;epa;106000;Daphnia magna;1;epa;1.00E+05;Oncorhynchus mykiss;3;epa;20;Cloeon dipterum;22;epa
+15545489;Chlortoluron;NA;NA;8.5;Pseudokirchneriella subcapitata;7;epa;67000;Daphnia magna;1;ppdb;20000;Oncorhynchus mykiss;1;ppdb;67000;Daphnia magna;1;ppdb
+156052685;Zoxamid;721;NA;10;Scenedesmus subspicatus;5;epa;780;Daphnia magna;1;epa;156;Oncorhynchus mykiss;4;epa;75;Americamysis bahia;2;epa
+1563662;Carbofuran;192;NA;2600;Pseudokirchneriella subcapitata;11;epa;9.4;Daphnia magna;1;malaj;36;Menidia menidia;85;epa;0.119;Brachythemis contaminata;65;epa
+156605;Trans 1,2-dichloroethene;NA;NA;NA;NA;NA;NA;220000;Daphnia magna;1;malaj;NA;NA;NA;NA;220000;Daphnia magna;1;malaj
+1570645;4-chloro-2-methylphenol;NA;NA;29706;Pseudokirchneriella subcapitata;1;malaj;290;Daphnia magna;1;malaj;5471;Pimephales promelas;1;malaj;290;Daphnia magna;1;malaj
+158062670;Flonicamid;899;NA;96700;Pseudokirchneriella subcapitata;2;epa;98600;Daphnia magna;1;epa;97900;Oncorhynchus mykiss;3;epa;98600;Daphnia magna;2;epa
+1582098;Trifluralin;614;NA;12.2;Pseudokirchneriella subcapitata;1;malaj;245;Daphnia magna;1;malaj;5;Clupea pallasii;66;epa;37;Palaemonetes kadiakensis;46;epa
+15972608;Alachlor;120;NA;5;Pseudokirchneriella subcapitata;1;malaj;10000;Daphnia magna;1;malaj;381.9;Oreochromis niloticus;24;epa;2500;Chironomus plumosus;21;epa
+160430648;NA;NA;160430-64-8;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+1610180;Prometon;1232;NA;98;Pseudokirchneriella subcapitata;1;malaj;41167;Daphnia magna;1;malaj;12000;Oncorhynchus mykiss;1;ppdb;17700;Americamysis bahia;4;epa
+161050584;Methoxyfenozid;738;NA;NA;NA;NA;NA;3700;Daphnia magna;1;ppdb;2800;Cyprinodon variegatus;3;epa;1300;Americamysis bahia;2;epa
+16118493;carbetamide;NA;NA;158000;Scenedesmus subspicatus;1;ppdb;81000;Daphnia magna;1;ppdb;165000;Rasbora heteromorpha;1;epa;81000;Daphnia magna;1;ppdb
+161326347;Fenamidon;708;NA;3840;Pseudokirchneriella subcapitata;1;ppdb;190;Daphnia magna;1;ppdb;740;Oncorhynchus mykiss;1;ppdb;48.7;Daphnia magna;3;epa
+1634044;MTBE;NA;NA;NA;NA;NA;NA;136000;Daphnia magna;1;malaj;672000;Pimephales promelas;1;malaj;136000;Daphnia magna;1;malaj
+163515148;Dimethenamid-P;894;NA;19;Pseudokirchneriella subcapitata;1;ppdb;3200;Daphnia magna;1;ppdb;2600;Oncorhynchus mykiss;1;ppdb;3200;Daphnia magna;1;ppdb
+16484778;mecoprop-P;NA;NA;10000;Pseudokirchneriella subcapitata;1;malaj;2.00E+05;Daphnia magna;1;malaj;97000;Lepomis macrochirus;1;epa;90940;Daphnia magna;1;epa
+165252700;Dinotefuran;818;NA;98700;Pseudokirchneriella subcapitata;3;epa;110600;Daphnia magna;2;epa;99100;Cyprinus carpio;4;epa;10.4;Cheumatopsyche brevilineata;8;epa
+16672870;2-chloroethylphosphonic acid;NA;NA;1400;Pseudokirchneriella subcapitata;1;malaj;31700;Daphnia magna;1;malaj;130000;Pimephales promelas;1;malaj;31700;Daphnia magna;1;malaj
+1668548;NA;NA;1668-54-8;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+16752775;Methomyl;737;NA;50000;Pseudokirchneriella subcapitata;4;epa;7.6;Daphnia magna;1;malaj;100;Carassius auratus;94;epa;2.11;Ceriodaphnia reticulata;55;epa
+168316958;Spinosad;937;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;160;Aedes aegypti;19;epa
+1689834;ioxynil;NA;NA;24000;Unknown species;1;ppdb;3900;Daphnia magna;1;malaj;6.8003;Pimephales promelas;1;epa;3900;Daphnia magna;1;malaj
+1689845;Bromoxynil;186;NA;120;Navicula pelliculosa;1;ppdb;12500;Daphnia magna;1;malaj;2090;Oncorhynchus mykiss;7;epa;1900;Chironomus riparius;3;epa
+1689992;Bromoxynil-Oktanoat;674;NA;43;Navicula pelliculosa;1;ppdb;46;Daphnia magna;1;malaj;41;Oncorhynchus mykiss;1;ppdb;32;Daphnia pulex;47;epa
+1698608;Chloridazon;208;NA;3000;Pseudokirchneriella subcapitata;1;malaj;132000;Daphnia magna;1;malaj;41300;Oncorhynchus mykiss;1;ppdb;132000;Daphnia magna;1;malaj
+1702176;Clopyralid;227;NA;6900;Pseudokirchneriella subcapitata;1;epa;225000;Daphnia magna;1;malaj;7.00E+05;Oncorhynchus mykiss;2;epa;225000;Daphnia magna;1;malaj
+17040196;Demeton-S-methylsulfon;NA;NA;NA;NA;NA;NA;259;Daphnia magna;1;malaj;NA;NA;NA;NA;259;Daphnia magna;1;malaj
+171262172;NA;NA;171262-17-2;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+1715408;Bromocyclen;185;NA;1.00E+05;Scenedesmus subspicatus;1;epa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+173159574;Foramsulfuron;822;NA;6800;Anabaena flosaquae;4;epa;1.00E+05;Daphnia magna;1;ppdb;93600;Cyprinodon variegatus;3;epa;92700;Palaemonetes pugio;1;epa
+173584446;Indoxacarb;714;NA;110;Pseudokirchneriella subcapitata;1;ppdb;600;Daphnia magna;1;ppdb;290;Ictalurus punctatus;11;epa;48.5;Baetis rhodani;8;epa
+1746812;Monolinuron;435;NA;43.1;Chlamydomonas reinhardtii;1;epa;32500;Daphnia magna;1;ppdb;12900;Cyprinus carpio;6;epa;1300;Daphnia magna;2;epa
+175013180;Pyraclostrobin;534;NA;152;Pseudokirchneriella subcapitata;1;epa;16;Daphnia magna;1;ppdb;6;Oncorhynchus mykiss;1;ppdb;4.16;Americamysis bahia;7;epa
+175217206;silthiofam;NA;NA;8600;Pseudokirchneriella subcapitata;1;ppdb;14000;Daphnia magna;1;ppdb;11000;Lepomis macrochirus;1;ppdb;14000;Daphnia magna;1;ppdb
+178928706;Prothioconazol;929;NA;21;Skeletonema costatum;4;epa;1300;Daphnia magna;1;ppdb;1690;Oncorhynchus mykiss;6;epa;1200;Daphnia magna;2;epa
+1806264;4-octylphenol;NA;NA;189;Pseudokirchneriella subcapitata;1;malaj;270;Daphnia magna;1;malaj;286.8;Pimephales promelas;1;malaj;270;Daphnia magna;1;malaj
+18181709;Iodofenphos;NA;NA;NA;NA;NA;NA;1.6;Daphnia magna;1;malaj;NA;NA;NA;NA;1.6;Daphnia magna;1;malaj
+1825214;Pentachloroanisole;NA;NA;326;Pseudokirchneriella subcapitata;1;malaj;27;Daphnia magna;1;malaj;650;Pimephales promelas;1;malaj;27;Daphnia magna;1;malaj
+1836755;Nitrofen;1214;NA;123;Pseudokirchneriella subcapitata;1;malaj;217;Daphnia magna;1;malaj;666;Pimephales promelas;1;malaj;85;Spicodiaptomus chelospinus;14;epa
+1861401;Benfluralin;NA;NA;NA;NA;NA;NA;1143;Daphnia magna;1;malaj;100;Pimephales promelas;1;malaj;1143;Daphnia magna;1;malaj
+18691979;methabenzthiazuron;NA;NA;20.9;Pseudokirchneriella subcapitata;4;epa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+187022113;Acetochlorsulfonsäure;117;NA;81270;Scenedesmus acutus;1;epa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+188425856;Boscalid;180;NA;1340;Pseudokirchneriella subcapitata;4;epa;5330;Daphnia magna;1;ppdb;2700;Oncorhynchus mykiss;1;ppdb;3810;Americamysis bahia;2;epa
+189278124;proquinazid;NA;NA;684;Pseudokirchneriella subcapitata;1;ppdb;287;Daphnia magna;1;ppdb;349;Oncorhynchus mykiss;1;ppdb;110;Americamysis bahia;2;ppdb
+1897456;Chlorthalonil;884;NA;0.95;Skeletonema costatum;18;epa;54;Daphnia magna;1;ppdb;16.3;Galaxias maculatus;43;epa;0.97;Dreissena polymorpha;52;epa
+19044883;Oryzalin;NA;NA;18100;Anabaena flos;1;ppdb;1020;Daphnia magna;1;ppdb;2860;Oncorhynchus mykiss;1;ppdb;190;Gammarus fasciatus;4;epa
+1910425;paraquat dichloride;NA;1910-42-5;0.55;Navicula pelliculosa;59;epa;3135;Daphnia similis;19;epa;6100;Rhamdia sapo;27;epa;0.017;Daphnia similis;35;epa
+1912249;Atrazin;142;NA;11;Scenedesmus acutus;189;epa;54000;Daphnia magna;1;malaj;1250;Barbodes carnaticus;80;epa;48;Neomysis integer;122;epa
+1918009;Dicamba;647;NA;1800;Skeletonema costatum;1;ppdb;110300;Daphnia magna;1;malaj;50000;Lepomis macrochirus;8;epa;3900;Gammarus lacustris;14;epa
+1918021;Picloram;923;NA;22700;Pseudokirchneriella subcapitata;3;epa;44200;Daphnia magna;1;ppdb;2700;Salvelinus namaycush;85;epa;2370;Americamysis bahia;12;epa
+1918134;Chlorthiamid;NA;NA;NA;NA;NA;NA;6343;Daphnia magna;1;malaj;NA;NA;NA;NA;6343;Daphnia magna;1;malaj
+1918167;Propachlor;767;NA;NA;NA;NA;NA;7350;Daphnia magna;6;epa;230;Ictalurus punctatus;6;epa;790;Chironomus plumosus;10;epa
+19666309;Oxadiazon;717;NA;56;Pseudokirchneriella subcapitata;1;epa;1980;Daphnia magna;4;epa;1200;Lepomis macrochirus;9;epa;270;Americamysis bahia;6;epa
+1982474;Chloroxuron;212;NA;NA;NA;NA;NA;2950;Daphnia magna;1;ppdb;450;Ictalurus punctatus;10;epa;2950;Daphnia magna;1;ppdb
+19937598;Metoxuron;426;NA;NA;NA;NA;NA;160000;Daphnia magna;1;epa;40000;Rasbora heteromorpha;3;epa;122000;Cyclops strenuus;2;epa
+2008584;2,6-Dichlorobenzamid;76;NA;1.00E+05;Chlorella pyrenoidosa;1;epa;180000;Daphnia magna;1;malaj;235000;Oncorhynchus mykiss;4;epa;180000;Daphnia magna;1;malaj
+2032657;methiocarb;NA;NA;2200;Scenedesmus subspicatus;1;ppdb;8;Daphnia magna;1;ppdb;51;Menidia menidia;16;epa;5.4;Pteronarcys californica;19;epa
+205939588;NA;NA;205939-58-8;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+206440;Fluoranthene;NA;NA;NA;NA;NA;NA;106;Daphnia magna;1;malaj;NA;NA;NA;NA;106;Daphnia magna;1;malaj
+208465218;Mesosulfuron-methyl;914;NA;210;Pseudokirchneriella subcapitata;4;epa;90200;Daphnia magna;1;epa;91500;Oncorhynchus mykiss;3;epa;90200;Daphnia magna;2;epa
+208968;Acenaphthylene;NA;NA;509;Pseudokirchneriella subcapitata;1;malaj;4204;Daphnia magna;1;malaj;NA;NA;NA;NA;4204;Daphnia magna;1;malaj
+210631688;Topramezone;942;NA;17200;Pseudokirchneriella subcapitata;3;epa;99000;Daphnia magna;2;epa;94600;Oncorhynchus mykiss;4;epa;2700;Americamysis bahia;3;epa
+21087649;Metribuzin;427;NA;15.6;Scenedesmus acutus;20;epa;49000;Daphnia magna;1;malaj;70385;Oncorhynchus mykiss;15;epa;14400;Pacifastacus leniusculus;10;epa
+210880925;Clothianidin;NA;NA;55000;Pseudokirchneriella subcapitata;1;ppdb;30461;Ceriodaphnia dubia;7;epa;500;Pimephales promelas;5;epa;1.85;Chironomus dilutus;20;epa
+2164081;Lenacil;NA;NA;7.7;Pseudokirchneriella subcapitata;1;malaj;8400;Daphnia magna;1;malaj;NA;NA;NA;NA;8400;Daphnia magna;1;malaj
+2164172;Fluometuron;813;NA;320;Pseudokirchneriella subcapitata;1;ppdb;54000;Daphnia magna;1;ppdb;11500;Ictalurus punctatus;27;epa;220;Chironomus plumosus;10;epa
+21725462;Cyanazin;233;NA;22;Pseudokirchneriella subcapitata;1;malaj;49000;Daphnia magna;1;malaj;4000;Galaxias maculatus;17;epa;2000;Gammarus fasciatus;12;epa
+219714962;Penoxsulam;922;NA;94;Pseudokirchneriella subcapitata;2;epa;98300;Daphnia magna;1;ppdb;101000;Cyprinus carpio;5;epa;90100;Daphnia magna;5;epa
+220899036;Metrafenon;716;NA;570;Skeletonema costatum;4;epa;92000;Daphnia magna;1;epa;650;Cyprinodon variegatus;4;epa;487;Americamysis bahia;2;epa
+22224926;fenamiphos;NA;NA;3800;Scenedesmus subspicatus;1;ppdb;1.1;Daphnia magna;1;ppdb;9.3;Oncorhynchus mykiss;1;ppdb;1.1;Daphnia magna;1;ppdb
+2303175;Triallat;771;NA;2.2;Pseudokirchneriella subcapitata;1;ppdb;91;Daphnia magna;1;ppdb;950;Oncorhynchus mykiss;1;ppdb;85.5;Daphnia magna;8;epa
+2310170;Phosalone;NA;NA;880;Pseudokirchneriella subcapitata;1;malaj;0.74;Daphnia magna;1;malaj;231;Pimephales promelas;1;malaj;0.74;Daphnia magna;1;malaj
+23103982;Pirimicarb;NA;NA;120000;Pseudokirchneriella subcapitata;1;epa;17;Daphnia magna;1;malaj;55000;Lepomis macrochirus;8;epa;16;Daphnia magna;18;epa
+2312358;propargite;NA;2312-35-8;19900;Anabaena flosaquae;7;epa;74;Daphnia magna;2;epa;31;Lepomis macrochirus;7;epa;74;Daphnia magna;3;epa
+23135220;Oxamyl;700;NA;930;Pseudokirchneriella subcapitata;1;ppdb;319;Daphnia magna;1;ppdb;8.3003;Pimephales promelas;14;epa;170;Chironomus plumosus;10;epa
+23564058;Thiophanat-methyl;810;NA;5755.4;Chlorella pyrenoidosa;3;epa;5400;Daphnia magna;1;ppdb;30;Ictalurus punctatus;9;epa;1100;Americamysis bahia;11;epa
+2385855;Mirex;430;NA;NA;NA;NA;NA;65;Daphnia magna;1;malaj;20000;Gambusia affinis;14;epa;40;Dineutus americanus;29;epa
+239110157;Fluopicolide;318;NA;51;Skeletonema costatum;5;epa;1700;Daphnia magna;1;epa;349;Oncorhynchus mykiss;6;epa;1700;Daphnia magna;2;epa
+23947606;ethirimol;NA;NA;24000;Pseudokirchneriella subcapitata;1;ppdb;50000;Daphnia magna;1;ppdb;60800;Oncorhynchus mykiss;1;ppdb;50000;Daphnia magna;1;ppdb
+23950585;Propyzamid;532;NA;287;Pseudokirchneriella subcapitata;1;epa;5600;Daphnia magna;1;malaj;7690;Cyprinodon variegatus;9;epa;3900;Americamysis bahia;4;epa
+24017478;Triazophos;601;NA;9100;Scenedesmus subspicatus;1;ppdb;2.6;Daphnia magna;1;ppdb;7;Cyprinus carpio;3;epa;2.6;Daphnia magna;1;ppdb
+24307264;mepiquat chloride;NA;24307-26-4;NA;NA;NA;NA;106000;Daphnia magna;2;epa;89000;Lepomis macrochirus;5;epa;106000;Daphnia magna;3;epa
+2439103;Dodin;896;NA;2.8;Pseudokirchneriella subcapitata;1;ppdb;18;Daphnia magna;1;ppdb;570;Oncorhynchus mykiss;1;ppdb;18;Daphnia magna;1;ppdb
+243973208;pinoxaden;NA;NA;1300;Skeletonema costatum;5;epa;2050;Daphnia magna;1;epa;2350;Oncorhynchus mykiss;5;epa;2050;Daphnia magna;3;epa
+24579735;Propamocarb;NA;NA;301000;Scenedesmus quadricauda;1;ppdb;106000;Daphnia magna;1;ppdb;92000;Lepomis macrochirus;2;epa;104700;Americamysis bahia;2;ppdb
+248593160;orysastrobin;NA;NA;7100;Pseudokirchneriella subcapitata;1;ppdb;1300;Daphnia magna;1;ppdb;890;Oncorhynchus mykiss;1;ppdb;1300;Daphnia magna;1;ppdb
+24934916;chlormephos;NA;24934-91-6;NA;NA;NA;NA;NA;NA;NA;NA;2500;Rasbora heteromorpha;1;epa;40;Echinogammarus tibaldii;1;epa
+25057890;Bentazon;153;NA;51;Pseudokirchneriella subcapitata;3;epa;125000;Daphnia magna;1;malaj;640;Aphanius fasciatus;5;epa;62300;Chironomus riparius;3;epa
+25311711;Isophenphos;1122;NA;NA;NA;NA;NA;4.3;Daphnia magna;5;epa;1700;Cyprinodon variegatus;11;epa;1.7;Americamysis bahia;6;epa
+2540821;Formothion;976;NA;NA;NA;NA;NA;NA;NA;NA;NA;165;Barbus ticto;6;epa;8560;Lymnaea acuminata;9;epa
+25606411;propamocarb hydrochloride;NA;25606-41-1;170000;Pseudokirchneriella subcapitata;2;epa;103400;Daphnia magna;2;epa;1.00E+05;Oncorhynchus mykiss;5;epa;50500;Americamysis bahia;3;epa
+2599113;Hydroxysimazine;NA;NA;36;Pseudokirchneriella subcapitata;1;malaj;165760;Daphnia magna;1;malaj;NA;NA;NA;NA;165760;Daphnia magna;1;malaj
+26002802;phenothrin;NA;26002-80-2;NA;NA;NA;NA;4.4;Daphnia magna;2;epa;1.4;Oncorhynchus mykiss;6;epa;0.025;Americamysis bahia;8;epa
+26172554;5-chloro-2-methyl-1,2-thiazol-3-one;NA;26172-55-4;21;Skeletonema costatum;2;epa;6920;Daphnia magna;4;epa;253;Oncorhynchus mykiss;8;epa;330;Americamysis bahia;5;epa
+26225796;Ethofumesat;300;NA;3900;Pseudokirchneriella subcapitata;1;malaj;14000;Daphnia magna;1;malaj;10920;Cyprinus carpio;1;ppdb;5300;Americamysis bahia;3;epa
+26259450;Secbumeton;1004;NA;73;Pseudokirchneriella subcapitata;1;malaj;NA;NA;NA;NA;18000;Oncorhynchus mykiss;3;epa;NA;NA;NA;NA
+2635101;methiocarb sulfoxide;NA;01.10.2635;2750;Scenedesmus subspicatus;1;ppdb;56;Daphnia magna;1;ppdb;6600;Oncorhynchus mykiss;1;ppdb;56;Daphnia magna;1;ppdb
+2642719;Azinphos-ethyl;145;NA;NA;NA;NA;NA;4;Daphnia pulex;4;epa;1.1;Lepomis macrochirus;2;epa;1.5;Pteronarcys californica;7;epa
+26530201;octhilinone;NA;26530-20-1;NA;NA;NA;NA;180;Daphnia magna;4;epa;57.75;Oncorhynchus mykiss;15;epa;71;Americamysis bahia;5;epa
+26644462;Triforin;745;NA;99000;Scenedesmus subspicatus;2;epa;25000;Daphnia magna;1;ppdb;16200;Oncorhynchus mykiss;6;epa;18850;Daphnia magna;5;epa
+2699798;sulfuryl fluoride;NA;NA;580;Pseudokirchneriella subcapitata;1;ppdb;620;Daphnia magna;1;ppdb;890;Danio rerio;1;ppdb;620;Daphnia magna;1;ppdb
+27314132;Norflurazon;991;NA;NA;NA;NA;NA;15000;Daphnia magna;1;epa;8100;Oncorhynchus mykiss;3;epa;5530;Americamysis bahia;2;epa
+2764729;Deiquat;890;NA;11;Pseudokirchneriella subcapitata;1;ppdb;1200;Daphnia magna;1;ppdb;14000;Pimephales promelas;4;epa;1200;Daphnia magna;1;ppdb
+2797515;quinoclamine;NA;NA;NA;NA;NA;NA;2150;Daphnia magna;1;ppdb;63;Unknown species;1;ppdb;1800;Semisulcospira libertina;4;epa
+28044839;NA;NA;28044-83-9;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+2814202;G 27550;NA;2814-20-2;NA;NA;NA;NA;NA;NA;NA;NA;1200000;Lepomis macrochirus;1;epa;NA;NA;NA;NA
+28159980;Irgarol;NA;NA;0.056;Ulnaria ulna;45;epa;2400;Daphnia magna;1;ppdb;750;Oncorhynchus mykiss;7;epa;400;Americamysis bahia;14;epa
+283594901;Spiromesifen;741;NA;94;Pseudokirchneriella subcapitata;1;epa;92.3;Daphnia magna;2;epa;34;Lepomis macrochirus;7;epa;76;Americamysis bahia;4;epa
+28434017;bioresmethrin;NA;28434-01-7;NA;NA;NA;NA;0.8;Daphnia magna;1;epa;0.62;Oncorhynchus mykiss;3;epa;0.8;Daphnia magna;1;epa
+2921882;Chlorpyrifos;213;NA;138;Isochrysis galbana;15;epa;0.1;Daphnia magna;1;malaj;0.1634;Aphanius fasciatus;212;epa;0.035;Daphnia ambigua;379;epa
+29232937;Pirimiphos-methyl;925;NA;1000;Pseudokirchneriella subcapitata;1;ppdb;0.21;Daphnia magna;1;ppdb;3.47;Oreochromis niloticus;10;epa;0.21;Daphnia magna;1;ppdb
+297789;Telodrin;1192;NA;NA;NA;NA;NA;8;Daphnia magna;1;malaj;2;Cyprinodon variegatus;1;ppdb;8;Daphnia magna;1;malaj
+298000;Parathion-methyl;488;NA;2900;Chlamydomonas reinhardtii;9;epa;7.3;Daphnia magna;1;malaj;5;Gambusia affinis;114;epa;0.172;Hyalella azteca;97;epa
+298044;Disulfoton;284;NA;11000;Scenedesmus subspicatus;1;epa;11;Daphnia magna;2;epa;37;Anguilla anguilla;34;epa;3.3;Daphnia magna;32;epa
+301122;Oxydemeton-methyl;480;NA;1.00E+05;Scenedesmus subspicatus;1;epa;110;Daphnia magna;1;ppdb;5180;Oncorhynchus mykiss;10;epa;11;Chironomus riparius;2;ppdb
+30125634;Desethylterbuthylazine;NA;NA;11;Pseudokirchneriella subcapitata;1;malaj;42000;Daphnia magna;1;malaj;NA;NA;NA;NA;42000;Daphnia magna;1;malaj
+3060897;metobromuron;NA;NA;630;Scenedesmus subspicatus;1;ppdb;44100;Daphnia magna;1;ppdb;40000;Ameiurus melas;9;epa;44100;Daphnia magna;1;ppdb
+309002;Aldrin;123;NA;74;Pseudokirchneriella subcapitata;1;malaj;28;Daphnia magna;1;malaj;1.52;Clarias batrachus;69;epa;0.74;Palaemon macrodactylus;56;epa
+31218834;Propetamphos;770;NA;9500;Scenedesmus subspicatus;1;epa;6.2;Daphnia magna;3;epa;280;Lepomis macrochirus;6;epa;1.7;Daphnia magna;8;epa
+314409;Bromacil;181;NA;7;Pseudokirchneriella subcapitata;1;malaj;121000;Daphnia magna;1;malaj;36000;Oncorhynchus mykiss;8;epa;65000;Ceriodaphnia dubia;4;epa
+31508006;PCB118;NA;NA;NA;NA;NA;NA;10;Daphnia magna;1;malaj;9;Pimephales promelas;1;malaj;10;Daphnia magna;1;malaj
+317815831;Thiencarbazon-methyl;837;NA;298;Pseudokirchneriella subcapitata;4;epa;98600;Daphnia magna;2;epa;104000;Oncorhynchus mykiss;3;epa;94000;Americamysis bahia;3;epa
+319846;Alpha-HCH;NA;NA;NA;NA;NA;NA;370;Daphnia magna;1;malaj;82;Pimephales promelas;1;malaj;370;Daphnia magna;1;malaj
+319857;BETA-HEXACHLOROCYCLOHEXANE;NA;319-85-7;NA;NA;NA;NA;1084;Daphnia magna;1;malaj;82;Pimephales promelas;1;malaj;1084;Daphnia magna;1;malaj
+319868;Delta-HCH;NA;NA;NA;NA;NA;NA;1084;Daphnia magna;1;malaj;82;Pimephales promelas;1;malaj;1084;Daphnia magna;1;malaj
+32598133;PCB77;NA;NA;NA;NA;NA;NA;2;Daphnia magna;1;malaj;2;Pimephales promelas;1;malaj;2;Daphnia magna;1;malaj
+32598144;PCB105 (2,3,3',4,4'-pentachlorobiphenyl);NA;NA;NA;NA;NA;NA;10;Daphnia magna;1;malaj;8.9;Pimephales promelas;1;malaj;10;Daphnia magna;1;malaj
+32774166;PCB169;NA;NA;NA;NA;NA;NA;5;Daphnia magna;1;malaj;0.6;Pimephales promelas;1;malaj;5;Daphnia magna;1;malaj
+32809168;procymidone;NA;NA;566;Pseudokirchneriella subcapitata;3;epa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+330541;Diuron;285;NA;0.7;Pseudokirchneriella subcapitata;56;epa;5700;Daphnia magna;1;malaj;1900;Oncorhynchus clarkii;77;epa;160;Gammarus fasciatus;34;epa
+330552;Linuron;390;NA;14.8;Scenedesmus acutus;8;epa;477;Daphnia magna;1;malaj;890;Cyprinodon variegatus;9;epa;270;Daphnia magna;9;epa
+33213659;Endosulfan, beta;291;NA;NA;NA;NA;NA;862.5;Daphnia carinata;2;epa;3.3;Oncorhynchus mykiss;4;epa;2.3;Jappa kutera;5;epa
+33245395;fluchloralin;NA;NA;NA;NA;NA;NA;560;Daphnia magna;1;ppdb;0.5129;Noemacheilus denisonii;13;epa;5.6;Chironomus plumosus;6;epa
+333415;Diazinon;257;NA;742;Chlorella vulgaris;8;epa;1;Daphnia magna;1;ppdb;0.151;Aphanius fasciatus;149;epa;0.07;Chironomus tentans;184;epa
+3337711;asulam;NA;3337-71-1;NA;NA;NA;NA;27000;Daphnia magna;3;epa;3.00E+06;Lepomis macrochirus;11;epa;2310;Daphnia magna;6;epa
+3347226;Dithianon;895;NA;90;Pseudokirchneriella subcapitata;1;ppdb;260;Daphnia magna;1;ppdb;70;Oncorhynchus mykiss;1;ppdb;260;Daphnia magna;1;ppdb
+335104842;tembotrione;NA;NA;310;Pseudokirchneriella subcapitata;2;epa;48900;Daphnia magna;1;epa;1.00E+05;Cyprinodon variegatus;2;epa;100;Americamysis bahia;2;epa
+33629479;butralin;NA;33629-47-9;NA;NA;NA;NA;1000;Daphnia magna;1;epa;180;Cyprinodon variegatus;3;epa;70;Americamysis bahia;2;epa
+33693048;Terbumeton;1193;NA;26;Pseudokirchneriella subcapitata;2;epa;40000;Daphnia magna;1;malaj;10000;Ameiurus melas;6;epa;40000;Daphnia magna;1;malaj
+3380345;5-CHLORO-2-(2,4-DICHLOROPHENOXY)PHENOL;NA;3380-34-5;0.7;Scenedesmus subspicatus;11;epa;265;Ceriodaphnia dubia;13;epa;260;Pimephales promelas;11;epa;74.3;Americamysis bahia;16;epa
+34123574;desmethylisoproturon;NA;NA;52;Navicula pelliculosa;1;ppdb;16000;Daphnia magna;1;ppdb;32000;Oncorhynchus mykiss;1;ppdb;16000;Daphnia magna;1;ppdb
+34123596;Isoproturon;NA;NA;5;Chlorella pyrenoidosa;42;epa;580;Daphnia magna;1;malaj;NA;NA;NA;NA;580;Daphnia magna;1;malaj
+3424826;DDE, o,p';NA;NA;NA;NA;NA;NA;19;Daphnia magna;1;malaj;NA;NA;NA;NA;19;Daphnia magna;1;malaj
+34256821;Acetochlor;115;NA;0.27;Pseudokirchneriella subcapitata;1;ppdb;8600;Daphnia magna;1;malaj;360;Oncorhynchus mykiss;1;ppdb;2200;Americamysis bahia;5;epa
+348635870;amisulbrom;NA;NA;200;Pseudokirchneriella subcapitata;1;ppdb;37;Daphnia magna;1;ppdb;51.5;Oncorhynchus mykiss;1;ppdb;37;Daphnia magna;1;ppdb
+35065271;PCB153 (2,2',4,4',5,5'-hexachlorobiphenyl);NA;NA;NA;NA;NA;NA;1.3;Daphnia magna;1;malaj;1;Pimephales promelas;1;malaj;1.3;Daphnia magna;1;malaj
+35065282;PCB138 (2,2',3,4,4',5'-hexachlorobiphenyl);NA;NA;NA;NA;NA;NA;6;Daphnia magna;1;malaj;0.6;Pimephales promelas;1;malaj;6;Daphnia magna;1;malaj
+35065293;PCB180 (2,2',3,4,4',5,5'-heptachlorobiphenyl);NA;NA;NA;NA;NA;NA;2;Daphnia magna;1;malaj;0.5;Pimephales promelas;1;malaj;2;Daphnia magna;1;malaj
+35367385;Diflubenzuron;686;NA;190;Pseudokirchneriella subcapitata;2;epa;2.6;Daphnia magna;1;ppdb;13;Cyprinodon variegatus;62;epa;0.37;Artemia salina;65;epa
+35554440;imazalil;NA;NA;730;Pseudokirchneriella subcapitata;1;epa;3500;Daphnia magna;1;ppdb;1480;Oncorhynchus mykiss;1;ppdb;3500;Daphnia magna;1;ppdb
+35693993;PCB52 (2,2',5,5'-tetrachlorobiphenyl);NA;NA;NA;NA;NA;NA;30;Daphnia magna;1;malaj;30;Pimephales promelas;1;malaj;30;Daphnia magna;1;malaj
+35694087;PCB194;NA;NA;NA;NA;NA;NA;0.2;Daphnia magna;1;malaj;0.2;Pimephales promelas;1;malaj;0.2;Daphnia magna;1;malaj
+361377299;Fluoxastrobin;323;NA;260;Pseudokirchneriella subcapitata;1;epa;480;Daphnia magna;1;ppdb;435;Oncorhynchus mykiss;1;ppdb;51.6;Americamysis bahia;9;epa
+36734197;Iprodion;673;NA;1800;Pseudokirchneriella subcapitata;1;ppdb;660;Daphnia magna;1;ppdb;3060;Ictalurus punctatus;7;epa;430;Daphnia magna;8;epa
+3691358;chlorophacinone;NA;3691-35-8;NA;NA;NA;NA;426;Daphnia magna;2;epa;252;Oncorhynchus mykiss;4;epa;426;Daphnia magna;2;epa
+372137354;Saflufenacil;859;NA;42;Pseudokirchneriella subcapitata;4;epa;98200;Daphnia magna;1;epa;98000;Cyprinodon variegatus;3;epa;8500;Americamysis bahia;2;epa
+374726622;Mandipropamid;715;NA;2500;Pseudokirchneriella subcapitata;1;epa;7100;Daphnia magna;1;ppdb;4400;Oncorhynchus mykiss;3;epa;1700;Americamysis bahia;2;epa
+37680732;PCB101 (2,2',4,5,5'-pentachlorobiphenyl);NA;NA;NA;NA;NA;NA;10;Daphnia magna;1;malaj;10;Pimephales promelas;1;malaj;10;Daphnia magna;1;malaj
+380412599;NA;NA;380412-59-9;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+38260547;Etrimfos;306;NA;7300;Scenedesmus subspicatus;1;epa;2.2;Daphnia magna;1;epa;6000;Leuciscus idus;1;epa;1.1;Aedes aegypti;6;epa
+38380084;PCB156 (2,3,3',4,4',5-hexachlorobiphenyl);NA;NA;NA;NA;NA;NA;7;Daphnia magna;1;malaj;0.6;Pimephales promelas;1;malaj;7;Daphnia magna;1;malaj
+3878191;fuberidazole;NA;NA;1400;Pseudokirchneriella subcapitata;1;ppdb;4700;Daphnia magna;1;ppdb;910;Oncorhynchus mykiss;1;ppdb;4700;Daphnia magna;1;ppdb
+39148248;fosetyl-aluminium;NA;39148-24-8;1518.4;Chlorella vulgaris;9;epa;304000;Daphnia magna;1;epa;75800;Oncorhynchus mykiss;5;epa;3600;Palaemonetes pugio;3;epa
+39300453;dinocap;NA;39300-45-3;NA;NA;NA;NA;4.2;Daphnia magna;1;epa;19;Oncorhynchus mykiss;9;epa;4.2;Daphnia magna;6;epa
+39515407;cyphenothrin;NA;39515-40-7;NA;NA;NA;NA;0.43;Daphnia magna;1;ppdb;0.34;Oncorhynchus mykiss;1;ppdb;0.43;Daphnia magna;1;ppdb
+39515418;fenpropathrin;NA;39515-41-8;NA;NA;NA;NA;0.53;Daphnia magna;1;ppdb;2.2;Lepomis macrochirus;10;epa;0.021;Americamysis bahia;5;epa
+400852666;Mesosulfuron;824;NA;1610;Scenedesmus acutus;2;epa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+40487421;Pendimethalin;498;NA;4;Pseudokirchneriella subcapitata;1;ppdb;280;Daphnia magna;1;malaj;196;Oncorhynchus mykiss;1;ppdb;147;Daphnia magna;1;ppdb
+40843252;diclofop;NA;NA;687;Chlorella pyrenoidosa;1;epa;48000;Daphnia magna;1;ppdb;NA;NA;NA;NA;48000;Daphnia magna;1;ppdb
+41318756;PBDE28;NA;NA;NA;NA;NA;NA;248;Daphnia magna;1;malaj;NA;NA;NA;NA;248;Daphnia magna;1;malaj
+41394052;Metamitron;406;NA;400;Pseudokirchneriella subcapitata;1;ppdb;97000;Daphnia magna;1;malaj;NA;NA;NA;NA;5700;Daphnia magna;1;ppdb
+422556089;Pyroxsulam;864;NA;111;Pseudokirchneriella subcapitata;1;epa;1.00E+05;Daphnia magna;1;epa;94400;Pimephales promelas;2;epa;1.00E+05;Daphnia magna;1;epa
+42576023;bifenox;NA;NA;0.18;Scenedesmus subspicatus;1;ppdb;660;Daphnia magna;1;ppdb;180;Oncorhynchus mykiss;6;epa;42;Americamysis bahia;2;epa
+42874033;oxyfluorfen;NA;42874-03-3;0.08;Pseudokirchneriella subcapitata;12;epa;80;Daphnia magna;2;epa;170;Cyprinodon variegatus;6;epa;32;Palaemonetes pugio;4;epa
+43121433;Triadimefon;749;NA;910;Pseudokirchneriella subcapitata;2;epa;7160;Daphnia magna;1;ppdb;4080;Oncorhynchus mykiss;1;ppdb;7160;Daphnia magna;1;ppdb
+465736;Isodrin;NA;NA;74;Pseudokirchneriella subcapitata;1;malaj;69;Daphnia magna;1;malaj;NA;NA;NA;NA;69;Daphnia magna;1;malaj
+4658280;Aziprotryn;960;NA;NA;NA;NA;NA;26000;Daphnia magna;1;epa;NA;NA;NA;NA;26000;Daphnia magna;1;epa
+470906;Chlorfenvinphos;206;NA;1360;Scenedesmus subspicatus;1;ppdb;0.25;Daphnia magna;1;malaj;23;Lepomis macrochirus;7;epa;0.25;Daphnia magna;1;malaj
+4901513;2,3,4,5-tetrachlorophenol;NA;NA;877;Pseudokirchneriella subcapitata;1;malaj;1760;Daphnia magna;1;malaj;410;Pimephales promelas;1;malaj;1760;Daphnia magna;1;malaj
+50000;Formaldehyde;NA;NA;4249;Pseudokirchneriella subcapitata;1;malaj;19200;Daphnia magna;1;malaj;24100;Pimephales promelas;1;malaj;19200;Daphnia magna;1;malaj
+500008457;Chlorantraniliprole;817;NA;1780;Pseudokirchneriella subcapitata;1;epa;11.6;Daphnia magna;1;ppdb;1640;Lepomis macrochirus;8;epa;11.3;Daphnia magna;12;epa
+50293;p,p-DDT;485;NA;NA;NA;NA;NA;5;Daphnia magna;1;malaj;0.4;Menidia menidia;281;epa;0.17;Hyalella azteca;204;epa
+50328;Benzo(a)pyrene;NA;NA;15;Pseudokirchneriella subcapitata;1;malaj;1.8;Daphnia magna;1;malaj;6;Pimephales promelas;1;malaj;1.8;Daphnia magna;1;malaj
+50471448;Vinclozolin;671;NA;NA;NA;NA;NA;3650;Daphnia magna;1;ppdb;2840;Oncorhynchus mykiss;1;ppdb;1800;Americamysis bahia;6;epa
+50563365;dimethachlor;NA;NA;6.5;Pseudokirchneriella subcapitata;1;ppdb;24000;Daphnia magna;1;ppdb;3900;Oncorhynchus mykiss;1;ppdb;24000;Daphnia magna;1;ppdb
+50594666;Acifluorfen;678;NA;NA;NA;NA;NA;20027;Daphnia magna;1;epa;83000;Pimephales promelas;1;epa;20027;Daphnia magna;1;epa
+51036;piperonyl butoxide;NA;51-03-6;NA;NA;NA;NA;510;Daphnia magna;1;ppdb;2820;Oncorhynchus mykiss;21;epa;490;Americamysis bahia;16;epa
+5103719;cis-Chlordan;755;NA;NA;NA;NA;NA;NA;NA;NA;NA;7.09;Lepomis macrochirus;2;epa;NA;NA;NA;NA
+5103742;trans-Chlordan;597;NA;NA;NA;NA;NA;NA;NA;NA;NA;50.5;Lepomis macrochirus;2;epa;NA;NA;NA;NA
+51218452;Metolachlor;422;NA;38;Pseudokirchneriella subcapitata;1;malaj;15595;Daphnia magna;1;malaj;3900;Oncorhynchus mykiss;1;ppdb;1100;Ceriodaphnia dubia;12;epa
+51235042;Hexazinon;362;NA;0.001;Gomphonema sp.;14;epa;85000;Daphnia magna;1;malaj;1.00E+05;Salvelinus fontinalis;28;epa;550;Ceriodaphnia dubia;9;epa
+51276472;Glufosinat;348;NA;1023;Chlorella vulgaris;6;epa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+51338273;diclofop-methyl;NA;51338-27-3;NA;NA;NA;NA;800;Daphnia magna;4;epa;300;Lepomis macrochirus;18;epa;800;Daphnia magna;4;epa
+51596113;Milbemectin;919;NA;NA;NA;NA;NA;10;Daphnia magna;2;epa;4.5;Oncorhynchus mykiss;5;epa;0.27;Americamysis bahia;3;epa
+52315078;Cypermetryn;237;NA;112450;Scenedesmus acutus;3;epa;0.21;Daphnia magna;1;ppdb;0.4;Scardinius erythrophthalmus;83;epa;6.00E-04;Daphnia magna;102;epa
+5234684;Carboxin;816;NA;2550;Chlorella pyrenoidosa;1;epa;57000;Daphnia magna;2;epa;3400;Oncorhynchus mykiss;9;epa;57000;Daphnia magna;2;epa
+52645531;Permethrin;1195;NA;82;Skeletonema costatum;4;epa;0.6;Daphnia magna;1;malaj;1.2;Acipenser brevirostrum;179;epa;0.02;Hyalella azteca;194;epa
+526750;2,3-dimethyl-phenol;NA;NA;10215;Pseudokirchneriella subcapitata;1;malaj;22500;Daphnia magna;1;malaj;18457;Pimephales promelas;1;malaj;22500;Daphnia magna;1;malaj
+52686;Trichlorfon;608;NA;50000;Isochrysis galbana;6;epa;0.29;Daphnia pulex;12;epa;84;Piaractus mesopotamicus;290;epa;0.01;Daphnia carinata;140;epa
+52888809;Prosulfocarb;NA;NA;49;Pseudokirchneriella subcapitata;1;ppdb;510;Daphnia magna;1;ppdb;840;Oncorhynchus mykiss;1;ppdb;510;Daphnia magna;1;ppdb
+52918635;Deltamethrin;648;NA;2560;Scenedesmus subspicatus;1;epa;0.56;Daphnia magna;1;ppdb;0.121;Danio rerio;71;epa;0.0037;Americamysis bahia;98;epa
+53112280;Pyrimethanil;536;NA;1200;Pseudokirchneriella subcapitata;1;ppdb;2900;Daphnia magna;1;ppdb;2800;Cyprinodon variegatus;4;epa;2900;Daphnia magna;1;ppdb
+53190;DDD, o,p;NA;NA;NA;NA;NA;NA;9;Daphnia magna;1;malaj;NA;NA;NA;NA;9;Daphnia magna;1;malaj
+534521;4,6-Dinitro-o-Cresol;109;NA;3400;Scenedesmus subspicatus;3;epa;3200;Daphnia magna;1;malaj;66;Oncorhynchus mykiss;10;epa;145;Daphnia pulex;15;epa
+541731;1,3-dichlorobenzene;NA;NA;4509;Pseudokirchneriella subcapitata;1;malaj;9733;Daphnia magna;1;malaj;8030;Pimephales promelas;1;malaj;9733;Daphnia magna;1;malaj
+542756;1,3-Dichlorpropen;809;NA;1000;Skeletonema costatum;10;epa;3580;Daphnia magna;1;ppdb;870;Cyprinodon variegatus;20;epa;745;Americamysis bahia;19;epa
+54406483;empenthrin;NA;54406-48-3;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+55179312;bitertanol;NA;55179-31-2;NA;NA;NA;NA;4700;Daphnia magna;2;epa;2100;Lepomis macrochirus;2;epa;4700;Daphnia magna;2;epa
+55219653;Triadimenol;600;NA;3200;Scenedesmus subspicatus;1;epa;51000;Daphnia magna;1;ppdb;14000;Oncorhynchus mykiss;5;epa;2500;Daphnia magna;1;epa
+55285148;carbosulfan;NA;55285-14-8;NA;NA;NA;NA;NA;NA;NA;NA;122;Poecilia reticulata;4;epa;1.49;Cheumatopsyche brevilineata;1;epa
+55335063;Triclopyr;792;NA;NA;NA;NA;NA;132900;Daphnia magna;2;epa;1300;Oncorhynchus kisutch;12;epa;132900;Daphnia magna;3;epa
+55389;Fenthion;314;NA;1049;Pseudokirchneriella subcapitata;3;epa;1.39;Simocephalus serrulatus;12;epa;453;Morone saxatilis;56;epa;0.001;Moina sp.;86;epa
+55512339;Pyridat;933;NA;NA;NA;NA;NA;490;Daphnia magna;1;ppdb;300;Cyprinodon variegatus;3;epa;490;Daphnia magna;1;ppdb
+55814410;Mepronil;736;NA;NA;NA;NA;NA;10000;Daphnia magna;1;epa;10000;Oncorhynchus mykiss;1;epa;10000;Daphnia magna;1;epa
+5598130;Chlorpyriphos methyl;1206;NA;NA;NA;NA;NA;0.6;Daphnia magna;1;ppdb;100;Salvelinus fontinalis;13;epa;0.6;Daphnia magna;1;ppdb
+56073075;difenacoum;NA;56073-07-5;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+56235;Tetrachloromethane;NA;NA;NA;NA;NA;NA;29400;Daphnia magna;1;malaj;43000;Pimephales promelas;1;malaj;29400;Daphnia magna;1;malaj
+56382;Parathion-ethyl;487;NA;927;Pseudokirchneriella subcapitata;3;epa;2.5;Daphnia magna;1;malaj;1.96;Aphanius fasciatus;91;epa;0.04;Orconectes nais;155;epa
+56507370;NA;NA;56507-37-0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+56553;Benzo(a)anthracene;NA;NA;NA;NA;NA;NA;72;Daphnia magna;1;malaj;NA;NA;NA;NA;72;Daphnia magna;1;malaj
+56573854;Tributyltin;NA;NA;3;Pseudokirchneriella subcapitata;1;malaj;4;Daphnia magna;1;malaj;4;Pimephales promelas;1;malaj;4;Daphnia magna;1;malaj
+56724;Coumaphos;232;NA;NA;NA;NA;NA;0.146;Simocephalus serrulatus;2;epa;180;Lepomis macrochirus;26;epa;0.074;Gammarus lacustris;8;epa
+57018049;tolclofos-methyl;NA;NA;780;Scenedesmus subspicatus;1;ppdb;48000;Daphnia magna;1;ppdb;690;Oncorhynchus mykiss;1;ppdb;48000;Daphnia magna;1;ppdb
+57125;Cyanides (as total CN);NA;NA;NA;NA;NA;NA;517;Daphnia magna;1;malaj;155;Pimephales promelas;1;malaj;517;Daphnia magna;1;malaj
+57465288;3,3',4,4',5 pentachlorobiphenyl (CB126);NA;NA;NA;NA;NA;NA;10;Daphnia magna;1;malaj;8.9;Pimephales promelas;1;malaj;10;Daphnia magna;1;malaj
+57749;Chlordan;203;NA;362;Pseudokirchneriella subcapitata;1;epa;98.4;Daphnia magna;1;malaj;2.9;Cyprinus carpio;25;epa;5.8;Chironomus tentans;15;epa
+57837191;Metalaxyl;NA;NA;420;Scenedesmus subspicatus;1;ppdb;3470;Daphnia magna;1;ppdb;960;Oncorhynchus mykiss;1;ppdb;1500;Americamysis bahia;9;epa
+57960197;Acequinocyl;871;NA;960;Pseudokirchneriella subcapitata;2;epa;3.9;Daphnia magna;1;ppdb;190;Cyprinodon variegatus;7;epa;0.93;Americamysis bahia;2;ppdb
+57966957;Cymoxanil;888;NA;254;Anabaena flos;1;ppdb;27000;Daphnia magna;1;ppdb;30;Oncorhynchus mykiss;5;epa;800;Daphnia magna;4;epa
+581809463;Bixafen;880;NA;97;Pseudokirchneriella subcapitata;1;ppdb;1200;Daphnia magna;1;ppdb;95;Oncorhynchus mykiss;1;ppdb;1200;Daphnia magna;1;ppdb
+584792;allethrin;NA;584-79-2;NA;NA;NA;NA;38.5;Daphnia pulex;2;epa;3.3;Esox lucius;50;epa;2.1;Pteronarcys californica;14;epa
+58810483;ofurace;NA;58810-48-3;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+58899;HCH, gamma (Lindan);355;NA;1620;Chlamydomonas reinhardtii;7;epa;1600;Daphnia magna;1;ppdb;0.25;Gobius sp.;166;epa;1;Cypris subglobosa;171;epa
+58902;2,3,4,6-tetrachlorophenol;NA;NA;1300;Pseudokirchneriella subcapitata;1;malaj;175;Daphnia magna;1;malaj;1030;Pimephales promelas;1;malaj;175;Daphnia magna;1;malaj
+5915413;Terbuthylazin;581;NA;12;Pseudokirchneriella subcapitata;1;malaj;13100;Daphnia magna;1;malaj;1600;Poecilia reticulata;8;epa;109;Americamysis bahia;4;epa
+59507;3-methyl-4-chlorophenol;NA;NA;25157;Pseudokirchneriella subcapitata;1;malaj;2000;Daphnia magna;1;malaj;7380;Pimephales promelas;1;malaj;2000;Daphnia magna;1;malaj
+59669260;thiodicarb;NA;59669-26-0;455.5;Skeletonema costatum;5;epa;27;Daphnia magna;2;epa;510;Cyprinodon variegatus;10;epa;27;Daphnia magna;9;epa
+60004;EDTA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;59800;Pimephales promelas;1;malaj;NA;NA;NA;NA
+60168889;fenarimol;NA;NA;1480;Unknown species;1;ppdb;6800;Daphnia magna;1;ppdb;3100;Oncorhynchus mykiss;7;epa;3.46;Paratya australiensis;10;epa
+60207901;Propiconazol;528;NA;0.8;Chlamydomonas noctigama;14;epa;10200;Daphnia magna;1;malaj;1000;Ictalurus punctatus;22;epa;180;Daphnia magna;22;epa
+60397775;NA;NA;60397-77-5;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+60515;Dimethoat;279;NA;5500;Chlamydomonas noctigama;17;epa;2000;Daphnia magna;1;malaj;60;Danio rerio;61;epa;1.29;Chironomus dilutus;81;epa
+60571;Dieldrin;267;NA;100;Chlorella pyrenoidosa;1;ppdb;250;Daphnia magna;1;malaj;0.9;Anguilla rostrata;131;epa;0.24;Chlamydotheca arcuata;72;epa
+608731;HCH gesamt;642;NA;NA;NA;NA;NA;1084;Daphnia magna;1;malaj;9;Oncorhynchus clarkii;30;epa;6.1;Macrobrachium lamarrei;9;epa
+608935;Pentachlorobenzene;NA;NA;6600;Pseudokirchneriella subcapitata;1;malaj;1327;Daphnia magna;1;malaj;306;Pimephales promelas;1;malaj;1327;Daphnia magna;1;malaj
+61081007;gamma-HCH (Lindane);NA;NA;NA;NA;NA;NA;1600;Daphnia magna;1;malaj;82;Pimephales promelas;1;malaj;1600;Daphnia magna;1;malaj
+61213250;flurochloridone;NA;NA;4.7;Scenedesmus subspicatus;1;ppdb;5100;Daphnia magna;1;ppdb;3000;Oncorhynchus mykiss;1;ppdb;5100;Daphnia magna;1;ppdb
+61825;amitrole;NA;61-82-5;18000;Pseudokirchneriella subcapitata;2;epa;14750;Daphnia magna;4;epa;1.00E+05;Pimephales promelas;18;epa;2800;Americamysis bahia;14;epa
+6190654;Desethylatrazin;247;NA;2000;Pseudokirchneriella subcapitata;1;malaj;76529;Daphnia magna;1;malaj;NA;NA;NA;NA;2800;Gammarus pulex;6;epa
+62737;Dichlorvos;264;NA;14;Isochrysis galbana;5;epa;0.19;Daphnia magna;1;malaj;6.411;Misgurnus anguillicaudatus;90;epa;0.066;Daphnia pulex;136;epa
+640153;Thiometon;656;NA;8400;Scenedesmus subspicatus;1;epa;74;Daphnia magna;1;epa;640;Cirrhinus mrigala;8;epa;42;Daphnia magna;10;epa
+64628440;Triflumuron;698;NA;NA;NA;NA;NA;1.6;Daphnia magna;1;ppdb;NA;NA;NA;NA;0.21;Streptocephalus sudanicus;1;epa
+64700567;Triclopyr-2-butoxyethyl;943;NA;NA;NA;NA;NA;970;Ceriodaphnia dubia;5;epa;300;Oncorhynchus keta;32;epa;240;Ceriodaphnia dubia;14;epa
+64902723;Chlorsulfuron;968;NA;67;Pseudokirchneriella subcapitata;16;epa;370000;Daphnia magna;1;epa;38000;Salmo trutta;7;epa;89000;Americamysis bahia;2;epa
+65731842;beta-cypermethrin;NA;NA;NA;NA;NA;NA;0.42;Daphnia magna;1;ppdb;0.39;Oncorhynchus mykiss;1;ppdb;0.0059;Americamysis bahia;2;ppdb
+658066354;Fluopyram;NA;NA;1130;Skeletonema costatum;5;epa;17000;Daphnia magna;2;epa;980;Cyprinodon variegatus;6;epa;510;Americamysis bahia;3;epa
+66063056;Pencycuron;497;NA;NA;NA;NA;NA;10000;Daphnia magna;1;epa;500;Oncorhynchus mykiss;2;epa;10000;Daphnia magna;1;epa
+66215278;cyromazine;NA;NA;NA;NA;NA;NA;10700;Daphnia magna;3;epa;87900;Oncorhynchus mykiss;3;epa;10700;Daphnia magna;5;epa
+66230044;esfenvalerate;NA;NA;6.5;Pseudokirchneriella subcapitata;1;ppdb;0.27;Daphnia magna;1;ppdb;0.07;Oncorhynchus mykiss;25;epa;0.01;Alona sp.;66;epa
+66246886;penconazole;NA;NA;4900;Pseudokirchneriella subcapitata;1;ppdb;6750;Daphnia magna;1;ppdb;1130;Oncorhynchus mykiss;1;ppdb;6750;Daphnia magna;1;ppdb
+66332965;Flutolanil;839;NA;NA;NA;NA;NA;6800;Daphnia magna;2;epa;4800;Pimephales promelas;8;epa;130;Americamysis bahia;13;epa
+66753079;NA;NA;66753-07-9;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+67129082;Metazachlor;407;NA;16;Pseudokirchneriella subcapitata;1;malaj;33000;Daphnia magna;1;malaj;8500;Oncorhynchus mykiss;1;ppdb;33000;Daphnia magna;1;malaj
+67306007;Fenpropidin;312;NA;5.7;Scenedesmus subspicatus;1;ppdb;540;Daphnia magna;1;ppdb;1900;Lepomis macrochirus;1;ppdb;540;Daphnia magna;1;ppdb
+67375308;alpha-Cypermethrin;872;NA;84;Pseudokirchneriella subcapitata;1;ppdb;0.22;Daphnia magna;1;ppdb;0.17;Danio rerio;22;epa;0.013;Chironomus riparius;2;ppdb
+67481;choline chloride;NA;67-48-1;NA;NA;NA;NA;320000;Daphnia magna;1;epa;NA;NA;NA;NA;320000;Daphnia magna;3;epa
+67564914;Fenpropimorph;NA;NA;327;Pseudokirchneriella subcapitata;1;malaj;2240;Daphnia magna;1;malaj;2110;Lepomis macrochirus;2;epa;2240;Daphnia magna;1;malaj
+676228914;NA;NA;676228-91-4;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+67663;Trichloromethane;NA;NA;NA;NA;NA;NA;228967;Daphnia magna;1;malaj;70700;Pimephales promelas;1;malaj;228967;Daphnia magna;1;malaj
+67747095;Prochloraz;523;NA;NA;NA;NA;NA;4300;Daphnia magna;1;ppdb;1500;Oncorhynchus mykiss;1;ppdb;770;Americamysis bahia;2;ppdb
+68359375;Cyfluthrin (Summe Isomere);650;NA;2366.3;Scenedesmus quadricauda;7;epa;0.16;Daphnia magna;1;ppdb;0.209;Oncorhynchus mykiss;17;epa;0.0013;Hyalella azteca;61;epa
+69377817;Fluroxypyr;326;NA;3044;Chlorella pyrenoidosa;7;epa;1.00E+05;Daphnia magna;1;epa;14300;Lepomis macrochirus;4;epa;1.00E+05;Daphnia magna;2;epa
+69782907;2,3,3',4,4',5'-hexachlorobiphenyl (CB157);NA;NA;NA;NA;NA;NA;7;Daphnia magna;1;malaj;0.6;Pimephales promelas;1;malaj;7;Daphnia magna;1;malaj
+69806344;Haloxyfop;350;NA;106000;Scenedesmus subspicatus;1;epa;NA;NA;NA;NA;383000;Menidia menidia;4;epa;NA;NA;NA;NA
+69806402;haloxyfop-methyl;NA;69806-40-2;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+69806504;Fluazifop-butyl;768;NA;NA;NA;NA;NA;281200;Daphnia magna;7;epa;370;Pimephales promelas;8;epa;216;Americamysis bahia;8;epa
+7012375;PCB28 (2,4,4'-trichlorobiphenyl);NA;NA;120;Pseudokirchneriella subcapitata;1;malaj;160;Daphnia magna;1;malaj;74;Pimephales promelas;1;malaj;160;Daphnia magna;1;malaj
+70304;Hexachlorophen;866;NA;NA;NA;NA;NA;NA;NA;NA;NA;21;Pimephales promelas;4;epa;NA;NA;NA;NA
+70630170;metalaxyl-M;NA;NA;NA;NA;NA;NA;28000;Daphnia magna;1;malaj;121000;Oncorhynchus mykiss;2;epa;28000;Daphnia magna;1;malaj
+709988;Propanil;526;NA;12;Pseudokirchneriella subcapitata;15;epa;2390;Daphnia magna;1;ppdb;1800;Danio rerio;19;epa;400;Americamysis bahia;43;epa
+71283802;Fenoxaprop-p-ethyl;898;NA;730;Anabaena flosaquae;3;epa;NA;NA;NA;NA;460;Oncorhynchus mykiss;3;epa;110;Americamysis bahia;1;epa
+71432;Benzene;NA;NA;35000;Pseudokirchneriella subcapitata;1;malaj;31277;Daphnia magna;1;malaj;24600;Pimephales promelas;1;malaj;31277;Daphnia magna;1;malaj
+71556;1,1,1-trichloroethane;NA;NA;NA;NA;NA;NA;11200;Daphnia magna;1;malaj;52900;Pimephales promelas;1;malaj;11200;Daphnia magna;1;malaj
+71626114;benalaxyl;NA;NA;2400;Pseudokirchneriella subcapitata;1;ppdb;590;Daphnia magna;1;ppdb;3750;Unknown species;1;ppdb;590;Daphnia magna;1;ppdb
+71751412;Avermectin B1a;144;NA;4400;Scenedesmus subspicatus;3;epa;1.2;Daphnia magna;6;epa;3.6;Oncorhynchus mykiss;11;epa;0.022;Americamysis bahia;12;epa
+72178020;fomesafen;NA;72178-02-0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+72208;Endrin;292;NA;NA;NA;NA;NA;117;Daphnia magna;1;malaj;0.05;Menidia menidia;157;epa;8.80E-06;Daphnia pulex;161;epa
+72435;Methoxychlor;415;NA;NA;NA;NA;NA;50;Daphnia magna;1;malaj;3.3;Morone saxatilis;190;epa;0.44;Palaemon macrodactylus;87;epa
+72459586;triazoxide;NA;NA;39;Pseudokirchneriella subcapitata;1;ppdb;7200;Daphnia magna;1;ppdb;77;Lepomis macrochirus;1;ppdb;7200;Daphnia magna;1;ppdb
+72548;p,p-DDD (p,p TDE);483;NA;NA;NA;NA;NA;9;Daphnia magna;1;malaj;2.5;Morone saxatilis;11;epa;0.2;Chironomus dilutus;22;epa
+72559;p,p-DDE;484;NA;NA;NA;NA;NA;13;Daphnia magna;1;malaj;32;Oncorhynchus mykiss;3;epa;2.5;Nitocra spinipes;5;epa
+7287196;Prometryn;524;NA;1.65;Scenedesmus acutus;10;epa;12660;Daphnia magna;1;malaj;2300;Danio rerio;9;epa;1700;Americamysis bahia;6;epa
+72963725;imiprothrin;NA;72963-72-5;3100;Pseudokirchneriella subcapitata;1;ppdb;51;Daphnia magna;1;ppdb;38;Oncorhynchus mykiss;1;ppdb;51;Daphnia magna;1;ppdb
+731271;tolylfluanid;NA;NA;NA;NA;NA;NA;190;Daphnia magna;1;ppdb;30;Oncorhynchus mykiss;1;epa;190;Daphnia magna;1;ppdb
+732263;2,4,6-tri-tert-butylphenol;NA;NA;NA;NA;NA;NA;110;Daphnia magna;1;malaj;61;Pimephales promelas;1;malaj;110;Daphnia magna;1;malaj
+7374530;NA;NA;7374-53-0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+74070465;aclonifen;NA;NA;470;Navicula pelliculosa;1;ppdb;1200;Daphnia magna;1;ppdb;670;Oncorhynchus mykiss;1;ppdb;1200;Daphnia magna;1;ppdb
+74115245;Clofentezin;886;NA;60;Scenedesmus pannonicus;2;epa;40.575;Daphnia magna;4;epa;14.6;Oncorhynchus mykiss;3;epa;40.575;Daphnia magna;4;epa
+74223646;Metsulfuron-methyl;918;NA;190;Pseudokirchneriella subcapitata;11;epa;75100;Ceriodaphnia dubia;2;epa;200;Pimephales promelas;4;epa;200;Ceriodaphnia dubia;2;epa
+74233646;Metsulfuronmethyl;NA;NA;395;Pseudokirchneriella subcapitata;1;malaj;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+75070;ACETALDEHYDE;NA;75-07-0;3359;Pseudokirchneriella subcapitata;5;epa;48250;Daphnia magna;1;epa;33800;Pimephales promelas;6;epa;19300;Gammarus pseudolimnaeus;5;epa
+75092;Dichloromethane;NA;NA;NA;NA;NA;NA;220000;Daphnia magna;1;malaj;330000;Pimephales promelas;1;malaj;220000;Daphnia magna;1;malaj
+75343;1,1-dichloroethane;NA;NA;NA;NA;NA;NA;92185;Daphnia magna;1;malaj;NA;NA;NA;NA;92185;Daphnia magna;1;malaj
+75354;1,1-dichloroethene;NA;NA;NA;NA;NA;NA;51000;Daphnia magna;1;malaj;135060;Pimephales promelas;1;malaj;51000;Daphnia magna;1;malaj
+75990;Dalapon;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;290000;Pimephales promelas;1;malaj;NA;NA;NA;NA
+76448;Heptachlor;356;NA;27;Pseudokirchneriella subcapitata;1;malaj;42;Daphnia magna;1;malaj;0.85;Leiostomus xanthurus;53;epa;0.5;Orconectes nais;39;epa
+76578126;Quizalofop;677;NA;29170;Chlorella vulgaris;2;epa;57700;Daphnia magna;1;ppdb;NA;NA;NA;NA;57700;Daphnia magna;1;ppdb
+76578148;quizalofop-ethyl;NA;NA;3569.1;Scenedesmus acutus;3;epa;2100;Daphnia magna;1;ppdb;460;Lepomis macrochirus;6;epa;150;Americamysis bahia;5;epa
+76674210;Flutriafol;329;NA;460;Skeletonema costatum;4;epa;67000;Daphnia magna;1;ppdb;7800;Oncorhynchus mykiss;5;epa;7050;Daphnia magna;3;epa
+76703623;gamma-Cyhalothrin;905;NA;2850;Pseudokirchneriella subcapitata;1;ppdb;0.045;Daphnia magna;1;ppdb;0.0286;Lepomis macrochirus;15;epa;0.00135;Hyalella azteca;46;epa
+76738620;paclobutrazol;NA;76738-62-0;41500;Pseudokirchneriella subcapitata;2;epa;28700;Daphnia magna;6;epa;20550;Danio rerio;3;epa;12800;Cipangopaludina chinensis;14;epa
+7696120;Tetramethrin;NA;NA;NA;NA;NA;NA;45;Daphnia magna;1;ppdb;3.7;Oncorhynchus mykiss;6;epa;45;Daphnia magna;1;ppdb
+77474;Hexachlorocyclopentadiene (HCCP);NA;NA;190;Pseudokirchneriella subcapitata;1;malaj;46;Daphnia magna;1;malaj;74;Pimephales promelas;1;malaj;46;Daphnia magna;1;malaj
+77732093;Oxadixyl;478;NA;8831;Pseudokirchneriella subcapitata;1;epa;530000;Daphnia magna;1;epa;320000;Oncorhynchus mykiss;1;epa;530000;Daphnia magna;1;epa
+7786347;Mevinphos;429;NA;NA;NA;NA;NA;0.16;Daphnia pulex;1;ppdb;11.9;Oncorhynchus mykiss;18;epa;0.16;Daphnia pulex;1;ppdb
+78587050;Hexythiazox;713;NA;NA;NA;NA;NA;742;Daphnia carinata;1;epa;240;Cyprinodon variegatus;5;epa;110;Americamysis bahia;2;epa
+789026;o,p-DDT;472;NA;NA;NA;NA;NA;5;Daphnia magna;1;malaj;85;Pimephales promelas;1;malaj;5;Daphnia magna;1;malaj
+79005;1,1,2-trichloroethane;NA;NA;144600;Pseudokirchneriella subcapitata;1;malaj;107333;Daphnia magna;1;malaj;81600;Pimephales promelas;1;malaj;107333;Daphnia magna;1;malaj
+79016;1,1,2-trichloroethene;NA;NA;NA;NA;NA;NA;59000;Daphnia magna;1;malaj;44100;Pimephales promelas;1;malaj;59000;Daphnia magna;1;malaj
+79241466;Fluazifop-P-butyl;316;NA;1800;Pseudokirchneriella subcapitata;1;epa;545600;Daphnia magna;3;epa;NA;NA;NA;NA;510;Americamysis bahia;4;epa
+79277273;Thifensulfuron-methyl;590;NA;NA;NA;NA;NA;60700;Daphnia magna;1;ppdb;1.00E+05;Lepomis macrochirus;3;epa;60700;Daphnia magna;1;ppdb
+79510488;metsulfuron;NA;NA;NA;NA;NA;NA;150000;Daphnia magna;1;ppdb;NA;NA;NA;NA;150000;Daphnia magna;1;ppdb
+79538322;Tefluthrin;637;NA;NA;NA;NA;NA;0.07;Daphnia magna;1;ppdb;0.06;Oncorhynchus mykiss;1;ppdb;0.053;Americamysis bahia;47;epa
+79622596;Fluazinam;699;NA;20;Chlorella pyrenoidosa;19;epa;220;Daphnia magna;1;ppdb;36;Oncorhynchus mykiss;5;epa;4.6;Acanthocyclops venustus;27;epa
+79983714;Hexaconazol;712;NA;866;Scenedesmus quadricauda;7;epa;3750;Daphnia magna;6;epa;3800;Oncorhynchus mykiss;4;epa;2000;Americamysis bahia;7;epa
+8001352;Toxaphene;NA;NA;NA;NA;NA;NA;14.1;Daphnia magna;1;malaj;12;Pimephales promelas;1;malaj;14.1;Daphnia magna;1;malaj
+8003347;Pyrethrum;1220;NA;NA;NA;NA;NA;25;Daphnia magna;11;epa;14.6;Micropterus dolomieu;55;epa;1;Pteronarcys californica;28;epa
+80057;Bisphenol A;NA;NA;2900;Pseudokirchneriella subcapitata;1;malaj;10313;Daphnia magna;1;malaj;4650;Pimephales promelas;1;malaj;10313;Daphnia magna;1;malaj
+8018017;Mancozeb;910;NA;44;Pseudokirchneriella subcapitata;1;ppdb;73;Daphnia magna;1;ppdb;74;Oncorhynchus mykiss;1;ppdb;9.5;Americamysis bahia;6;epa
+8065483;Demeton (O+S);242;NA;NA;NA;NA;NA;10.4;Daphnia pulex;1;ppdb;47;Salvelinus fontinalis;29;epa;10.4;Daphnia pulex;1;ppdb
+80844071;Ethofenprox;299;NA;18.8;Pseudokirchneriella subcapitata;2;epa;1.2;Daphnia magna;1;ppdb;2.36;Lepomis macrochirus;9;epa;0.0188;Americamysis bahia;11;epa
+81335377;imazaquin;NA;NA;NA;NA;NA;NA;280000;Daphnia magna;1;epa;280000;Oncorhynchus mykiss;3;epa;280000;Daphnia magna;1;epa
+81335775;Imazethapyr;856;NA;21500;Anabaena flosaquae;5;epa;1.00E+06;Daphnia magna;1;ppdb;110000;Lepomis macrochirus;6;epa;110000;Daphnia magna;3;epa
+81405858;imazamethabenz-methyl;NA;81405-85-8;89100;Pseudokirchneriella subcapitata;2;epa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+81406373;Fluroxypyr-methylheptyl;903;NA;1410;Pseudokirchneriella subcapitata;1;epa;NA;NA;NA;NA;87;Cyprinodon variegatus;21;epa;135;Palaemonetes pugio;1;epa
+81777891;Clomazon;226;NA;136;Navicula pelliculosa;1;ppdb;12700;Daphnia magna;1;ppdb;7.32;Rhamdia quelen;5;epa;566;Americamysis bahia;2;epa
+82097505;Triasulfuron;691;NA;405;Pseudokirchneriella subcapitata;2;epa;1.00E+05;Daphnia magna;1;epa;1.00E+05;Lepomis macrochirus;3;epa;21500;Americamysis bahia;2;epa
+82110723;NA;NA;82110-72-3;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+82558507;Isoxaben;379;NA;NA;NA;NA;NA;1300;Daphnia magna;1;epa;870;Cyprinodon variegatus;4;epa;1000;Palaemonetes pugio;2;epa
+82560541;benfuracarb;NA;82560-54-1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;6.66;Cheumatopsyche brevilineata;1;epa
+82657043;Bifenthrin;167;NA;822;Scenedesmus subspicatus;1;ppdb;0.11;Daphnia magna;1;ppdb;0.15;Oncorhynchus mykiss;7;epa;0.0012;Americamysis bahia;2;ppdb
+82688;Quintozen;660;NA;NA;NA;NA;NA;770;Daphnia magna;1;malaj;100;Lepomis macrochirus;1;ppdb;12;Americamysis bahia;3;epa
+83055996;Bensulfuron-methyl;152;NA;11.8;Pseudokirchneriella subcapitata;8;epa;199500;Daphnia magna;3;epa;63000;Lepomis macrochirus;8;epa;71000;Procambarus clarkii;5;epa
+83066880;Fluazifop-P;900;NA;1048.8;Pseudokirchneriella subcapitata;6;epa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+83121180;Teflubenzuron;747;NA;NA;NA;NA;NA;2.8;Daphnia magna;1;ppdb;NA;NA;NA;NA;0.59;Streptocephalus sudanicus;2;epa
+83164334;diflufenican;NA;NA;1.2;Pseudokirchneriella subcapitata;1;epa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+83329;Acenaphthene;NA;NA;520;Pseudokirchneriella subcapitata;1;malaj;2350;Daphnia magna;1;malaj;1730;Pimephales promelas;1;malaj;2350;Daphnia magna;1;malaj
+834128;Ametryn;125;NA;0.3;Chlorella pyrenoidosa;17;epa;28000;Daphnia magna;1;malaj;3400;Oncorhynchus mykiss;21;epa;2300;Americamysis bahia;14;epa
+83657243;Diniconazol;707;NA;NA;NA;NA;NA;7400;Daphnia magna;1;ppdb;NA;NA;NA;NA;7400;Daphnia magna;1;ppdb
+841065;Methoprotryn;1024;NA;NA;NA;NA;NA;42000;Daphnia magna;1;ppdb;8000;Oncorhynchus mykiss;1;ppdb;42000;Daphnia magna;1;ppdb
+84651;anthraquinone;NA;84-65-1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;94.2;Americamysis bahia;2;epa
+84662;Di-ethyl phthalate;NA;NA;48603;Pseudokirchneriella subcapitata;1;malaj;54235;Daphnia magna;1;malaj;21867;Pimephales promelas;1;malaj;54235;Daphnia magna;1;malaj
+84742;Di-(n-butyl) phthalate;NA;NA;400;Pseudokirchneriella subcapitata;1;malaj;3700;Daphnia magna;1;malaj;1610;Pimephales promelas;1;malaj;3700;Daphnia magna;1;malaj
+84852153;4-Nonylphenol, branched;NA;NA;410;Pseudokirchneriella subcapitata;1;malaj;137;Daphnia magna;1;malaj;138;Pimephales promelas;1;malaj;137;Daphnia magna;1;malaj
+85007;diquat dibromide;NA;85-00-7;21.8;Pseudokirchneriella subcapitata;5;epa;735;Daphnia pulex;7;epa;1800;Sander vitreus;68;epa;48;Hyalella azteca;27;epa
+85018;Phenanthrene;NA;NA;411;Pseudokirchneriella subcapitata;1;malaj;598;Daphnia magna;1;malaj;1015.5;Pimephales promelas;1;malaj;598;Daphnia magna;1;malaj
+85223;Pentabromoethylbenzene;NA;NA;NA;NA;NA;NA;2;Daphnia magna;1;malaj;NA;NA;NA;NA;2;Daphnia magna;1;malaj
+85347;Chlorfenac;1229;NA;NA;NA;NA;NA;5550;Daphnia pulex;2;epa;11000;Oncorhynchus mykiss;4;epa;4500;Daphnia pulex;7;epa
+85509199;flusilazole;NA;NA;6400;Pseudokirchneriella subcapitata;1;ppdb;3400;Daphnia magna;1;ppdb;1200;Oncorhynchus mykiss;1;ppdb;3400;Daphnia magna;1;ppdb
+85687;Butyl benzyl phthalate (BBP);NA;NA;120;Pseudokirchneriella subcapitata;1;malaj;2000;Daphnia magna;1;malaj;1533;Pimephales promelas;1;malaj;2000;Daphnia magna;1;malaj
+86209510;Primisulfuron-methyl;1000;NA;98.7;Anabaena flosaquae;3;epa;1.00E+05;Daphnia magna;2;epa;13000;Oncorhynchus mykiss;6;epa;16000;Americamysis bahia;4;epa
+86479063;Hexaflumuron;722;NA;NA;NA;NA;NA;0.1;Daphnia magna;1;ppdb;255.6;Lepomis macrochirus;2;epa;0.1;Daphnia magna;1;ppdb
+86500;Azinphos-methyl;146;NA;NA;NA;NA;NA;1.1;Daphnia magna;1;ppdb;0.36;Esox lucius;188;epa;0.126;Gammarus lacustris;100;epa
+86737;Fluorene;NA;NA;3400;Pseudokirchneriella subcapitata;1;malaj;430;Daphnia magna;1;malaj;NA;NA;NA;NA;430;Daphnia magna;1;malaj
+87392129;S-Metolachlor;936;NA;8;Pseudokirchneriella subcapitata;1;ppdb;26000;Daphnia magna;1;ppdb;1230;Oncorhynchus mykiss;1;ppdb;1400;Americamysis bahia;2;ppdb
+87616;1,2,3-trichlorobenzene;NA;NA;900;Pseudokirchneriella subcapitata;1;malaj;1850;Daphnia magna;1;malaj;2987;Pimephales promelas;1;malaj;1850;Daphnia magna;1;malaj
+87650;2,6-dichlorophenol;NA;NA;29000;Pseudokirchneriella subcapitata;1;malaj;3400;Daphnia magna;1;malaj;7748;Pimephales promelas;1;malaj;3400;Daphnia magna;1;malaj
+87674688;Dimethenamid;277;NA;62;Scenedesmus subspicatus;1;epa;16000;Daphnia magna;1;ppdb;2600;Oncorhynchus mykiss;1;ppdb;4800;Americamysis bahia;2;epa
+87683;Hexachlorobutadiene (HCBD);NA;NA;NA;NA;NA;NA;500;Daphnia magna;1;malaj;90;Pimephales promelas;1;malaj;500;Daphnia magna;1;malaj
+87820880;Tralkoxydim;858;NA;5100;Pseudokirchneriella subcapitata;1;epa;1970;Daphnia magna;2;epa;44000;Pimephales promelas;1;epa;1970;Daphnia magna;2;epa
+87865;Pentachlorophenol;NA;NA;347;Pseudokirchneriella subcapitata;1;malaj;450;Daphnia magna;1;malaj;245;Pimephales promelas;1;malaj;450;Daphnia magna;1;malaj
+88062;2,4,6-Trichlorphenol;72;NA;801;Pseudokirchneriella subcapitata;6;epa;1710;Daphnia magna;1;malaj;320;Lepomis macrochirus;17;epa;1210;Palaemonetes pugio;23;epa
+881685581;Isopyrazam;862;NA;2200;Pseudokirchneriella subcapitata;1;ppdb;44;Daphnia magna;1;ppdb;25.8;Cyprinus carpio;1;ppdb;44;Daphnia magna;1;ppdb
+886500;Terbutryn;580;NA;2;Pseudokirchneriella subcapitata;30;epa;7100;Daphnia magna;1;malaj;1500;Cyprinodon variegatus;17;epa;740;Americamysis bahia;6;epa
+88671890;Myclobutanil;727;NA;2660;Scenedesmus subspicatus;1;ppdb;17000;Daphnia magna;1;ppdb;2000;Oncorhynchus mykiss;1;ppdb;240;Americamysis bahia;2;ppdb
+88857;Dinoseb;675;NA;20496;Pseudokirchneriella subcapitata;1;malaj;240;Daphnia magna;1;malaj;44;Oncorhynchus mykiss;1;ppdb;130;Semisulcospira libertina;11;epa
+9006422;Metiram;917;NA;15;Navicula pelliculosa;5;epa;770;Daphnia magna;1;ppdb;229;Oncorhynchus mykiss;5;epa;25.16;Americamysis bahia;4;epa
+90120;1-methylnaphthalene;NA;NA;12000;Pseudokirchneriella subcapitata;1;malaj;1422;Daphnia magna;1;malaj;9000;Pimephales promelas;1;malaj;1422;Daphnia magna;1;malaj
+907204313;fluxapyroxad;NA;NA;700;Pseudokirchneriella subcapitata;1;ppdb;6780;Daphnia magna;1;ppdb;546;Oncorhynchus mykiss;1;ppdb;6780;Daphnia magna;1;ppdb
+91203;Naphthalene;NA;NA;25000;Pseudokirchneriella subcapitata;1;malaj;15000;Daphnia magna;1;malaj;6140;Pimephales promelas;1;malaj;15000;Daphnia magna;1;malaj
+91465086;Cyhalothrin;649;NA;310;Pseudokirchneriella subcapitata;1;epa;0.36;Daphnia magna;1;ppdb;0.078;Leuciscus idus;33;epa;0.0028;Chaoborus obscuripes;87;epa
+91576;2-methylnaphthalene;NA;NA;NA;NA;NA;NA;1670;Daphnia magna;1;malaj;8992.9;Pimephales promelas;1;malaj;1670;Daphnia magna;1;malaj
+919868;Demeton-S-methyl;245;NA;NA;NA;NA;NA;23;Daphnia magna;1;malaj;NA;NA;NA;NA;23;Daphnia magna;1;malaj
+92524;biphenyl;NA;92-52-4;NA;NA;NA;NA;1457.5;Daphnia magna;7;epa;1500;Oncorhynchus mykiss;15;epa;1315;Daphnia magna;7;epa
+93652;Mecoprop;401;NA;102660;Scenedesmus subspicatus;1;epa;10000;Daphnia magna;1;epa;10000;Oncorhynchus mykiss;1;epa;10000;Daphnia magna;1;epa
+93721;Fenoprop;311;NA;218197;Pseudokirchneriella subcapitata;1;malaj;140000;Daphnia magna;1;ppdb;350;Gambusia affinis;21;epa;340;Pteronarcys californica;9;epa
+93765;2,4,5-T;70;NA;28042;Pseudokirchneriella subcapitata;1;malaj;5000;Daphnia magna;1;malaj;1300;Oncorhynchus mykiss;1;ppdb;5000;Daphnia magna;1;malaj
+94051088;Quizalofop-P;934;NA;262.4;Pseudokirchneriella subcapitata;7;epa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+94125345;Prosulfuron;928;NA;NA;NA;NA;NA;120000;Daphnia magna;1;epa;155000;Cyprinodon variegatus;4;epa;120000;Daphnia magna;1;epa
+94361065;Cyproconazol;NA;NA;NA;NA;NA;NA;26000;Daphnia magna;1;epa;19000;Oncorhynchus mykiss;3;epa;9600;Americamysis bahia;2;epa
+94746;MCPA;399;NA;0.3;Gomphonema sp.;21;epa;190000;Daphnia magna;1;malaj;1920;Cyprinodon variegatus;8;epa;1000;Americamysis bahia;3;epa
+94757;2,4-D;63;NA;55;Gomphonema sp.;10;epa;148281;Daphnia magna;1;malaj;242.22;Aphanius fasciatus;99;epa;1850;Spicodiaptomus chelospinus;28;epa
+94815;MCPB;NA;NA;41000;Pseudokirchneriella subcapitata;1;malaj;55000;Daphnia magna;1;malaj;3300;Lepomis macrochirus;2;epa;55000;Daphnia magna;1;malaj
+94826;2,4-DB;64;NA;33636;Pseudokirchneriella subcapitata;1;malaj;25000;Daphnia magna;1;malaj;3500;Oncorhynchus mykiss;1;ppdb;15000;Pteronarcys californica;3;epa
+950378;Methidathion;695;NA;7503.8;Pseudokirchneriella subcapitata;7;epa;6.4;Daphnia magna;1;ppdb;9;Lepomis macrochirus;16;epa;0.7;Americamysis bahia;16;epa
+95266403;Trinexapac-ethyl;944;NA;14000;Pseudokirchneriella subcapitata;1;epa;NA;NA;NA;NA;35000;Ictalurus punctatus;5;epa;6500;Americamysis bahia;1;epa
+95476;O-Xylene;NA;NA;4450;Pseudokirchneriella subcapitata;1;malaj;17500;Daphnia magna;1;malaj;16400;Pimephales promelas;1;malaj;17500;Daphnia magna;1;malaj
+95487;2-methyl-phenol;NA;NA;65000;Pseudokirchneriella subcapitata;1;malaj;14689;Daphnia magna;1;malaj;14000;Pimephales promelas;1;malaj;14689;Daphnia magna;1;malaj
+95501;1,2-dichlorobenzene;NA;NA;49800;Pseudokirchneriella subcapitata;1;malaj;2300;Daphnia magna;1;malaj;9470;Pimephales promelas;1;malaj;2300;Daphnia magna;1;malaj
+95617097;Fenoxaprop;644;NA;890.8;Pseudokirchneriella subcapitata;9;epa;1260;Daphnia magna;1;ppdb;72200;Oncorhynchus mykiss;1;ppdb;1260;Daphnia magna;1;ppdb
+95874;2,5-dimethylphenol;NA;NA;7053;Pseudokirchneriella subcapitata;1;malaj;6750;Daphnia magna;1;malaj;18457;Pimephales promelas;1;malaj;6750;Daphnia magna;1;malaj
+95954;2,4,5-trichlorophenol;NA;NA;1200;Pseudokirchneriella subcapitata;1;malaj;900;Daphnia magna;1;malaj;902;Pimephales promelas;1;malaj;900;Daphnia magna;1;malaj
+95977290;Haloxyfop-P;906;NA;1075.6;Pseudokirchneriella subcapitata;6;epa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+959988;Alpha-Endosulfan;NA;NA;NA;NA;NA;NA;440;Daphnia magna;1;malaj;0.16;Channa punctata;5;epa;0.7;Jappa kutera;9;epa
+962583;NA;NA;962-58-3;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+96457;Ethylenethiourea (ETU);NA;NA;93800;Pseudokirchneriella subcapitata;1;malaj;21600;Daphnia magna;1;malaj;NA;NA;NA;NA;21600;Daphnia magna;1;malaj
+96489713;Pyridaben;1221;NA;17;Pseudokirchneriella subcapitata;1;ppdb;1;Daphnia magna;1;ppdb;0.7;Oncorhynchus mykiss;1;ppdb;1;Daphnia magna;1;ppdb
+96525234;flurtamone;NA;NA;20;Pseudokirchneriella subcapitata;1;ppdb;13000;Daphnia magna;1;ppdb;7000;Oncorhynchus mykiss;1;ppdb;13000;Daphnia magna;1;ppdb
+97234;dichlorophen;NA;97-23-4;NA;NA;NA;NA;NA;NA;NA;NA;310;Pimephales promelas;2;epa;50;Spicodiaptomus chelospinus;2;epa
+98168;3-Trifluormethylanilin;1165;NA;NA;NA;NA;NA;2700;Daphnia magna;1;epa;NA;NA;NA;NA;2700;Daphnia magna;1;epa
+99129212;Clethodim;851;NA;22867.6;Pseudokirchneriella subcapitata;5;epa;20200;Daphnia magna;1;epa;19000;Oncorhynchus mykiss;7;epa;20200;Daphnia magna;4;epa
+99387890;triflumizole;NA;NA;1660;Scenedesmus subspicatus;1;ppdb;2110;Daphnia magna;1;ppdb;570;Oncorhynchus mykiss;1;ppdb;2110;Daphnia magna;1;ppdb
+99607702;cloquintocet-mexyl;NA;99607-70-2;NA;NA;NA;NA;820;Daphnia magna;2;epa;970;Oncorhynchus mykiss;3;epa;820;Daphnia magna;2;epa
+999815;chlormequat chloride;NA;999-81-5;207000;Anabaena flosaquae;2;epa;16700;Daphnia magna;1;epa;1.00E+05;Ictalurus punctatus;7;epa;16700;Daphnia magna;2;epa
