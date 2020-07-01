@@ -841,6 +841,11 @@ flow_raw = read.table(file.path(prj, "flow_raw.csv"),
                       sep = ",", 
                       na.strings = c("NR", "NA")) 
 
+temp_raw = read.table(file.path(prj, "temp_raw.csv"), 
+                      header = TRUE, 
+                      sep = ",", 
+                      na.strings = c("NR", "NA")) 
+
 
 catchment <- read.table(file.path(prj, "catchment.csv"), 
                       header = TRUE, 
@@ -853,6 +858,11 @@ steam_substrate <- read.table(file.path(prj, "steam_substrate.csv"),
                       na.strings = c("NR", "NA")) 
 
 field_size <- read.table(file.path(prj, "Fields_mean_median_geom_mean.csv"), 
+                      header = TRUE, 
+                      sep = ";", 
+                      na.strings = c("NR", "NA")) 
+
+field_size_factor <- read.table(file.path(prj, "field_size_factor.csv"),  # factorial agricultural intensity
                       header = TRUE, 
                       sep = ";", 
                       na.strings = c("NR", "NA")) 
@@ -894,6 +904,7 @@ var_table <- merge(var_table, catchment, by = "site")
 var_table <- merge(var_table, agri_buffer[,c(1,19)], by = "site")
 var_table <- merge(var_table, field_size[,c(1,4)], by = "site")
 var_table <- merge(var_table, buffer_width_min, by = "site")
+var_table <- merge(var_table, field_size_factor, by = "site")
 ```
 
 
@@ -1009,7 +1020,7 @@ data_all$min_buff_log <- log10(data_all$min_buff)
 hist(data_all$min_buff_log)
 
 data_en2 <- select(data_all, veg_height, catch_area, ratio_agri_catch,
-                       field.size.geom.mean.log, shore, fine_sub, agri_buffer, min_buff_log)
+                       field.size.geom.mean.log, shore, fine_sub, agri_buffer, min_buff_log, ratio_larger_3000)
 summary(data_en2) # min, max, median,
 # calculate standards deviation
 colSds(as.matrix(data_en2))
@@ -1042,9 +1053,9 @@ panel.lm =  function (x, y, col = par("col"), bg = NA, pch = par("pch"),
 pairs(data_en2, 
       lower.panel = panel.lm,
       upper.panel = panel.cor,
-      labels = c("plant_height", "catch_size", "%_agri_catch", "field_size", "slope", "fine_sub", "%_agri_buffer", "min_buff"))
+      labels = c("plant_height", "catch_size", "%_agri_catch", "field_size", "slope", "fine_sub", "%_agri_buffer", "min_buff", "%_large_fields"))
 
-# no intercorrelation available
+# no intercorrelation available only field size + ratio
 ```
 
 
@@ -1160,7 +1171,7 @@ plot(predictorEffects(sumTU_iv_all, "agri_buffer"), lines = list(col = {"black"}
 
 
 ## Figure S5 e buffer width
-# svg(filename="plot_predeff_buff_width_neu.svg", width=6, height=6, pointsize=12) 
+# svg(filename="plot_predeff_buff_width.svg", width=6, height=6, pointsize=12) 
 plot(predictorEffects(sumTU_iv_all, "min_buff_log"), lines = list(col = {"black"}), main = paste(""), 
      id = TRUE, axes = list(y = list(lim = (c(-1.5, 0.25)), ticks = list(at = c(-1.5, -1.25, -1,-0.75, -0.5, -0.25, 0, 0.25)), 
                                      lab = {"sumTU invertebrates"}, cex = 1.2), 
@@ -1365,6 +1376,239 @@ cor.test(conc_comp_pest_w$flow, conc_comp_pest_w$log_Thiacloprid)
 ```
 weak relationship: p-value = 0.6673, cor = 0.05985284
 
+## Relationship of water temperatur and concentrations of most important compounds
+
+```{r}
+temp_raw$date <- as.Date(temp_raw$Date, "%dd.%mm.%yyyy")
+# # we have now eight values per site, two per Sampling event
+# temp_raw$sampling <- ifelse(temp_raw$date <= "2016-05-18", paste("Sampling_1"),
+#                      ifelse(temp_raw$date <= "2016-05-28", paste("Sampling_2"),
+#                      ifelse(temp_raw$date <= "2016-06-09", paste("Sampling_3"),
+#                      ifelse(temp_raw$date <= "2016-06-22", paste("Sampling_4"), NA))))
+
+
+temp_raw <- as.data.table(temp_raw)
+temp = temp_raw[, lapply(.SD, mean, na.rm = TRUE), by = c("Site", "sampling"), .SDcols = c("Value")]
+
+# temp[, `:=`(temp = mean( as.numeric(.SD), na.rm = TRUE)),  by = 1:nrow(temp), .SDcols = c("temp1_sdb", "temp2_sdb")]
+
+names(temp)[1] <- c("site")
+names(temp)[2] <- c("Rainfallevent")
+names(temp)[3] <- c("temp")
+```
+
+<!-- transfer conc_comp in data table -->
+<!-- ```{r} -->
+<!-- conc_comp <- as.data.table(conc_comp) -->
+<!-- ``` -->
+
+<!-- now filter for the relevant pesticides (which account for most toxicity/ sum concentration) -->
+<!-- ```{r} -->
+<!-- tox_pest <- c("Diazinon", "Imidacloprid", "Thiacloprid", "2-4-D", "Terbuthylazin", "Metribuzin") -->
+<!-- conc_comp_pest <- conc_comp[Compound %in% tox_pest, ] -->
+<!-- ``` -->
+
+<!-- from long to wide format -->
+<!-- ```{r} -->
+<!-- conc_comp_pest_w <- dcast(conc_comp_pest, site + Rainfallevent ~ Compound, value.var="conc_water") -->
+<!-- ``` -->
+
+
+add the temp close to the samplers
+```{r}
+conc_comp_pest_w <- merge(conc_comp_pest_w, temp, by = c("Rainfallevent", "site"), all.x=TRUE)
+```
+
+log-transform concentrations
+```{r}
+conc_comp_pest_w$"log_2-4-D" <- log10(conc_comp_pest_w$`2-4-D`)
+conc_comp_pest_w$log_Diazinon <- log10(conc_comp_pest_w$Diazinon)
+conc_comp_pest_w$log_Imidacloprid <- log10(conc_comp_pest_w$Imidacloprid)
+conc_comp_pest_w$log_Metribuzin <- log10(conc_comp_pest_w$Metribuzin)
+conc_comp_pest_w$log_Terbuthylazin <- log10(conc_comp_pest_w$Terbuthylazin)
+conc_comp_pest_w$log_Thiacloprid <- log10(conc_comp_pest_w$Thiacloprid)
+```
+
+
+now check for correlations between the different compounds and the respective temp velocity
+
+* 2-4-D
+conc
+```{r}
+plot(conc_comp_pest_w$temp, conc_comp_pest_w$`2-4-D`)
+abline(lm(conc_comp_pest_w$`2-4-D` ~ conc_comp_pest_w$temp))
+cor.test(conc_comp_pest_w$temp, conc_comp_pest_w$`2-4-D`)
+```
+weak relationship: p-value = 0.4208, cor = 0.099
+
+log conc
+```{r}
+plot(conc_comp_pest_w$temp, conc_comp_pest_w$'log_2-4-D')
+abline(lm(conc_comp_pest_w$'log_2-4-D' ~ conc_comp_pest_w$temp))
+cor.test(conc_comp_pest_w$temp, conc_comp_pest_w$'log_2-4-D')
+```
+weak relationship: p-value = 0.09796, cor = -0.003
+
+
+* Diazinon
+conc
+```{r}
+plot(conc_comp_pest_w$temp, conc_comp_pest_w$Diazinon)
+abline(lm(conc_comp_pest_w$Diazinon ~ conc_comp_pest_w$temp))
+cor.test(conc_comp_pest_w$temp, conc_comp_pest_w$Diazinon)
+```
+weak relationship: p-value = 0.9851, cor = -0.00024
+
+log conc
+```{r}
+plot(conc_comp_pest_w$temp, conc_comp_pest_w$log_Diazinon)
+abline(lm(conc_comp_pest_w$log_Diazinon ~ conc_comp_pest_w$temp))
+cor.test(conc_comp_pest_w$temp, conc_comp_pest_w$log_Diazinon)
+```
+weak relationship: p-value = 0.6138, cor = -0.0659
+
+* Imidacloprid
+conc
+```{r}
+plot(conc_comp_pest_w$temp, conc_comp_pest_w$Imidacloprid)
+abline(lm(conc_comp_pest_w$Imidacloprid ~ conc_comp_pest_w$temp))
+cor.test(conc_comp_pest_w$temp, conc_comp_pest_w$Imidacloprid)
+```
+weak relationship: p-value = 0.2753, cor = 0.1443665
+
+log conc
+```{r}
+plot(conc_comp_pest_w$temp, conc_comp_pest_w$log_Imidacloprid)
+abline(lm(conc_comp_pest_w$log_Imidacloprid ~ conc_comp_pest_w$temp))
+cor.test(conc_comp_pest_w$temp, conc_comp_pest_w$log_Imidacloprid)
+```
+weak relationship: p-value = 0.01072, cor = 0.3298858
+
+* Metribuzin
+conc
+```{r}
+plot(conc_comp_pest_w$temp, conc_comp_pest_w$Metribuzin)
+abline(lm(conc_comp_pest_w$Metribuzin ~ conc_comp_pest_w$temp))
+cor.test(conc_comp_pest_w$temp, conc_comp_pest_w$Metribuzin)
+```
+weak relationship: p-value = 0.01566, cor = -0.2986681
+
+log conc
+```{r}
+plot(conc_comp_pest_w$temp, conc_comp_pest_w$log_Metribuzin)
+abline(lm(conc_comp_pest_w$log_Metribuzin ~ conc_comp_pest_w$temp))
+cor.test(conc_comp_pest_w$temp, conc_comp_pest_w$log_Metribuzin)
+```
+weak relationship: p-value = 0.1359, cor = -0.1869785
+
+* Terbuthylazin
+conc
+```{r}
+plot(conc_comp_pest_w$temp, conc_comp_pest_w$Terbuthylazin)
+abline(lm(conc_comp_pest_w$Terbuthylazin ~ conc_comp_pest_w$temp))
+cor.test(conc_comp_pest_w$temp, conc_comp_pest_w$Terbuthylazin)
+```
+weak relationship: p-value = 0.8042, cor = 0.02951969
+
+log conc
+```{r}
+plot(conc_comp_pest_w$temp, conc_comp_pest_w$log_Terbuthylazin)
+abline(lm(conc_comp_pest_w$log_Terbuthylazin ~ conc_comp_pest_w$temp))
+cor.test(conc_comp_pest_w$temp, conc_comp_pest_w$log_Terbuthylazin)
+```
+weak relationship: p-value = 0.2353, cor = 0.1406334
+
+* Thiacloprid
+conc
+```{r}
+plot(conc_comp_pest_w$temp, conc_comp_pest_w$Thiacloprid)
+abline(lm(conc_comp_pest_w$Thiacloprid ~ conc_comp_pest_w$temp))
+cor.test(conc_comp_pest_w$temp, conc_comp_pest_w$Thiacloprid)
+```
+weak relationship: p-value = 0.2472, cor = -0.1602083
+
+log conc
+```{r}
+plot(conc_comp_pest_w$temp, conc_comp_pest_w$log_Thiacloprid)
+abline(lm(conc_comp_pest_w$log_Thiacloprid ~ conc_comp_pest_w$temp))
+cor.test(conc_comp_pest_w$temp, conc_comp_pest_w$log_Thiacloprid)
+```
+weak relationship: p-value = 0.5788, cor = -0.07723451
+
+## factorial agricutural intensity
+### sum concentration
+```{r}
+fac_agri_tox <- merge(TU[,c("site", "N_det_all", "max_sum_conc", "max_sumTU_iv", "max_sumTU_al")], 
+                      field_size_factor, by = c("site"))
+```
+
+
+make ANOVA of max sum conc to factor of agricultural intensity
+```{r}
+mod1_conc <- lm(max_sum_conc ~ factor_intensity, 
+           data = fac_agri_tox)
+
+par(mfrow = c(2, 2))
+plot(mod1_conc) # model fits
+
+drop1(mod1_conc, test = 'F')
+```
+p = 0.4052
+
+
+make ANOVA of max sum conc (log transformed) to factor of agricultural intensity
+```{r}
+mod1_conc_log <- lm(log10(max_sum_conc) ~ factor_intensity, 
+           data = fac_agri_tox)
+
+par(mfrow = c(2, 2))
+plot(mod1_conc_log) # model fits
+
+drop1(mod1_conc_log, test = 'F')
+```
+p = 0.5659
+
+
+### toxicity
+make ANOVA of max_sumTU_iv to factor of agricultural intensity
+```{r}
+mod1_iv <- lm(max_sumTU_iv ~ factor_intensity, 
+           data = fac_agri_tox)
+
+par(mfrow = c(2, 2))
+plot(mod1_iv) # model fits
+
+drop1(mod1_iv, test = 'F')
+```
+p = 0.9235
+
+
+
+make ANOVA of max_sumTU_al to factor of agricultural intensity
+```{r}
+mod1_al <- lm(max_sumTU_al ~ factor_intensity, 
+           data = fac_agri_tox)
+
+par(mfrow = c(2, 2))
+plot(mod1_al)
+
+drop1(mod1_al, test = 'F')
+```
+p = 0.8393
+
+### detected pesticides
+make ANOVA of number of detected compounds to factor of agricultural intensity
+since number of detected compounds only comprise discrete values, use of glm with poinsson distribution
+```{r}
+mod1_N <- glm(N_det_all ~ factor_intensity, 
+           data = fac_agri_tox, family = "poisson")
+
+par(mfrow = c(2, 2))
+plot(mod1_N) # model fits
+
+drop1(mod1_N, test = 'Chisq')
+```
+p = 0.8189
 
 
 ## create Figure 2: Violin plots
