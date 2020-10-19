@@ -31,7 +31,7 @@ University of Koblenz-Landau
 Fortstrasse 7  
 76829 Landau  
 GERMANY  
-Corresponding author mail adress: schreiner-verena'@'uni-landau.de
+Corresponding author mail address: schreiner-verena'@'uni-landau.de
 
 ## project path
 project path, change to the path you saved the rawfiles
@@ -41,7 +41,7 @@ prj <- getwd()
 
 # PART 1: calculate water concentrations from SDB disks
 ## Tools / Packages
-```{r, message=FALSE}
+```{r, message=FALSE, warning = FALSE}
 require(data.table)
 library(reshape)
 ```
@@ -71,7 +71,7 @@ Results_SDB <- Results_SDB[,-3]
 # remove duplicated compounds
 Results_SDB <- Results_SDB[-c(60,259), ]
 
-# remove compounds, where standards or enrichment was not detectable
+# remove compounds, where standards or spiking was not detectable
 Not_worked = read.table(file.path(prj,"Not_worked.csv"), 
                          header=TRUE, sep = ";")
 Results_SDB <- Results_SDB[!Results_SDB$Compound %in% Not_worked$Compound, ]
@@ -134,7 +134,7 @@ nrow(Results_SDB_det2) == nrow(Results_SDB_det) # TRUE = no information lost
 ```
 
 ### combine stereoisomers
-merge results of 2,4-D and Dicamba, since we were not able to seperate them reliably (stereoisomeres)
+merge results of 2,4-D and Dicamba, since we were not able to separate them reliably (stereoisomeres)
 ```{r}
 Stereo <- c("2-4-D", "Dicamba")
 
@@ -175,7 +175,7 @@ gc()
 # merge masses + codes 
 Results_SDB2 = merge(Results_SDB_det2, Code_SDB, by = "Code")
 
-# only use entries where compounds were not deteced
+# only use entries where compounds were not detected
 Results_SDB2 <- Results_SDB2[!is.na(Results_SDB2$Concentration),]
 ```
 
@@ -199,7 +199,7 @@ Results_SDB2 = Results_SDB2[, list(Compound, Mass_ug =
 Results_SDB2 <- as.data.frame(Results_SDB2)
 ```
 
-exclude those that were measured, but which had issues (e.g. burried, flow too low)
+exclude those that were measured, but which had issues (e.g. buried, flow too low)
 ```{r}
 Results_SDB2 <- Results_SDB2[is.na(Results_SDB2$not_using), ]
 ```
@@ -270,7 +270,7 @@ write.csv(All_det_SDB, "All_det_SDB.csv")
 ## incoorporating compounds where we lacked an experimental sampling rates 
 
 ```{r}
-Results_Rs_conc_miss_Rs <- Results_Rs[is.na(Results_Rs$Rs),]
+Results_Rs_conc_miss_Rs <- Results_Rs[is.na(Results_Rs$Rs),] 
 # add a sampling rate from the lower range, to obtain high TWA concentrations
 Results_Rs_conc_miss_Rs$Rs <- c(0.2)
 Results_wo_Rs_conc <- Results_Rs_conc_miss_Rs[,c(1,2,4,5)]
@@ -281,7 +281,7 @@ Results_wo_Rs_conc$conc_water <- Results_Rs_conc_miss_Rs$Mass_ug/(Results_Rs_con
 # PART 2: create pesticide gradient
 ## Tools / Packages
 
-```{r, message=FALSE}
+```{r, message=FALSE, warning = FALSE}
 library(plyr)
 ```
 
@@ -613,7 +613,7 @@ sumTU_iv <- data.frame(cast(tox_iv, site ~ Rainfallevent, value = "tox_iv_fac", 
 # replace 0 with NA
 sumTU_iv[, 2:5][sumTU_iv[, 2:5] == 0] <- NA 
 
-# remame the columns
+# rename the columns
 names(sumTU_iv)[2] <- c("sumTU_iv_Sampling_1")
 names(sumTU_iv)[3] <- c("sumTU_iv_Sampling_2")
 names(sumTU_iv)[4] <- c("sumTU_iv_Sampling_3")
@@ -818,7 +818,7 @@ write.csv(Gradient, file = "Pesticide_gradient.csv", row.names = FALSE)
 # PART 3: statistics presented in the manuscript
 ## Tools / Packages
 
-```{r, message=FALSE}
+```{r, message=FALSE, warning = FALSE}
 library(dplyr)
 library(ggplot2)
 library(cowplot)
@@ -852,7 +852,7 @@ catchment <- read.table(file.path(prj, "catchment.csv"),
                       sep = ";", 
                       na.strings = c("NR", "NA")) 
 
-steam_substrate <- read.table(file.path(prj, "steam_substrate.csv"), 
+stream_substrate <- read.table(file.path(prj, "stream_substrate.csv"), 
                       header = TRUE, 
                       sep = ",", 
                       na.strings = c("NR", "NA")) 
@@ -899,7 +899,7 @@ conc_comp <- read.table(file.path(prj, "conc.csv"), # single concentrations
 
 ### Merge the dataframes
 ```{r}
-var_table <- merge(habitat, steam_substrate[-2], by = "site")
+var_table <- merge(habitat, stream_substrate[-2], by = "site")
 var_table <- merge(var_table, catchment, by = "site")
 var_table <- merge(var_table, agri_buffer[,c(1,19)], by = "site")
 var_table <- merge(var_table, field_size[,c(1,4)], by = "site")
@@ -1055,7 +1055,10 @@ pairs(data_en2,
       upper.panel = panel.cor,
       labels = c("plant_height", "catch_size", "%_agri_catch", "field_size", "slope", "fine_sub", "%_agri_buffer", "min_buff", "%_large_fields"))
 
-# no intercorrelation available only field size + ratio
+# no intercorrelation available only field size + ratio of large fields
+# remove ratio of large fields
+data_en2 <- select(data_all, veg_height, catch_area, ratio_agri_catch,
+                       field.size.geom.mean.log, shore, fine_sub, agri_buffer, min_buff_log)
 ```
 
 
@@ -1071,7 +1074,7 @@ mt_ex2 <- as.matrix(data_en_st2) # --> X
 res_iv <- as.matrix(select(data_all,max_sumTU_iv)) # --> Y
 
 # prepare plot for alpha = 1
-#fit a GLM with elasticnet regularization
+#fit a GLM with elastic net regularization
 enet_0_iv_1 <- glmnet(mt_ex2, res_iv, alpha=1)
 plot_glmnet(enet_0_iv_1, main = "max sumTU invertebrates") 
 # alpha= 0
@@ -1103,8 +1106,8 @@ coef(md_iv2)
 
 # for alpha = cv_out_iv$alpha
 enet_1_iv2 <- glmnet(mt_ex2, res_iv, alpha=cv_out_iv2$alpha)
-# png(filename="elastic_net_iv_20191115.png", width=14, height=10, pointsize=12, units = "cm", res = 800)
-plot_glmnet(enet_1_iv2, main = "max sumTU invertebrates") # coefs labled
+# png(filename="elastic_net_iv.png", width=14, height=10, pointsize=12, units = "cm", res = 800)
+plot_glmnet(enet_1_iv2, main = "max sumTU invertebrates") # coefs labeled
 # dev.off()
 enet_1_iv.cv2 <- cv.glmnet(mt_ex2, res_iv, alpha=cv_out_iv2$alpha, nfolds = 4)
 plot(enet_1_iv.cv2)
@@ -1190,12 +1193,12 @@ plot(predictorEffects(sumTU_iv_all, "min_buff_log"), lines = list(col = {"black"
 res_al <- as.matrix(select(data_all, max_sumTU_al)) # --> Y
 
 # prepare plot for alpha = 1
-#fit a GLM with elasticnet regularization
+#fit a GLM with elastic net regularization
 enet_0_al_1 <- glmnet(mt_ex2, res_al, alpha=1)
-plot_glmnet(enet_0_al_1, main = "max sumTU algae") # coefs labled
+plot_glmnet(enet_0_al_1, main = "max sumTU algae") # coefs labeled
 # alpha = 0
 enet_0_al_0 <- glmnet(mt_ex2, res_al, alpha=0)
-plot_glmnet(enet_0_al_0, main = "max sumTU algae") # coefs labled
+plot_glmnet(enet_0_al_0, main = "max sumTU algae") # coefs labeled
 enet_0_al.cv <- cv.glmnet(mt_ex2, res_al, alpha=1, nfolds = 6)
 plot(enet_0_al.cv)
 
@@ -1414,7 +1417,7 @@ names(temp)[3] <- c("temp")
 <!-- ``` -->
 
 
-add the temp close to the samplers
+add the temperature close to the samplers
 ```{r}
 conc_comp_pest_w <- merge(conc_comp_pest_w, temp, by = c("Rainfallevent", "site"), all.x=TRUE)
 ```
@@ -1598,7 +1601,7 @@ p = 0.8393
 
 ### detected pesticides
 make ANOVA of number of detected compounds to factor of agricultural intensity
-since number of detected compounds only comprise discrete values, use of glm with poinsson distribution
+since number of detected compounds only comprise discrete values, use of glm with poisson distribution
 ```{r}
 mod1_N <- glm(N_det_all ~ factor_intensity, 
            data = fac_agri_tox, family = "poisson")
@@ -1625,7 +1628,7 @@ TU_long <- melt(TU_comp, id.vars = c("site"), value.name = "value", variable.nam
 # only if sampling is in the name -> remove mean, max, etc.
 TU_long3 <- dplyr::filter(TU_long, grepl("Sampling", variable))
 
-# Seperate Sampling + variable
+# Separate Sampling + variable
 TU_long2 <- separate(TU_long3, variable, into = c("variable2", "sampling"), sep = ".*(Sampling)", remove=FALSE)#
 
 TU_long2$sampling <- gsub(".*(_Sampling)", "Sampling", TU_long2$variable)
